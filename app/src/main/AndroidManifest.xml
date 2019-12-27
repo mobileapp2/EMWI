@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.imuons.shopntrips">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/applogo"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/applogo"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".views.NotPresentActivity"></activity>
+        <activity android:name=".views.ContactInfoActivity" />
+        <activity android:name=".views.AboutActivity" />
+        <activity android:name=".views.BankDetailsActivity" />
+        <activity android:name=".adapters.FundTransferReportAdapter" />
+        <activity android:name=".adapters.FundRequestReportAdapter" />
+        <activity android:name=".adapters.TopUpReportAdapter" />
+        <activity android:name=".views.UpdateSecurityActivity" />
+        <activity android:name=".views.ProfileInfoActivity" />
+        <activity android:name=".adapters.WithdrawHistoryReportAdapter" />
+        <activity android:name=".adapters.WithdrawRequestReportAdapter" />
+        <activity android:name=".adapters.DirectRoiIncomeReportAdapter" />
+        <activity android:name=".adapters.BinaryRoiIncomeReportAdapter" />
+        <activity android:name=".adapters.RoiIncomeReportAdapter" />
+        <activity android:name=".adapters.BinaryIncomeReportAdapter" />
+        <activity android:name=".views.ShowPassword" />
+        <activity android:name=".views.ResetPassword" />
+        <activity android:name=".views.SignUp" />
+        <activity android:name=".views.Registration" />
+        <activity
+            android:name=".views.DashboardActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".views.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".views.SplashScreen"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

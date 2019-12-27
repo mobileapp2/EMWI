@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/bgdash"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gif"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_centerInParent="true"
+        android:elevation="25dp"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:src="@drawable/loader" />
+
+
+    <LinearLayout
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/editviewbg"
+            android:padding="8dp"
+            android:fontFamily="@font/open_sans_bold"
+            android:paddingStart="40dp"
+            android:text="Topup Wallet Balance"
+            android:textColor="@color/colorBlack"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            tools:ignore="RtlSymmetry" />
+
+        <EditText
+            android:focusable="false"
+            android:id="@+id/topupbal"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/textviewbg"
+            android:gravity="center"
+            android:singleLine="true"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/editviewbg"
+            android:padding="8dp"
+            android:fontFamily="@font/open_sans_bold"
+            android:paddingStart="40dp"
+            android:text="User Id"
+            android:textColor="@color/colorBlack"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            tools:ignore="RtlSymmetry" />
+
+        <EditText
+            android:focusable="false"
+            android:id="@+id/userid"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/textviewbg"
+            android:gravity="center"
+            android:singleLine="true"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/editviewbg"
+            android:padding="8dp"
+            android:fontFamily="@font/open_sans_bold"
+            android:paddingStart="40dp"
+            android:text="Full Name"
+            android:textColor="@color/colorBlack"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            tools:ignore="RtlSymmetry" />
+
+        <EditText
+            android:id="@+id/fullname"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:focusable="false"
+            android:layout_gravity="center"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/textviewbg"
+            android:gravity="center"
+            android:singleLine="true"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/editviewbg"
+            android:padding="8dp"
+            android:fontFamily="@font/open_sans_bold"
+            android:paddingStart="40dp"
+            android:text="Amount"
+            android:textColor="@color/colorBlack"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            tools:ignore="RtlSymmetry" />
+
+        <EditText
+           android:inputType="number"
+            android:id="@+id/amount"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+       android:hint="Enter Amount"
+
+            android:layout_gravity="center"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/textviewbg"
+            android:gravity="center"
+            android:singleLine="true"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/editviewbg"
+            android:padding="8dp"
+            android:fontFamily="@font/open_sans_bold"
+            android:paddingStart="40dp"
+            android:text="Payment Slip"
+            android:textColor="@color/colorBlack"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            tools:ignore="RtlSymmetry" />
+<LinearLayout
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:orientation="horizontal"
+    android:weightSum="2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+        <ImageView
+            android:focusable="false"
+            android:id="@+id/choosefiles"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="40dp"
+
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center"
+            android:background="@drawable/choosefiles"
+            android:gravity="center"
+            android:singleLine="true"
+            android:textColor="@color/white" />
+
+    <TextView
+        android:fontFamily="@font/open_sans_light"
+        android:textSize="15sp"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:id="@+id/filename"
+
+        android:gravity="center"
+        android:text="No File Choosen"
+        android:layout_width="0dp"
+        android:layout_weight="1.5"
+        android:layout_height="@dimen/register_editbox_height" />
+</LinearLayout>
+        <Button
+            android:text="Submit"
+            android:id="@+id/submit"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/btnlogin"
+            android:layout_width="150dp"
+            android:layout_gravity="center"
+            android:layout_height="50dp"/>
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

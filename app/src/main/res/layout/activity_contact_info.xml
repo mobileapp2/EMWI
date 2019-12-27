@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@drawable/bgdash"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".fragments.GenerateTicketFragment"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingBottom="20dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/open_sans_bold"
+                android:gravity="center"
+                android:text="Contact Information"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/editviewbg"
+                    android:editable="false"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:paddingStart="40dp"
+                    android:text="Country *"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    tools:ignore="RtlSymmetry" />
+
+                <EditText
+                    android:id="@+id/edt_country"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/textviewbg"
+                    android:gravity="center"
+                    android:editable="false"
+                    android:singleLine="true"
+                    android:text="India"
+                    android:textColor="@color/white" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/editviewbg"
+                    android:editable="false"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:paddingStart="40dp"
+                    android:text="State *"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    tools:ignore="RtlSymmetry" />
+
+                <EditText
+                    android:id="@+id/edit_state"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_gravity="center"
+                    android:focusable="false"
+                    android:imeOptions="actionNext"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:textColor="@color/white"
+                    android:textAlignment="center"
+                    android:editable="false"
+                    android:background="@drawable/textviewbg"
+                    android:drawableEnd="@drawable/downarrow"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/editviewbg"
+                    android:editable="false"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:paddingStart="40dp"
+                    android:text="City *"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    tools:ignore="RtlSymmetry" />
+
+
+                <EditText
+                    android:id="@+id/edit_city"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_gravity="center"
+                    android:focusable="false"
+                    android:imeOptions="actionNext"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:editable="false"
+                    android:background="@drawable/textviewbg"
+                    android:drawableEnd="@drawable/downarrow"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/editviewbg"
+                    android:editable="false"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:paddingStart="40dp"
+                    android:text="Postal Address *"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    tools:ignore="RtlSymmetry" />
+
+                <EditText
+                    android:id="@+id/txt_postalAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/textviewbg"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="@color/white"
+                    android:textAlignment="center"
+
+                    android:imeOptions="actionNext"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/editviewbg"
+                    android:editable="false"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:paddingStart="40dp"
+                    android:text="Pincode *"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    tools:ignore="RtlSymmetry" />
+
+                <EditText
+                    android:id="@+id/txt_pincode"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/textviewbg"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:inputType="number"
+                    android:imeOptions="actionNext"
+                    android:maxLength="6"
+                    android:textColor="@color/white" />
+
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_Update"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/btnlogin"
+                android:gravity="center"
+                android:paddingBottom="5dp"
+                android:text="Update"
+                android:textColor="@color/white"
+                android:layout_marginTop="10dp"
+                android:visibility="visible"/>
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

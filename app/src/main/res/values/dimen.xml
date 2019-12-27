@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="register_editbox_height">40dp</dimen>
+    <dimen name="register_textsize">15sp</dimen>
+    <dimen name="item_offset">12dp</dimen>
+</resources>

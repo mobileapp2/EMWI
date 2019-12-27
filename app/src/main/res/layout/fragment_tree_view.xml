@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bgdash"
+    tools:context=".fragments.TreeViewFragment">
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gif"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:elevation="25dp"
+        android:src="@drawable/loader"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:visibility="visible"
+            android:weightSum="3">
+
+            <ImageView
+                android:id="@+id/image_back"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="5dp"
+                android:layout_weight="0.2"
+                android:padding="8dp"
+                android:src="@drawable/ic_back" />
+
+            <EditText
+                android:id="@+id/edit_user_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="2.6"
+                android:background="@drawable/edit_box_background"
+                android:hint="@string/user_id"
+                android:imeOptions="actionDone"
+                android:maxLines="1"
+                android:padding="5dp"
+                android:singleLine="true" />
+
+            <ImageView
+                android:id="@+id/image_search"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="5dp"
+                android:layout_weight="0.2"
+                android:padding="8dp"
+                android:src="@drawable/ic_search" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@color/colorTreeView"
+            android:orientation="horizontal"
+
+            android:weightSum="4">
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center|top"
+                    android:layout_marginTop="15dp"
+                    android:src="@drawable/ic_active" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/open_sans_light"
+                    android:gravity="center"
+                    android:text="Active"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center|top"
+                    android:layout_marginTop="15dp"
+                    android:src="@drawable/ic_absent" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/open_sans_light"
+                    android:gravity="center"
+                    android:text="Not Present"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center|top"
+                    android:layout_marginTop="15dp"
+                    android:src="@drawable/ic_block" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/open_sans_light"
+                    android:gravity="center"
+                    android:text="Block"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center|top"
+                    android:layout_marginTop="15dp"
+                    android:src="@drawable/ic_not_paid" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/open_sans_light"
+                    android:gravity="center"
+                    android:text="Not Paid"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+            </FrameLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <de.blox.treeview.TreeView
+            android:id="@+id/treeview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</RelativeLayout>

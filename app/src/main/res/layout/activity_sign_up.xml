@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    tools:context=".views.SignUp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <pl.droidsonroids.gif.GifImageView
+                android:id="@+id/gif"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:elevation="25dp"
+                android:src="@drawable/loader"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="60dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:gravity="center"
+                    android:text="Create Your Account"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:gravity="center"
+                    android:text="Sponsor Information"
+                    android:textColor="@color/white"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="30dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/layout_user_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/register_editbox_height">
+
+
+                        <EditText
+                            android:id="@+id/edit_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:background="@drawable/rounded_edittext"
+                            android:drawableEnd="@drawable/name"
+                            android:fontFamily="@font/open_sans_light"
+                            android:hint="Name"
+                            android:imeOptions="actionNext"
+
+                            android:maxLength="8"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="15dp"
+                            android:singleLine="true"
+                            android:textColor="@color/colorDarkGray"
+                            android:textSize="@dimen/register_textsize"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/register_editbox_height"
+                        android:layout_marginTop="10dp">
+
+
+                        <EditText
+                            android:id="@+id/edit_mobile"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:background="@drawable/rounded_edittext"
+                            android:drawableEnd="@drawable/mobile"
+                            android:fontFamily="@font/open_sans_light"
+                            android:hint="Mobile Number"
+                            android:imeOptions="actionNext"
+                            android:inputType="number"
+                            android:maxLength="10"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="15dp"
+                            android:singleLine="true"
+                            android:textColor="@color/colorDarkGray"
+                            android:textSize="@dimen/register_textsize"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/register_editbox_height"
+                        android:layout_marginTop="10dp">
+
+
+                        <EditText
+                            android:id="@+id/edit_email"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+
+                            android:layout_gravity="center"
+                            android:background="@drawable/rounded_edittext"
+                            android:drawableEnd="@drawable/mail"
+                            android:fontFamily="@font/open_sans_light"
+                            android:hint="Email"
+                            android:imeOptions="actionNext"
+                            android:inputType="textEmailAddress"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="15dp"
+                            android:singleLine="true"
+                            android:textColor="@color/colorDarkGray"
+                            android:textSize="@dimen/register_textsize"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/register_editbox_height"
+                        android:layout_marginTop="10dp">
+
+
+                        <EditText
+                            android:id="@+id/edit_country"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:background="@drawable/rounded_edittext"
+                            android:drawableEnd="@drawable/downarrow"
+                            android:focusable="false"
+                            android:fontFamily="@font/open_sans_light"
+                            android:imeOptions="actionNext"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="15dp"
+                            android:singleLine="true"
+
+
+                            android:text="India"
+                            android:textColor="@color/colorDarkGray"
+                            android:textSize="@dimen/register_textsize"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/register_editbox_height"
+                        android:layout_marginTop="10dp">
+
+
+                        <EditText
+                            android:id="@+id/edit_state"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:background="@drawable/rounded_edittext"
+                            android:drawableEnd="@drawable/downarrow"
+                            android:focusable="false"
+                            android:fontFamily="@font/open_sans_light"
+                            android:imeOptions="actionNext"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="15dp"
+                            android:singleLine="true"
+
+                            android:text="Select State"
+                            android:textColor="@color/colorDarkGray"
+                            android:textSize="@dimen/register_textsize"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/register_editbox_height"
+                        android:layout_marginTop="10dp">
+
+
+                        <EditText
+                            android:id="@+id/edit_city"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:background="@drawable/rounded_edittext"
+                            android:drawableEnd="@drawable/downarrow"
+                            android:focusable="false"
+                            android:fontFamily="@font/open_sans_light"
+                            android:imeOptions="actionNext"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="15dp"
+                            android:singleLine="true"
+                            android:text="Select City"
+                            android:textColor="@color/colorDarkGray"
+                            android:textSize="@dimen/register_textsize"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/register_editbox_height"
+                        android:layout_marginTop="10dp">
+
+
+                        <EditText
+                            android:id="@+id/edit_address"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+
+                            android:layout_gravity="center"
+                            android:background="@drawable/rounded_edittext"
+                            android:drawableEnd="@drawable/address"
+                            android:fontFamily="@font/open_sans_light"
+                            android:hint="Address"
+                            android:imeOptions="actionNext"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="15dp"
+                            android:singleLine="true"
+                            android:textColor="@color/colorDarkGray"
+                            android:textSize="@dimen/register_textsize"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/register_editbox_height"
+                        android:layout_marginTop="10dp">
+
+
+                        <EditText
+                            android:id="@+id/edit_pincode"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+android:maxLength="6"
+                            android:background="@drawable/rounded_edittext"
+                            android:drawableEnd="@drawable/pincode"
+                            android:fontFamily="@font/open_sans_light"
+                            android:hint="PinCode"
+                            android:imeOptions="actionNext"
+                            android:inputType="number"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="15dp"
+                            android:singleLine="true"
+                            android:textColor="@color/colorDarkGray"
+                            android:textSize="@dimen/register_textsize"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/register_editbox_height"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <CheckBox
+                            android:id="@+id/checkterm"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/border" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight=".5"
+                            android:fontFamily="@font/open_sans_light"
+                            android:text="I Accept Terms and Conditions" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/submit"
+                        android:layout_width="180dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/nextbtn"
+                        android:fontFamily="@font/open_sans_light"
+                        android:text="Submit"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/login"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/open_sans_light"
+                        android:gravity="center"
+                        android:text="Already have an account? Login"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/register_textsize"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

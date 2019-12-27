@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bgdash"
+    tools:context=".views.ProfileInfoActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingBottom="20dp">
+
+
+            <LinearLayout
+                android:id="@+id/linear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/editviewbg"
+                    android:editable="false"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:paddingStart="40dp"
+                    android:text="Bank Account No *"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    tools:ignore="RtlSymmetry" />
+
+                <EditText
+                    android:id="@+id/txt_bankAccountNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/textviewbg"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="@color/white" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/editviewbg"
+                    android:editable="false"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:paddingStart="40dp"
+                    android:text="Bank Branch Name *"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    tools:ignore="RtlSymmetry" />
+
+                <EditText
+                    android:id="@+id/txt_bankBranchName"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/textviewbg"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="@color/white" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/editviewbg"
+                    android:editable="false"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:paddingStart="40dp"
+                    android:text="A/C Holder Name *"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    tools:ignore="RtlSymmetry" />
+
+                <EditText
+                    android:id="@+id/txt_acHolderName"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/textviewbg"
+
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="@color/white" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/editviewbg"
+                    android:editable="false"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:paddingStart="40dp"
+                    android:text="PAN Card Number *"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    tools:ignore="RtlSymmetry" />
+
+                <EditText
+                    android:id="@+id/txt_panNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/textviewbg"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:maxLength="10"
+                    android:textColor="@color/white" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/editviewbg"
+                    android:editable="false"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:paddingStart="40dp"
+                    android:text="Bank Name *"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    tools:ignore="RtlSymmetry" />
+
+                <EditText
+                    android:id="@+id/txt_bankName"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/textviewbg"
+
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="@color/white" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/editviewbg"
+                    android:editable="false"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:paddingStart="40dp"
+                    android:text="Bank IFSC Code *"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    tools:ignore="RtlSymmetry" />
+
+                <EditText
+                    android:id="@+id/txt_bankIFSCCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/textviewbg"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <Button
+                    android:id="@+id/btn_Edit"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/nextbtn"
+                    android:gravity="center"
+                    android:paddingBottom="5dp"
+                    android:text="Edit"
+                    android:textColor="@color/white"
+                    />
+
+                <Button
+                    android:id="@+id/btn_Submit"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/btnregister"
+                    android:gravity="center"
+                    android:paddingBottom="5dp"
+                    android:text="Update"
+                    android:textColor="@color/white"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
