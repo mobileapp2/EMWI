@@ -13,9 +13,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.imuons.shopntrips.R;
-import com.imuons.shopntrips.fragments.ROIIncomeFragment;
 import com.imuons.shopntrips.fragments.TeamViewFragment;
-import com.imuons.shopntrips.model.RoiIncomeReportRecordModel;
 import com.imuons.shopntrips.model.TeamViewRecordModel;
 
 import java.text.DateFormat;

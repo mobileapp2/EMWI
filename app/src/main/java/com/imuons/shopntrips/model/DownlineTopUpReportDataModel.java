@@ -39,4 +39,5 @@ public class DownlineTopUpReportDataModel {
     public void setRecords(List<DownlineTopUpReportRecordModel> records) {
         this.records = records;
     }
+
 }

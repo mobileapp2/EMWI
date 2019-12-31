@@ -18,7 +18,7 @@ import com.imuons.shopntrips.model.UpdateProfileResponseModel;
 import com.imuons.shopntrips.model.UserProfileResponseModel;
 import com.imuons.shopntrips.model.UserTopUpResponse;
 import com.imuons.shopntrips.retrofit.ApiHandler;
-import com.imuons.shopntrips.retrofit.ShopNTrips;
+import com.imuons.shopntrips.retrofit.Emwi;
 import com.imuons.shopntrips.utils.Constants;
 import com.imuons.shopntrips.utils.SharedPreferenceUtils;
 import com.imuons.shopntrips.utils.ViewUtils;
@@ -75,7 +75,7 @@ public class AboutActivity extends AppCompatActivity {
         mbtnUpdate.setVisibility(View.GONE);
         final ProgressDialog pd = ViewUtils.getProgressBar(AboutActivity.this, "Loading...", "Please wait..!");
 
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
 
         final Call<UserTopUpResponse> loginCall = apiService.wsTopUP("Bearer "
                 + SharedPreferenceUtils.getLoginObject(
@@ -114,7 +114,7 @@ public class AboutActivity extends AppCompatActivity {
         String name = mEdtAbout.getText().toString();
         Map<String, String> roiMap = new HashMap<>();
         roiMap.put("about_us", name);
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
 
         final Call<UpdateProfileResponseModel> loginCall = apiService.wsUpdateProfile("Bearer "
                 + SharedPreferenceUtils.getLoginObject(

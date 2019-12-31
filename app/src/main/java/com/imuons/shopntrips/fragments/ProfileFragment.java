@@ -23,7 +23,7 @@ import com.imuons.shopntrips.model.UserProfileDataModel;
 import com.imuons.shopntrips.model.UserProfileResponseModel;
 import com.imuons.shopntrips.model.UserTopUpResponse;
 import com.imuons.shopntrips.retrofit.ApiHandler;
-import com.imuons.shopntrips.retrofit.ShopNTrips;
+import com.imuons.shopntrips.retrofit.Emwi;
 import com.imuons.shopntrips.utils.Constants;
 import com.imuons.shopntrips.utils.SharedPreferenceUtils;
 import com.imuons.shopntrips.utils.Utils;
@@ -31,7 +31,6 @@ import com.imuons.shopntrips.utils.ViewUtils;
 import com.imuons.shopntrips.views.AboutActivity;
 import com.imuons.shopntrips.views.BankDetailsActivity;
 import com.imuons.shopntrips.views.ContactInfoActivity;
-import com.imuons.shopntrips.views.NotPresentActivity;
 import com.imuons.shopntrips.views.ProfileInfoActivity;
 import com.imuons.shopntrips.views.UpdateSecurityActivity;
 import com.squareup.picasso.Picasso;
@@ -176,7 +175,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     private void getUserPhotos() {
         final ProgressDialog pd = ViewUtils.getProgressBar(ProfileFragment.this.getContext(), "Loading...", "Please wait..!");
 
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
         final Call<UserPhotosResponseModel> loginCall = apiService.wsUserPhotos(
                 "Bearer " + SharedPreferenceUtils.getLoginObject(
                         ProfileFragment.this.getContext()).getData().getAccess_token());
@@ -216,7 +215,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         final ProgressDialog pd = ViewUtils.getProgressBar(ProfileFragment.this.getContext(),
                 "Loading...", "Please wait..!");
 
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
         final Call<UserProfileResponseModel> loginCall = apiService.wsUserProfileInfo(
                 "Bearer " + SharedPreferenceUtils.getLoginObject(
                         ProfileFragment.this.getContext()).getData().getAccess_token());

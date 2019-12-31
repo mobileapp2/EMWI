@@ -99,14 +99,15 @@ public class DownlineTopUpReportAdapter  extends RecyclerView.Adapter<DownlineTo
 
         holder.productname.setText(downlineTopUpReportRecordModel.getProduct());
 
-
+holder.touserid.setText(downlineTopUpReportRecordModel.getUserId());
         holder.pin.setText(downlineTopUpReportRecordModel.getPin());
         int topint = downlineTopUpReportRecordModel.getTopupNo();
         holder.topup.setText(String.valueOf(topint));
         int amt = downlineTopUpReportRecordModel.getAmount();
         holder.amount.setText(String.valueOf(amt));
-holder.touserid.setText(downlineTopUpReportRecordModel.getUserId());
+holder.topuptype.setText(downlineTopUpReportRecordModel.getStatus());
 holder.fromuserid.setText(downlineTopUpReportRecordModel.getFromUserId());
+
 
 
 
@@ -160,12 +161,12 @@ holder.fromuserid.setText(downlineTopUpReportRecordModel.getFromUserId());
         TextView topup;
         @BindView(R.id.date)
         TextView date;
-
-        @BindView(R.id.touserid)
-        TextView touserid;
+        @BindView(R.id.topuptype)
+        TextView topuptype;
         @BindView(R.id.fromuserid)
         TextView fromuserid;
-
+@BindView(R.id.touserid)
+TextView touserid;
 
         @BindView(R.id.llmain)
         LinearLayout llmain;

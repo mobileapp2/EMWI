@@ -4,22 +4,21 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class DashboardDataModel {
-
     @SerializedName("TotalIncome")
     @Expose
-    private Double totalIncome;
+    private Integer totalIncome;
     @SerializedName("TotalWithdraw")
     @Expose
-    private Double totalWithdraw;
+    private Integer totalWithdraw;
     @SerializedName("TotalProfit")
     @Expose
-    private Double totalProfit;
+    private Integer totalProfit;
     @SerializedName("DirectIncome")
     @Expose
     private Integer directIncome;
     @SerializedName("BinaryIncome")
     @Expose
-    private Double binaryIncome;
+    private Integer binaryIncome;
     @SerializedName("AwardIncome")
     @Expose
     private Integer awardIncome;
@@ -31,10 +30,13 @@ public class DashboardDataModel {
     private Integer directRoiIncome;
     @SerializedName("BinaryRoiIncome")
     @Expose
-    private Double binaryRoiIncome;
+    private Integer binaryRoiIncome;
     @SerializedName("RepurchaseIncome")
     @Expose
     private Integer repurchaseIncome;
+    @SerializedName("RoyalityIncome")
+    @Expose
+    private Integer royalityIncome;
     @SerializedName("Designation")
     @Expose
     private String designation;
@@ -47,28 +49,34 @@ public class DashboardDataModel {
     @SerializedName("right_bv")
     @Expose
     private Integer rightBv;
+    @SerializedName("left_bv_rep")
+    @Expose
+    private Integer leftBvRep;
+    @SerializedName("right_bv_rep")
+    @Expose
+    private Integer rightBvRep;
 
-    public Double getTotalIncome() {
+    public Integer getTotalIncome() {
         return totalIncome;
     }
 
-    public void setTotalIncome(Double totalIncome) {
+    public void setTotalIncome(Integer totalIncome) {
         this.totalIncome = totalIncome;
     }
 
-    public Double getTotalWithdraw() {
+    public Integer getTotalWithdraw() {
         return totalWithdraw;
     }
 
-    public void setTotalWithdraw(Double totalWithdraw) {
+    public void setTotalWithdraw(Integer totalWithdraw) {
         this.totalWithdraw = totalWithdraw;
     }
 
-    public Double getTotalProfit() {
+    public Integer getTotalProfit() {
         return totalProfit;
     }
 
-    public void setTotalProfit(Double totalProfit) {
+    public void setTotalProfit(Integer totalProfit) {
         this.totalProfit = totalProfit;
     }
 
@@ -80,11 +88,11 @@ public class DashboardDataModel {
         this.directIncome = directIncome;
     }
 
-    public Double getBinaryIncome() {
+    public Integer getBinaryIncome() {
         return binaryIncome;
     }
 
-    public void setBinaryIncome(Double binaryIncome) {
+    public void setBinaryIncome(Integer binaryIncome) {
         this.binaryIncome = binaryIncome;
     }
 
@@ -112,11 +120,11 @@ public class DashboardDataModel {
         this.directRoiIncome = directRoiIncome;
     }
 
-    public Double getBinaryRoiIncome() {
+    public Integer getBinaryRoiIncome() {
         return binaryRoiIncome;
     }
 
-    public void setBinaryRoiIncome(Double binaryRoiIncome) {
+    public void setBinaryRoiIncome(Integer binaryRoiIncome) {
         this.binaryRoiIncome = binaryRoiIncome;
     }
 
@@ -126,6 +134,14 @@ public class DashboardDataModel {
 
     public void setRepurchaseIncome(Integer repurchaseIncome) {
         this.repurchaseIncome = repurchaseIncome;
+    }
+
+    public Integer getRoyalityIncome() {
+        return royalityIncome;
+    }
+
+    public void setRoyalityIncome(Integer royalityIncome) {
+        this.royalityIncome = royalityIncome;
     }
 
     public String getDesignation() {
@@ -159,4 +175,21 @@ public class DashboardDataModel {
     public void setRightBv(Integer rightBv) {
         this.rightBv = rightBv;
     }
+
+    public Integer getLeftBvRep() {
+        return leftBvRep;
+    }
+
+    public void setLeftBvRep(Integer leftBvRep) {
+        this.leftBvRep = leftBvRep;
+    }
+
+    public Integer getRightBvRep() {
+        return rightBvRep;
+    }
+
+    public void setRightBvRep(Integer rightBvRep) {
+        this.rightBvRep = rightBvRep;
+    }
+
 }

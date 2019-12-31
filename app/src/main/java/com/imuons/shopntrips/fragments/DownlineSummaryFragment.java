@@ -16,7 +16,7 @@ import com.imuons.shopntrips.R;
 import com.imuons.shopntrips.model.DownlineSummaryDataModel;
 import com.imuons.shopntrips.model.DownlineSummaryResponseModel;
 import com.imuons.shopntrips.retrofit.ApiHandler;
-import com.imuons.shopntrips.retrofit.ShopNTrips;
+import com.imuons.shopntrips.retrofit.Emwi;
 import com.imuons.shopntrips.utils.Constants;
 import com.imuons.shopntrips.utils.SharedPreferenceUtils;
 import com.imuons.shopntrips.utils.Utils;
@@ -86,7 +86,7 @@ public class DownlineSummaryFragment extends Fragment {
         gif.setVisibility(View.VISIBLE);
         getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
                 WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
         final Call<DownlineSummaryResponseModel> loginCall = apiService.wsDownlineSummary(
                 "Bearer " + SharedPreferenceUtils.getAccesstoken(DownlineSummaryFragment.this.getContext()));
         loginCall.enqueue(new Callback<DownlineSummaryResponseModel>() {

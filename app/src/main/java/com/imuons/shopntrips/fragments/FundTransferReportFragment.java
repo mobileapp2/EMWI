@@ -23,14 +23,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.imuons.shopntrips.R;
-import com.imuons.shopntrips.adapters.FundRequestReportAdapter;
 import com.imuons.shopntrips.adapters.FundTransferReportAdapter;
-import com.imuons.shopntrips.model.FundRequestReportRecordModel;
-import com.imuons.shopntrips.model.FundRequestReportResponseModel;
 import com.imuons.shopntrips.model.FundTransferReportRecordModel;
 import com.imuons.shopntrips.model.FundTransferReportResponseModel;
 import com.imuons.shopntrips.retrofit.ApiHandler;
-import com.imuons.shopntrips.retrofit.ShopNTrips;
+import com.imuons.shopntrips.retrofit.Emwi;
 import com.imuons.shopntrips.utils.Constants;
 import com.imuons.shopntrips.utils.SharedPreferenceUtils;
 import com.imuons.shopntrips.utils.Utils;
@@ -167,7 +164,7 @@ public class FundTransferReportFragment extends Fragment {
         roiMap.put("length", countselected);
         roiMap.put("search[value]",mStringUserId);
 
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
         final Call<FundTransferReportResponseModel> loginCall = apiService.wsFundTransferReport(
                 "Bearer " + SharedPreferenceUtils.getAccesstoken(FundTransferReportFragment.this.getContext()),roiMap);
         loginCall.enqueue(new Callback<FundTransferReportResponseModel>() {

@@ -24,7 +24,7 @@ import com.imuons.shopntrips.model.UpdateProfileResponseModel;
 import com.imuons.shopntrips.model.UserProfileResponseModel;
 import com.imuons.shopntrips.model.UserTopUpResponse;
 import com.imuons.shopntrips.retrofit.ApiHandler;
-import com.imuons.shopntrips.retrofit.ShopNTrips;
+import com.imuons.shopntrips.retrofit.Emwi;
 import com.imuons.shopntrips.utils.Constants;
 import com.imuons.shopntrips.utils.SharedPreferenceUtils;
 import com.imuons.shopntrips.utils.ViewUtils;
@@ -152,7 +152,7 @@ public class ContactInfoActivity extends AppCompatActivity {
         Map<String, String> loginMap = new HashMap<>();
         loginMap.put("state", strstate);
 
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
         final Call<GetCityResponseModel> loginCall = apiService.wsGetCityByState(loginMap);
 
         loginCall.enqueue(new Callback<GetCityResponseModel>() {
@@ -204,7 +204,7 @@ public class ContactInfoActivity extends AppCompatActivity {
         roiMap.put("pincode", pincode);
 
 
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
 
         final Call<UpdateProfileResponseModel> loginCall = apiService.wsUpdateProfile("Bearer "
                 + SharedPreferenceUtils.getLoginObject(
@@ -245,7 +245,7 @@ public class ContactInfoActivity extends AppCompatActivity {
         Map<String, String> loginMap = new HashMap<>();
         loginMap.put("country", "IN");
 
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
         final Call<GetStateResponseModel> loginCall = apiService.wsGetStateByCountry(loginMap);
 
         loginCall.enqueue(new Callback<GetStateResponseModel>() {
@@ -287,7 +287,7 @@ public class ContactInfoActivity extends AppCompatActivity {
 
         roiMap.put("start", String.valueOf(0));
 
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
 
         final Call<UserTopUpResponse> loginCall = apiService.wsTopUP("Bearer "
                 + SharedPreferenceUtils.getLoginObject(

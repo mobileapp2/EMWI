@@ -1,9 +1,11 @@
 package com.imuons.shopntrips.model;
 
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class TopUpReportResponseModel {
+
     @SerializedName("code")
     @Expose
     private Integer code;
@@ -48,4 +50,5 @@ public class TopUpReportResponseModel {
     public void setData(TopUpReportDataModel data) {
         this.data = data;
     }
+
 }

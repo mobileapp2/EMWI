@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.imuons.shopntrips.R;
 import com.imuons.shopntrips.fragments.TopupReportFragment;
 import com.imuons.shopntrips.model.TopUpReportRecordModel;
+import com.imuons.shopntrips.model.TopUpReportResponseModel;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -103,7 +104,7 @@ int topint = topUpReportRecordModel.getTopupNo();
         holder.topup.setText(String.valueOf(topint));
         int amt = topUpReportRecordModel.getAmount();
         holder.amount.setText(String.valueOf(amt));
-
+holder.topuptype.setText(topUpReportRecordModel.getStatus());
 
 
 
@@ -157,6 +158,8 @@ int topint = topUpReportRecordModel.getTopupNo();
         TextView topup;
         @BindView(R.id.date)
         TextView date;
+        @BindView(R.id.topuptype)
+        TextView topuptype;
 
 
 

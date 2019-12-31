@@ -18,7 +18,6 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListPopupWindow;
@@ -30,7 +29,7 @@ import com.imuons.shopntrips.adapters.TeamViewAdapter;
 import com.imuons.shopntrips.model.TeamViewRecordModel;
 import com.imuons.shopntrips.model.TeamViewResponseModel;
 import com.imuons.shopntrips.retrofit.ApiHandler;
-import com.imuons.shopntrips.retrofit.ShopNTrips;
+import com.imuons.shopntrips.retrofit.Emwi;
 import com.imuons.shopntrips.utils.Constants;
 import com.imuons.shopntrips.utils.SharedPreferenceUtils;
 import com.imuons.shopntrips.utils.Utils;
@@ -321,7 +320,7 @@ mStringUserId = searchbyid.getText().toString().trim();
         tvMap.put("user_id",getUserid);
         tvMap.put("search[value]", mStringUserId);
 
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
         final Call<TeamViewResponseModel> loginCall = apiService.wsGetTeamView(
                 "Bearer " + SharedPreferenceUtils.getAccesstoken(TeamViewFragment.this.getContext()),tvMap);
         loginCall.enqueue(new Callback<TeamViewResponseModel>() {

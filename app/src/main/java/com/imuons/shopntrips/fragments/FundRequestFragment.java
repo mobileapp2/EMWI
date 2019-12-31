@@ -37,7 +37,7 @@ import com.imuons.shopntrips.model.GetBalanceReponseModel;
 import com.imuons.shopntrips.model.UserProfileDataModel;
 import com.imuons.shopntrips.model.UserProfileResponseModel;
 import com.imuons.shopntrips.retrofit.ApiHandler;
-import com.imuons.shopntrips.retrofit.ShopNTrips;
+import com.imuons.shopntrips.retrofit.Emwi;
 import com.imuons.shopntrips.utils.Constants;
 import com.imuons.shopntrips.utils.SharedPreferenceUtils;
 import com.imuons.shopntrips.utils.Utils;
@@ -142,7 +142,7 @@ public class FundRequestFragment extends Fragment {
             HashMap<String, Integer> map = new HashMap<>();
             // map.put("file",body);
             map.put("amount", at);
-            ShopNTrips apiService = ApiHandler.getApiService();
+            Emwi apiService = ApiHandler.getApiService();
             Call<FundRequestResponseModel> call = apiService.wsMakeFundRequest("Bearer " + SharedPreferenceUtils.getAccesstoken(FundRequestFragment.this.getContext()), map, body);
             call.enqueue(new Callback<FundRequestResponseModel>() {
                 @Override
@@ -191,7 +191,7 @@ public class FundRequestFragment extends Fragment {
         Map<String, String> topmap = new HashMap<>();
 
         topmap.put("wallet", "topup");
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
         final Call<GetBalanceReponseModel> loginCall = apiService.wsTopUpBalance(
                 "Bearer " + SharedPreferenceUtils.getAccesstoken(FundRequestFragment.this.getContext()),topmap);
         loginCall.enqueue(new Callback<GetBalanceReponseModel>() {
@@ -242,7 +242,7 @@ public class FundRequestFragment extends Fragment {
     }
 
     private void getProfile() {
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
         final Call<UserProfileResponseModel> loginCall = apiService.wsUserProfileInfo(
                 "Bearer " + SharedPreferenceUtils.getLoginObject(
                         FundRequestFragment.this.getContext()).getData().getAccess_token());

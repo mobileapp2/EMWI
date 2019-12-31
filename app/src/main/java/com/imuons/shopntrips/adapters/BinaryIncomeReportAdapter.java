@@ -9,14 +9,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.imuons.shopntrips.R;
-import com.imuons.shopntrips.fragments.BinaryIncomeReportFragment;
+import com.imuons.shopntrips.fragments.BinaryIncomeFragment;
 import com.imuons.shopntrips.model.BinaryIncomeReportRecordModel;
 
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -25,48 +26,48 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class BinaryIncomeReportAdapter extends RecyclerView.Adapter<BinaryIncomeReportAdapter.BinaryIncomeReportAdapterHolder> {
-private List<BinaryIncomeReportRecordModel> birList = new ArrayList<>();
+public class BinaryIncomeReportAdapter extends RecyclerView.Adapter<BinaryIncomeReportAdapter.RoiIncomeReportAdapterHolder> {
+private List<BinaryIncomeReportRecordModel> rorList = new ArrayList<>();
 private Context context;
-private BinaryIncomeReportFragment binaryIncomeReportFragment;
+private BinaryIncomeFragment roiIncomeFragment;
 private String wdatefromurl,cdatefromurl;
 private Date datec,datew;
 private static int currentPosition = 0;
 
-public BinaryIncomeReportAdapter(Context context, List<BinaryIncomeReportRecordModel> birList) {
-        this.birList = birList;
+public BinaryIncomeReportAdapter(Context context, List<BinaryIncomeReportRecordModel> rorList) {
+        this.rorList = rorList;
 
         this.context = context;
-        Log.e("list: ", birList.size() + "");
+        Log.e("list: ", rorList.size() + "");
         }
 
 @Override
-public BinaryIncomeReportAdapter.BinaryIncomeReportAdapterHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+public BinaryIncomeReportAdapter.RoiIncomeReportAdapterHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_binary_income_report, parent, false);
-        return new BinaryIncomeReportAdapter.BinaryIncomeReportAdapterHolder(v);
+        return new BinaryIncomeReportAdapter.RoiIncomeReportAdapterHolder(v);
         }
 
 @Override
-public void onBindViewHolder(final BinaryIncomeReportAdapter.BinaryIncomeReportAdapterHolder holder, final int position) {
+public void onBindViewHolder(final BinaryIncomeReportAdapter.RoiIncomeReportAdapterHolder holder, final int position) {
 
-final BinaryIncomeReportRecordModel binaryIncomeReportRecordModel = birList.get(position);
+final BinaryIncomeReportRecordModel binaryIncomeReportRecordModel = rorList.get(position);
 
         holder.hiddenlayout.setVisibility(View.GONE);
- //       wdatefromurl = binaryIncomeReportRecordModel.getWithdrawDate();
-//        if(wdatefromurl != null) {
-//        SimpleDateFormat simpleDateFormatw = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-//        try {
-//        datew = simpleDateFormatw.parse(wdatefromurl);
-//        } catch (ParseException e) {
-//        e.printStackTrace();
-//        }
-//        DateFormat dateFormatw = new SimpleDateFormat("yyyy/MM/dd");
-//        String wcdate = dateFormatw.format(datew);
-//        holder.withdrawdate.setText(wcdate);
-//        }else{
-//        holder.withdrawdate.setText("-");
-//        }
+               wdatefromurl = binaryIncomeReportRecordModel.getEntryTime();
+        if(wdatefromurl != null) {
+        SimpleDateFormat simpleDateFormatw = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        try {
+        datew = simpleDateFormatw.parse(wdatefromurl);
+        } catch (ParseException e) {
+        e.printStackTrace();
+        }
+        DateFormat dateFormatw = new SimpleDateFormat("yyyy/MM/dd");
+        String wcdate = dateFormatw.format(datew);
+        holder.date.setText(wcdate);
+        }else{
+        holder.date.setText("-");
+        }
 
 //        cdatefromurl = withdrawHistoryRecordModel.getCompleteDate();
 //        if(cdatefromurl != null) {
@@ -91,38 +92,30 @@ final BinaryIncomeReportRecordModel binaryIncomeReportRecordModel = birList.get(
 //
 //        }
 
-        holder.srno.setText(String.valueOf(position + 1));
-        int payno = binaryIncomeReportRecordModel.getPayoutNo();
-        holder.payoutno.setText(String.valueOf(payno));
 
-        int leftbvint = binaryIncomeReportRecordModel.getLeftBv();
-        holder.leftbv.setText(String.valueOf(leftbvint));
-    int rightbvint = binaryIncomeReportRecordModel.getRightBv();
-    holder.rightbv.setText(String.valueOf(rightbvint));
+    holder.srno.setText(String.valueOf(position + 1));
 
-    int carryrightbvint = binaryIncomeReportRecordModel.getRightBvCarry();
-    holder.carryrighbv.setText(String.valueOf(carryrightbvint));
-    int carryleftbvint = binaryIncomeReportRecordModel.getLeftBvCarry();
-    holder.carryleftbv.setText(String.valueOf(carryleftbvint));
-
-      double lapsint = binaryIncomeReportRecordModel.getLapsBv();
-      holder.lapsamt.setText(String.valueOf(lapsint));
+        holder.payoutno.setText(String.valueOf(binaryIncomeReportRecordModel.getPayoutNo()));
 
 
-        holder.amount.setText(binaryIncomeReportRecordModel.getAmount());
+        holder.leftbv.setText(String.valueOf(binaryIncomeReportRecordModel.getLeftBv()));
 
-        holder.pin.setText(binaryIncomeReportRecordModel.getPin());
-        holder.roi.setText(binaryIncomeReportRecordModel.getBinaryRoi());
-
+        holder.rightbv.setText(String.valueOf(binaryIncomeReportRecordModel.getRightBv()));
 
 
+    holder.carryleftbv.setText(String.valueOf(binaryIncomeReportRecordModel.getLeftBvCarry()));
 
+    holder.carryrightbv.setText(String.valueOf(binaryIncomeReportRecordModel.getRightBvCarry()));
 
+    holder.amount.setText(binaryIncomeReportRecordModel.getAmount());
 
+    holder.capping.setText(String.valueOf(binaryIncomeReportRecordModel.getCapping()));
 
-        //if the position is equals to the item position which is to be expanded
+    holder.lapsamount.setText(String.valueOf(binaryIncomeReportRecordModel.getLapsBv()));
+
+    //if the position is equals to the item position which is to be expanded
         if (currentPosition == position) {
-      //  holder.eye.setImageResource(R.drawable.closeeye);
+        //  holder.eye.setImageResource(R.drawable.closeeye);
         //creating an animation
         Animation slideDown = AnimationUtils.loadAnimation(context, R.anim.slide_down);
 
@@ -132,7 +125,7 @@ final BinaryIncomeReportRecordModel binaryIncomeReportRecordModel = birList.get(
         //adding sliding effect
         holder.hiddenlayout.startAnimation(slideDown);
         } else {
-       // holder.eye.setImageResource(R.drawable.oprneye);
+        // holder.eye.setImageResource(R.drawable.oprneye);
         }
 
         holder.llmain.setOnClickListener(new View.OnClickListener() {
@@ -149,31 +142,31 @@ public void onClick(View view) {
 
 @Override
 public int getItemCount() {
-        return birList.size();
+        return rorList.size();
         }
 
-public class BinaryIncomeReportAdapterHolder extends RecyclerView.ViewHolder {
+public class RoiIncomeReportAdapterHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.srno)
     TextView srno;
-    @BindView(R.id.payoutno)
-    TextView payoutno;
-    @BindView(R.id.leftbv)
-    TextView leftbv;
-    @BindView(R.id.rightbv)
-    TextView rightbv;
+
+    @BindView(R.id.date)
+    TextView date;
+    @BindView(R.id.carryrightbv)
+    TextView carryrightbv;
+    @BindView(R.id.amount)
+    TextView amount;
+    @BindView(R.id.lapsamount)
+    TextView lapsamount;
+    @BindView(R.id.capping)
+    TextView capping;
     @BindView(R.id.carryleftbv)
     TextView carryleftbv;
-    @BindView(R.id.carryrighbv)
-    TextView carryrighbv;
-@BindView(R.id.lapsamt)
-TextView lapsamt;
-@BindView(R.id.amount)
-    TextView amount;
-@BindView(R.id.pin)
-    TextView pin;
-@BindView(R.id.roi)
-    TextView roi;
-
+    @BindView(R.id.rightbv)
+    TextView rightbv;
+    @BindView(R.id.leftbv)
+    TextView leftbv;
+    @BindView(R.id.payoutno)
+    TextView payoutno;
 
 
 
@@ -185,7 +178,7 @@ TextView lapsamt;
     View container;
 
 
-    public BinaryIncomeReportAdapterHolder(View itemView) {
+    public RoiIncomeReportAdapterHolder(View itemView) {
         super(itemView);
         ButterKnife.bind(this, itemView);
         container = itemView;

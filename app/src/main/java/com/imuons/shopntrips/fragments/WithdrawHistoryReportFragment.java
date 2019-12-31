@@ -24,12 +24,10 @@ import android.widget.Toast;
 
 import com.imuons.shopntrips.R;
 import com.imuons.shopntrips.adapters.WithdrawHistoryReportAdapter;
-import com.imuons.shopntrips.adapters.WithdrawRequestReportAdapter;
 import com.imuons.shopntrips.model.WithdrawHistoryReportRecordModel;
 import com.imuons.shopntrips.model.WithdrawHistoryReportResponseModel;
-import com.imuons.shopntrips.model.WithdrawRequestReportResponseModel;
 import com.imuons.shopntrips.retrofit.ApiHandler;
-import com.imuons.shopntrips.retrofit.ShopNTrips;
+import com.imuons.shopntrips.retrofit.Emwi;
 import com.imuons.shopntrips.utils.Constants;
 import com.imuons.shopntrips.utils.SharedPreferenceUtils;
 import com.imuons.shopntrips.utils.Utils;
@@ -164,7 +162,7 @@ RecyclerView recycler_wirhdraw_request_report;
         roiMap.put("length", countselected);
         roiMap.put("search[value]",mStringUserId);
 
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
         final Call<WithdrawHistoryReportResponseModel> loginCall = apiService.wsWithdrawHistory(
                 "Bearer " + SharedPreferenceUtils.getAccesstoken(WithdrawHistoryReportFragment.this.getContext()),roiMap);
         loginCall.enqueue(new Callback<WithdrawHistoryReportResponseModel>() {

@@ -39,4 +39,5 @@ public class AwardReportDataModel {
     public void setRecords(List<AwardReportRecordModel> records) {
         this.records = records;
     }
+
 }

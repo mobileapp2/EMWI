@@ -21,7 +21,7 @@ import com.imuons.shopntrips.model.UserPhotosResponseModel;
 import com.imuons.shopntrips.model.UserProfileResponseModel;
 import com.imuons.shopntrips.model.UserTopUpResponse;
 import com.imuons.shopntrips.retrofit.ApiHandler;
-import com.imuons.shopntrips.retrofit.ShopNTrips;
+import com.imuons.shopntrips.retrofit.Emwi;
 import com.imuons.shopntrips.utils.Constants;
 import com.imuons.shopntrips.utils.SharedPreferenceUtils;
 import com.imuons.shopntrips.utils.ViewUtils;
@@ -121,7 +121,7 @@ public class ProfileInfoActivity extends AppCompatActivity {
         roiMap.put("email", email);
 
 
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
 
         final Call<UpdateProfileResponseModel> loginCall = apiService.wsUpdateProfile("Bearer "
                 + SharedPreferenceUtils.getLoginObject(
@@ -161,7 +161,7 @@ public class ProfileInfoActivity extends AppCompatActivity {
 
         roiMap.put("start", String.valueOf(0));
 
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
 
         final Call<UserTopUpResponse> loginCall = apiService.wsTopUP("Bearer "
                 + SharedPreferenceUtils.getLoginObject(
@@ -198,7 +198,7 @@ public class ProfileInfoActivity extends AppCompatActivity {
     private void getUserPhotos() {
         final ProgressDialog pd = ViewUtils.getProgressBar(ProfileInfoActivity.this, "Loading...", "Please wait..!");
 
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
         final Call<UserPhotosResponseModel> loginCall = apiService.wsUserPhotos(
                 "Bearer " + SharedPreferenceUtils.getLoginObject(
                         ProfileInfoActivity.this).getData().getAccess_token());

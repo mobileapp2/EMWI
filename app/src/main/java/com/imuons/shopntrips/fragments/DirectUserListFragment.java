@@ -24,13 +24,10 @@ import android.widget.Toast;
 
 import com.imuons.shopntrips.R;
 import com.imuons.shopntrips.adapters.DirectUSerListAdapter;
-import com.imuons.shopntrips.adapters.RoiIncomeReportAdapter;
 import com.imuons.shopntrips.model.DirectUserListRecordModel;
 import com.imuons.shopntrips.model.DirectUserListResponseModel;
-import com.imuons.shopntrips.model.RoiIncomeReportRecordModel;
-import com.imuons.shopntrips.model.RoiIncomeReportResponseModel;
 import com.imuons.shopntrips.retrofit.ApiHandler;
-import com.imuons.shopntrips.retrofit.ShopNTrips;
+import com.imuons.shopntrips.retrofit.Emwi;
 import com.imuons.shopntrips.utils.Constants;
 import com.imuons.shopntrips.utils.SharedPreferenceUtils;
 import com.imuons.shopntrips.utils.Utils;
@@ -164,7 +161,7 @@ public class DirectUserListFragment extends Fragment {
         roiMap.put("length", countselected);
         roiMap.put("search[value]",mStringUserId);
 
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
         final Call<DirectUserListResponseModel> loginCall = apiService.wsDirectUserList(
                 "Bearer " + SharedPreferenceUtils.getAccesstoken(DirectUserListFragment.this.getContext()),roiMap);
         loginCall.enqueue(new Callback<DirectUserListResponseModel>() {

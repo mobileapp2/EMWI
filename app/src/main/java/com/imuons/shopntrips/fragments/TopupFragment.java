@@ -7,7 +7,6 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -25,19 +24,17 @@ import android.widget.Toast;
 
 import com.imuons.shopntrips.R;
 import com.imuons.shopntrips.model.CheckDownlineUserResponseModel;
-import com.imuons.shopntrips.model.CheckUserExistResponseModel;
 import com.imuons.shopntrips.model.GetBalanceReponseModel;
 import com.imuons.shopntrips.model.GetProductDatumModel;
 import com.imuons.shopntrips.model.GetProductResponseModel;
-import com.imuons.shopntrips.model.GetStateDatumModel;
+import com.imuons.shopntrips.model.ProductDatumModel;
+import com.imuons.shopntrips.model.ProductResponseModel;
 import com.imuons.shopntrips.model.SubmitTopUpReponseModel;
 import com.imuons.shopntrips.retrofit.ApiHandler;
-import com.imuons.shopntrips.retrofit.ShopNTrips;
+import com.imuons.shopntrips.retrofit.Emwi;
 import com.imuons.shopntrips.utils.Constants;
 import com.imuons.shopntrips.utils.SharedPreferenceUtils;
 import com.imuons.shopntrips.utils.Utils;
-import com.imuons.shopntrips.views.Registration;
-import com.imuons.shopntrips.views.SignUp;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -72,7 +69,7 @@ EditText selectproduct;
     List<String> listProductName = new ArrayList<>();
     String strproduct,productid,fullName,strselectproduct,struserid,strbal;
     boolean mSponsorAvailable;
-    private List<GetProductDatumModel> productlist = new ArrayList<>();
+    private List<ProductDatumModel> productlist = new ArrayList<>();
     public TopupFragment() {
         // Required empty public constructor
     }
@@ -200,7 +197,7 @@ productid = String.valueOf(productlist.get(i).getId());
         submitmap.put("product_id",productid);
         submitmap.put("user_id",struserid);
         submitmap.put("type","balance");
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
         final Call<SubmitTopUpReponseModel> loginCall = apiService.wsTopup(
                 "Bearer " + SharedPreferenceUtils.getAccesstoken(TopupFragment.this.getContext()),submitmap);
         loginCall.enqueue(new Callback<SubmitTopUpReponseModel>() {
@@ -251,7 +248,7 @@ productid = String.valueOf(productlist.get(i).getId());
 
         submitmap.put("user_id",user);
 
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
         final Call<CheckDownlineUserResponseModel> loginCall = apiService.wsCheckDownlineUser(
                 "Bearer " + SharedPreferenceUtils.getAccesstoken(TopupFragment.this.getContext()),submitmap);
         loginCall.enqueue(new Callback<CheckDownlineUserResponseModel>() {
@@ -306,7 +303,7 @@ getProducts();
         Map<String, String> topmap = new HashMap<>();
 
         topmap.put("wallet", "topup");
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
         final Call<GetBalanceReponseModel> loginCall = apiService.wsTopUpBalance(
                 "Bearer " + SharedPreferenceUtils.getAccesstoken(TopupFragment.this.getContext()),topmap);
         loginCall.enqueue(new Callback<GetBalanceReponseModel>() {
@@ -346,19 +343,22 @@ getProducts();
         gif.setVisibility(View.VISIBLE);
         getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
                 WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
-        ShopNTrips apiService = ApiHandler.getApiService();
-        final Call<GetProductResponseModel> loginCall = apiService.wsGetProducts(
-                "Bearer " + SharedPreferenceUtils.getAccesstoken(TopupFragment.this.getContext()));
-        loginCall.enqueue(new Callback<GetProductResponseModel>() {
+        Map<String, String> loginmap = new HashMap<>();
+
+        loginmap.put("product_type", "Repurchase");
+        Emwi apiService = ApiHandler.getApiService();
+        final Call<ProductResponseModel> loginCall = apiService.wsGetProduct(
+                "Bearer " + SharedPreferenceUtils.getAccesstoken(TopupFragment.this.getContext()),loginmap);
+        loginCall.enqueue(new Callback<ProductResponseModel>() {
             @SuppressLint("WrongConstant")
             @Override
-            public void onResponse(Call<GetProductResponseModel> call,
-                                   Response<GetProductResponseModel> response) {
+            public void onResponse(Call<ProductResponseModel> call,
+                                   Response<ProductResponseModel> response) {
                 //                pd.hide();
                 gif.setVisibility(View.GONE);
                 getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
                 if (response.isSuccessful()) {
-                    GetProductResponseModel  getProductsResponseModel = response.body();
+                    ProductResponseModel  getProductsResponseModel = response.body();
                     if (getProductsResponseModel.getCode() == Constants.RESPONSE_CODE_OK &&
                             getProductsResponseModel.getStatus().equals("OK")) {
                         productlist.addAll(getProductsResponseModel.getData());
@@ -373,7 +373,7 @@ getProducts();
             }
 
             @Override
-            public void onFailure(Call<GetProductResponseModel> call,
+            public void onFailure(Call<ProductResponseModel> call,
                                   Throwable t) {
 //                pd.hide();
                 gif.setVisibility(View.GONE);
@@ -383,7 +383,7 @@ getProducts();
         });
     }
 
-    private void getproductbyname(List<GetProductDatumModel> data) {
+    private void getproductbyname(List<ProductDatumModel> data) {
         for (int i = 0; i < data.size(); i++) {
             double bp = data.get(i).getBinaryPer();
             String strbp = String.valueOf(bp);

@@ -1,10 +1,8 @@
 package com.imuons.shopntrips.adapters;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,9 +14,7 @@ import android.widget.TextView;
 
 import com.imuons.shopntrips.R;
 import com.imuons.shopntrips.fragments.FundTransferReportFragment;
-import com.imuons.shopntrips.fragments.ROIIncomeFragment;
 import com.imuons.shopntrips.model.FundTransferReportRecordModel;
-import com.imuons.shopntrips.model.RoiIncomeReportRecordModel;
 
 import java.text.DateFormat;
 import java.text.ParseException;

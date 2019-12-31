@@ -51,4 +51,5 @@ public class LoginResponseModel implements Serializable {
     public void setData(LoginDataModel data) {
         this.data = data;
     }
+
 }

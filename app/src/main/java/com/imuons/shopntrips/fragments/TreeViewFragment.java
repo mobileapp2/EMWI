@@ -6,8 +6,6 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,12 +21,11 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.imuons.shopntrips.R;
-import com.imuons.shopntrips.model.SearchTreeDataModel;
 import com.imuons.shopntrips.model.SearchTreeResponse;
 import com.imuons.shopntrips.model.TreeViewDataModel;
 import com.imuons.shopntrips.model.TreeViewResponseModel;
 import com.imuons.shopntrips.retrofit.ApiHandler;
-import com.imuons.shopntrips.retrofit.ShopNTrips;
+import com.imuons.shopntrips.retrofit.Emwi;
 import com.imuons.shopntrips.utils.Constants;
 import com.imuons.shopntrips.utils.SharedPreferenceUtils;
 import com.imuons.shopntrips.utils.Utils;
@@ -217,7 +214,7 @@ public class TreeViewFragment extends Fragment {
         Map<String, String> roiMap = new HashMap<>();
         roiMap.put("id", s);
         roiMap.put("Content-Length:", "23");
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
 
         final Call<SearchTreeResponse> loginCall = apiService.wsGetTreeByWord("Bearer "
                 + SharedPreferenceUtils.getLoginObject(
@@ -257,7 +254,7 @@ public class TreeViewFragment extends Fragment {
         Map<String, String> roiMap = new HashMap<>();
         roiMap.put("id", mStringUserId);
         roiMap.put("Content-Length:", "17");
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
 
         final Call<TreeViewResponseModel> loginCall = apiService.wsGetTree("Bearer "
                 + SharedPreferenceUtils.getLoginObject(

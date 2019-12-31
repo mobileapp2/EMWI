@@ -44,7 +44,7 @@ import com.imuons.shopntrips.model.DepartmentDataModel;
 import com.imuons.shopntrips.model.DepartmentResponseModel;
 import com.imuons.shopntrips.model.TicketResponseModel;
 import com.imuons.shopntrips.retrofit.ApiHandler;
-import com.imuons.shopntrips.retrofit.ShopNTrips;
+import com.imuons.shopntrips.retrofit.Emwi;
 import com.imuons.shopntrips.utils.Constants;
 import com.imuons.shopntrips.utils.SharedPreferenceUtils;
 import com.imuons.shopntrips.utils.Utils;
@@ -130,7 +130,7 @@ public class GenerateTicketFragment extends Fragment {
     private void getDepartments() {
         final ProgressDialog pd = ViewUtils.getProgressBar(GenerateTicketFragment.this.getContext(), "Loading...", "Please wait..!");
 
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
 
         final Call<DepartmentResponseModel> loginCall = apiService.wsGetDepartments("Bearer "
                 + SharedPreferenceUtils.getLoginObject(
@@ -250,7 +250,7 @@ public class GenerateTicketFragment extends Fragment {
         map.put("department", department);
         map.put("address", message);
 
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
         Call<TicketResponseModel> call = apiService.wsSendQuery("Bearer " + SharedPreferenceUtils.getLoginObject(
                 GenerateTicketFragment.this.getContext()).getData().getAccess_token(), map, body);
         call.enqueue(new Callback<TicketResponseModel>() {

@@ -4,7 +4,6 @@ package com.imuons.shopntrips.fragments;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,9 +25,8 @@ import com.imuons.shopntrips.R;
 import com.imuons.shopntrips.model.CheckDownlineUserResponseModel;
 import com.imuons.shopntrips.model.FundTransferResponseModel;
 import com.imuons.shopntrips.model.GetBalanceReponseModel;
-import com.imuons.shopntrips.model.SubmitTopUpReponseModel;
 import com.imuons.shopntrips.retrofit.ApiHandler;
-import com.imuons.shopntrips.retrofit.ShopNTrips;
+import com.imuons.shopntrips.retrofit.Emwi;
 import com.imuons.shopntrips.utils.Constants;
 import com.imuons.shopntrips.utils.SharedPreferenceUtils;
 import com.imuons.shopntrips.utils.Utils;
@@ -161,7 +159,7 @@ public class FundTransferFragment extends Fragment {
         submitmap.put("amount",amountenterd);
         submitmap.put("to_user_id",struserid);
         submitmap.put("type","topup_to_topup");
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
         final Call<FundTransferResponseModel> loginCall = apiService.wsFundTransfer(
                 "Bearer " + SharedPreferenceUtils.getAccesstoken(FundTransferFragment.this.getContext()),submitmap);
         loginCall.enqueue(new Callback<FundTransferResponseModel>() {
@@ -259,7 +257,7 @@ public class FundTransferFragment extends Fragment {
         Map<String, String> topmap = new HashMap<>();
 
         topmap.put("wallet", "topup");
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
         final Call<GetBalanceReponseModel> loginCall = apiService.wsTopUpBalance(
                 "Bearer " + SharedPreferenceUtils.getAccesstoken(FundTransferFragment.this.getContext()),topmap);
         loginCall.enqueue(new Callback<GetBalanceReponseModel>() {
@@ -306,7 +304,7 @@ public class FundTransferFragment extends Fragment {
 
         submitmap.put("user_id",user);
 
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
         final Call<CheckDownlineUserResponseModel> loginCall = apiService.wsCheckDownlineUser(
                 "Bearer " + SharedPreferenceUtils.getAccesstoken(FundTransferFragment.this.getContext()),submitmap);
         loginCall.enqueue(new Callback<CheckDownlineUserResponseModel>() {

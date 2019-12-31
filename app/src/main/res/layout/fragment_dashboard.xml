@@ -57,13 +57,13 @@
                         android:layout_marginTop="15dp"
                         android:fontFamily="@font/open_sans_bold"
                         android:gravity="center"
-                        android:text="@string/direct_user"
+                        android:text="Left BV"
                         android:textColor="@color/black"
                         android:textSize="14sp" />
 
 
                     <TextView
-                        android:id="@+id/txt_DirectUser"
+                        android:id="@+id/leftbv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -91,12 +91,12 @@
                         android:layout_marginTop="15dp"
                         android:fontFamily="@font/open_sans_bold"
                         android:gravity="center"
-                        android:text="@string/left_mp"
+                        android:text="Right BV"
                         android:textColor="@color/black"
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/txt_LeftMP"
+                        android:id="@+id/rightbv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -135,12 +135,12 @@
                         android:layout_marginTop="15dp"
                         android:fontFamily="@font/open_sans_bold"
                         android:gravity="center"
-                        android:text="Right MP"
+                        android:text="Direct Income"
                         android:textColor="@color/black"
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/txt_RightMP"
+                        android:id="@+id/directincome"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -168,12 +168,12 @@
                         android:layout_marginTop="15dp"
                         android:fontFamily="@font/open_sans_bold"
                         android:gravity="center"
-                        android:text="@string/total_withdrawal"
+                        android:text="Binary Income"
                         android:textColor="@color/black"
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/txt_TotalWithdrawal"
+                        android:id="@+id/binaryincome"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -212,12 +212,12 @@
                         android:layout_marginTop="15dp"
                         android:fontFamily="@font/open_sans_bold"
                         android:gravity="center"
-                        android:text="@string/binary_income"
+                        android:text="Royality Income"
                         android:textColor="@color/black"
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/txt_BinaryIncome"
+                        android:id="@+id/royalityincome"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -287,12 +287,12 @@
                         android:layout_marginTop="15dp"
                         android:fontFamily="@font/open_sans_bold"
                         android:gravity="center"
-                        android:text="@string/binary_roi_income"
+                        android:text="Left BV Rep."
                         android:textColor="@color/black"
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/txt_BinaryROIIncome"
+                        android:id="@+id/leftbvrep"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -320,12 +320,12 @@
                         android:layout_marginTop="15dp"
                         android:fontFamily="@font/open_sans_bold"
                         android:gravity="center"
-                        android:text="@string/direct_roi_income"
+                        android:text="Right BV Rep."
                         android:textColor="@color/black"
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/txt_DirectROIIncome"
+                        android:id="@+id/rightbvrep"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -382,12 +382,12 @@
                         android:layout_marginTop="15dp"
                         android:fontFamily="@font/open_sans_bold"
                         android:gravity="center"
-                        android:text="@string/roi_income"
+                        android:text="Total Withdraw"
                         android:textColor="@color/black"
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/txt_ROIIncome"
+                        android:id="@+id/txt_TotalWithdrawal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"

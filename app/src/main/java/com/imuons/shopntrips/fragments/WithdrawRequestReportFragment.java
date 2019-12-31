@@ -27,7 +27,7 @@ import com.imuons.shopntrips.adapters.WithdrawRequestReportAdapter;
 import com.imuons.shopntrips.model.WithdrawRequestReportRecordModel;
 import com.imuons.shopntrips.model.WithdrawRequestReportResponseModel;
 import com.imuons.shopntrips.retrofit.ApiHandler;
-import com.imuons.shopntrips.retrofit.ShopNTrips;
+import com.imuons.shopntrips.retrofit.Emwi;
 import com.imuons.shopntrips.utils.Constants;
 import com.imuons.shopntrips.utils.SharedPreferenceUtils;
 import com.imuons.shopntrips.utils.Utils;
@@ -70,6 +70,7 @@ public class WithdrawRequestReportFragment extends Fragment {
     public WithdrawRequestReportFragment() {
         // Required empty public constructor
     }
+
     public static WithdrawRequestReportFragment newInstance() {
         WithdrawRequestReportFragment fragment = new WithdrawRequestReportFragment();
         return fragment;
@@ -164,7 +165,7 @@ public class WithdrawRequestReportFragment extends Fragment {
         roiMap.put("length", countselected);
         roiMap.put("search[value]",mStringUserId);
 
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
         final Call<WithdrawRequestReportResponseModel> loginCall = apiService.wsWithdrawRequest(
                 "Bearer " + SharedPreferenceUtils.getAccesstoken(WithdrawRequestReportFragment.this.getContext()),roiMap);
         loginCall.enqueue(new Callback<WithdrawRequestReportResponseModel>() {

@@ -29,10 +29,10 @@
         <activity android:name=".views.ProfileInfoActivity" />
         <activity android:name=".adapters.WithdrawHistoryReportAdapter" />
         <activity android:name=".adapters.WithdrawRequestReportAdapter" />
-        <activity android:name=".adapters.DirectRoiIncomeReportAdapter" />
-        <activity android:name=".adapters.BinaryRoiIncomeReportAdapter" />
-        <activity android:name=".adapters.RoiIncomeReportAdapter" />
+        <activity android:name=".adapters.RoyalityQualifiedReportAdapter" />
+        <activity android:name=".adapters.RepurchaseIncomeReportAdapter" />
         <activity android:name=".adapters.BinaryIncomeReportAdapter" />
+        <activity android:name=".adapters.DirectIncomeReportAdapter" />
         <activity android:name=".views.ShowPassword" />
         <activity android:name=".views.ResetPassword" />
         <activity android:name=".views.SignUp" />

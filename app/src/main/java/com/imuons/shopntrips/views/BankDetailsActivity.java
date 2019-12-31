@@ -6,7 +6,6 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,7 +20,7 @@ import com.imuons.shopntrips.model.UpdateProfileResponseModel;
 import com.imuons.shopntrips.model.UserProfileResponseModel;
 import com.imuons.shopntrips.model.VerifyOTPResponseModel;
 import com.imuons.shopntrips.retrofit.ApiHandler;
-import com.imuons.shopntrips.retrofit.ShopNTrips;
+import com.imuons.shopntrips.retrofit.Emwi;
 import com.imuons.shopntrips.utils.Constants;
 import com.imuons.shopntrips.utils.SharedPreferenceUtils;
 import com.imuons.shopntrips.utils.ViewUtils;
@@ -123,7 +122,7 @@ public class BankDetailsActivity extends AppCompatActivity {
         roiMap.put("bank_name", bankName);
         roiMap.put("ifsc_code", ifscCode);
 
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
 
         final Call<UpdateProfileResponseModel> loginCall = apiService.wsUpdateProfile("Bearer "
                 + SharedPreferenceUtils.getLoginObject(
@@ -163,7 +162,7 @@ public class BankDetailsActivity extends AppCompatActivity {
 
         roiMap.put("start", String.valueOf(0));
 
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
 
         final Call<OTPResponseModel> loginCall = apiService.wsSendOTP("Bearer "
                 + SharedPreferenceUtils.getLoginObject(
@@ -221,7 +220,7 @@ public class BankDetailsActivity extends AppCompatActivity {
 
         roiMap.put("otp", youEditTextValue);
 
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
 
         final Call<VerifyOTPResponseModel> loginCall = apiService.wsVeryfiedOTP("Bearer "
                 + SharedPreferenceUtils.getLoginObject(

@@ -3,7 +3,6 @@ package com.imuons.shopntrips.views;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -21,8 +20,7 @@ import android.widget.Toast;
 import com.imuons.shopntrips.R;
 import com.imuons.shopntrips.model.CheckUserExistResponseModel;
 import com.imuons.shopntrips.retrofit.ApiHandler;
-import com.imuons.shopntrips.retrofit.ShopNTrips;
-import com.imuons.shopntrips.utils.ViewUtils;
+import com.imuons.shopntrips.retrofit.Emwi;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -168,7 +166,7 @@ public class Registration extends AppCompatActivity {
 
         loginMap.put("user_id", userName);
 
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
         final Call<CheckUserExistResponseModel> loginCall = apiService.wsCheckUser(loginMap);
         loginCall.enqueue(new Callback<CheckUserExistResponseModel>() {
             @SuppressLint("WrongConstant")

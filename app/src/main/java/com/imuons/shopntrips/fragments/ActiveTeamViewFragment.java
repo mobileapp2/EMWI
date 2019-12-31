@@ -25,13 +25,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.imuons.shopntrips.R;
 import com.imuons.shopntrips.adapters.ActiveTeamViewAdapter;
-import com.imuons.shopntrips.adapters.TeamViewAdapter;
 import com.imuons.shopntrips.model.ActiveTeamViewRecordModel;
 import com.imuons.shopntrips.model.ActiveTeamViewResponseModel;
-import com.imuons.shopntrips.model.TeamViewRecordModel;
-import com.imuons.shopntrips.model.TeamViewResponseModel;
 import com.imuons.shopntrips.retrofit.ApiHandler;
-import com.imuons.shopntrips.retrofit.ShopNTrips;
+import com.imuons.shopntrips.retrofit.Emwi;
 import com.imuons.shopntrips.utils.Constants;
 import com.imuons.shopntrips.utils.SharedPreferenceUtils;
 import com.imuons.shopntrips.utils.Utils;
@@ -325,7 +322,7 @@ public class ActiveTeamViewFragment extends Fragment {
         tvMap.put("user_id",getUserid);
         tvMap.put("search[value]", mStringUserId);
 
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
         final Call<ActiveTeamViewResponseModel> loginCall = apiService.wsGetActiveTeamView(
                 "Bearer " + SharedPreferenceUtils.getAccesstoken(ActiveTeamViewFragment.this.getContext()),tvMap);
         loginCall.enqueue(new Callback<ActiveTeamViewResponseModel>() {

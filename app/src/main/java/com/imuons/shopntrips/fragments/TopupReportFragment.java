@@ -27,7 +27,7 @@ import com.imuons.shopntrips.adapters.TopUpReportAdapter;
 import com.imuons.shopntrips.model.TopUpReportRecordModel;
 import com.imuons.shopntrips.model.TopUpReportResponseModel;
 import com.imuons.shopntrips.retrofit.ApiHandler;
-import com.imuons.shopntrips.retrofit.ShopNTrips;
+import com.imuons.shopntrips.retrofit.Emwi;
 import com.imuons.shopntrips.utils.Constants;
 import com.imuons.shopntrips.utils.SharedPreferenceUtils;
 import com.imuons.shopntrips.utils.Utils;
@@ -164,7 +164,7 @@ public class TopupReportFragment extends Fragment {
         roiMap.put("length", countselected);
         roiMap.put("search[value]",mStringUserId);
 
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
         final Call<TopUpReportResponseModel> loginCall = apiService.wsTopupReport(
                 "Bearer " + SharedPreferenceUtils.getAccesstoken(TopupReportFragment.this.getContext()),roiMap);
         loginCall.enqueue(new Callback<TopUpReportResponseModel>() {
@@ -176,10 +176,10 @@ public class TopupReportFragment extends Fragment {
                 gif.setVisibility(View.GONE);
                 getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
                 if (response.isSuccessful()) {
-                    TopUpReportResponseModel binaryRoiReportResponseModel = response.body();
-                    if (binaryRoiReportResponseModel.getCode() == Constants.RESPONSE_CODE_OK &&
-                            binaryRoiReportResponseModel.getStatus().equals("OK")) {
-                        trList.addAll(binaryRoiReportResponseModel.getData().getRecords());
+                    TopUpReportResponseModel topUpReportResponseModel = response.body();
+                    if (topUpReportResponseModel.getCode() == Constants.RESPONSE_CODE_OK &&
+                            topUpReportResponseModel.getStatus().equals("OK")) {
+                        trList.addAll(topUpReportResponseModel.getData().getRecords());
                         if(trList.size() > 0) {
                             topUpReportAdapter = new TopUpReportAdapter(TopupReportFragment.this.getContext(), trList);
                             recycler_topup_report.setAdapter(topUpReportAdapter);
@@ -187,7 +187,7 @@ public class TopupReportFragment extends Fragment {
                             Toast.makeText(TopupReportFragment.this.getContext(), "No data available in table", Toast.LENGTH_SHORT).show();
                         }
                     } else {
-                        Toast.makeText(TopupReportFragment.this.getContext(), binaryRoiReportResponseModel.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(TopupReportFragment.this.getContext(), topUpReportResponseModel.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }
             }

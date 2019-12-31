@@ -23,7 +23,7 @@ import com.imuons.shopntrips.model.GetStateDatumModel;
 import com.imuons.shopntrips.model.GetStateResponseModel;
 import com.imuons.shopntrips.model.RegisterResponseModel;
 import com.imuons.shopntrips.retrofit.ApiHandler;
-import com.imuons.shopntrips.retrofit.ShopNTrips;
+import com.imuons.shopntrips.retrofit.Emwi;
 import com.imuons.shopntrips.utils.Constants;
 import com.imuons.shopntrips.utils.ViewUtils;
 
@@ -154,7 +154,7 @@ public class SignUp extends AppCompatActivity {
         Map<String, String> loginMap = new HashMap<>();
         loginMap.put("state", strstate);
 
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
         final Call<GetCityResponseModel> loginCall = apiService.wsGetCityByState(loginMap);
 
         loginCall.enqueue(new Callback<GetCityResponseModel>() {
@@ -213,7 +213,7 @@ public class SignUp extends AppCompatActivity {
 
 
 
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
         final Call<RegisterResponseModel> registerCall = apiService.wsRegister(registerMap);
         registerCall.enqueue(new Callback<RegisterResponseModel>() {
             @SuppressLint("WrongConstant")
@@ -284,7 +284,7 @@ public class SignUp extends AppCompatActivity {
         Map<String, String> loginMap = new HashMap<>();
         loginMap.put("country", "IN");
 
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
         final Call<GetStateResponseModel> loginCall = apiService.wsGetStateByCountry(loginMap);
 
         loginCall.enqueue(new Callback<GetStateResponseModel>() {

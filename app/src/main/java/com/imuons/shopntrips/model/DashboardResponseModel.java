@@ -50,4 +50,5 @@ public class DashboardResponseModel {
     public void setData(DashboardDataModel data) {
         this.data = data;
     }
+
 }

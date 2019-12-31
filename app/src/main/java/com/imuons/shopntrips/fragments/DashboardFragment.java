@@ -19,7 +19,7 @@ import com.imuons.shopntrips.R;
 import com.imuons.shopntrips.model.DashboardDataModel;
 import com.imuons.shopntrips.model.DashboardResponseModel;
 import com.imuons.shopntrips.retrofit.ApiHandler;
-import com.imuons.shopntrips.retrofit.ShopNTrips;
+import com.imuons.shopntrips.retrofit.Emwi;
 import com.imuons.shopntrips.utils.Constants;
 import com.imuons.shopntrips.utils.SharedPreferenceUtils;
 import com.imuons.shopntrips.utils.Utils;
@@ -34,24 +34,24 @@ import retrofit2.Response;
 public class DashboardFragment extends Fragment implements View.OnClickListener {
 
 
-    @BindView(R.id.txt_DirectUser)
-    TextView txt_DirectUser;
-    @BindView(R.id.txt_LeftMP)
-    TextView txt_LeftMP;
-    @BindView(R.id.txt_RightMP)
-    TextView txt_RightMP;
+    @BindView(R.id.leftbv)
+    TextView leftbv;
+    @BindView(R.id.rightbv)
+    TextView rightbv;
+    @BindView(R.id.directincome)
+    TextView directincome;
     @BindView(R.id.txt_TotalWithdrawal)
     TextView txt_TotalWithdrawal;
-    @BindView(R.id.txt_BinaryIncome)
-    TextView txt_BinaryIncome;
+    @BindView(R.id.binaryincome)
+    TextView binaryincome;
     @BindView(R.id.txt_RipBinaryIncome)
     TextView txt_RipBinaryIncome;
-    @BindView(R.id.txt_BinaryROIIncome)
-    TextView txt_BinaryROIIncome;
-    @BindView(R.id.txt_DirectROIIncome)
-    TextView txt_DirectROIIncome;
-    @BindView(R.id.txt_ROIIncome)
-    TextView txt_ROIIncome;
+    @BindView(R.id.royalityincome)
+    TextView royalityincome;
+    @BindView(R.id.leftbvrep)
+    TextView leftbvrep;
+    @BindView(R.id.rightbvrep)
+    TextView rightbvrep;
     @BindView(R.id.txt_TotalIncome)
     TextView txt_TotalIncome;
     @BindView(R.id.btn_DirectNewJoining)
@@ -100,7 +100,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
         loaderView.setVisibility(View.VISIBLE);
         getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
                 WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
         final Call<DashboardResponseModel> loginCall = apiService.wsGetDashboardData(
                 "Bearer " + SharedPreferenceUtils.getAccesstoken(DashboardFragment.this.getContext()));
         loginCall.enqueue(new Callback<DashboardResponseModel>() {
@@ -137,17 +137,17 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
     }
 
     private void setUserData(DashboardDataModel data) {
-        txt_DirectUser.setText(String.valueOf(data.getTotalDirect()));
-        txt_LeftMP.setText(String.valueOf(data.getLeftBv()));
-        txt_RightMP.setText(String.valueOf(data.getRightBv()));
-        txt_TotalWithdrawal.setText(String.valueOf(data.getTotalWithdraw()));
-        txt_BinaryIncome.setText(String.valueOf(data.getBinaryIncome()));
-        txt_BinaryROIIncome.setText(String.valueOf(data.getBinaryRoiIncome()));
-        txt_DirectROIIncome.setText(String.valueOf(data.getDirectRoiIncome()));
-        txt_ROIIncome.setText(String.valueOf(data.getRoiIncome()));
-        txt_TotalIncome.setText(String.valueOf(data.getTotalIncome()));
-
+        leftbv.setText(String.valueOf(data.getLeftBv()));
+        rightbv.setText(String.valueOf(data.getRightBv()));
+        directincome.setText(String.valueOf(data.getDirectIncome()));
+        binaryincome.setText(String.valueOf(data.getBinaryIncome()));
+        royalityincome.setText(String.valueOf(data.getRoyalityIncome()));
         txt_RipBinaryIncome.setText(String.valueOf(data.getRepurchaseIncome()));
+        leftbvrep.setText(String.valueOf(data.getLeftBvRep()));
+        rightbvrep.setText(String.valueOf(data.getRightBvRep()));
+        txt_TotalWithdrawal.setText(String.valueOf(data.getTotalWithdraw()));
+
+        txt_TotalIncome.setText(String.valueOf(data.getTotalIncome()));
     }
 
     @Override
@@ -156,7 +156,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
 
         switch (view.getId()) {
             case R.id.btn_DirectNewJoining:
-                fragment = new DirectRoiIncomeReportFragment();
+                fragment = new RoyalityQualifiedReportFragment();
                 replaceFragment(fragment);
                 break;
 

@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.imuons.shopntrips.R;
 import com.imuons.shopntrips.model.LoginResponseModel;
 import com.imuons.shopntrips.retrofit.ApiHandler;
-import com.imuons.shopntrips.retrofit.ShopNTrips;
+import com.imuons.shopntrips.retrofit.Emwi;
 import com.imuons.shopntrips.utils.Constants;
 import com.imuons.shopntrips.utils.SharedPreferenceUtils;
 
@@ -119,7 +119,7 @@ public class LoginActivity extends AppCompatActivity {
         loginMap.put("user_id", userName);
         loginMap.put("password", password);
 
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
         final Call<LoginResponseModel> loginCall = apiService.wsLogin(loginMap);
         loginCall.enqueue(new Callback<LoginResponseModel>() {
             @SuppressLint("WrongConstant")

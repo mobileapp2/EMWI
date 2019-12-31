@@ -4,9 +4,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class AwardReportRecordModel {
-    @SerializedName("win_id")
-    @Expose
-    private Integer winId;
+
     @SerializedName("id")
     @Expose
     private Integer id;
@@ -19,35 +17,24 @@ public class AwardReportRecordModel {
     @SerializedName("award")
     @Expose
     private String award;
-    @SerializedName("left_bv_for_award")
+    @SerializedName("total_l_bv_match")
     @Expose
-    private String leftBvForAward;
-    @SerializedName("right_bv_for_award")
+    private String totalLBvMatch;
+    @SerializedName("total_r_bv_match")
     @Expose
-    private Integer rightBvForAward;
+    private Integer totalRBvMatch;
     @SerializedName("amount")
     @Expose
     private Integer amount;
-    @SerializedName("won_on_date")
+    @SerializedName("entry_time")
     @Expose
-    private String wonOnDate;
-    @SerializedName("status")
-    @Expose
-    private Integer status;
+    private String entryTime;
     @SerializedName("user_l_bv")
     @Expose
     private Integer userLBv;
     @SerializedName("user_r_bv")
     @Expose
     private Integer userRBv;
-
-    public Integer getWinId() {
-        return winId;
-    }
-
-    public void setWinId(Integer winId) {
-        this.winId = winId;
-    }
 
     public Integer getId() {
         return id;
@@ -81,20 +68,20 @@ public class AwardReportRecordModel {
         this.award = award;
     }
 
-    public String getLeftBvForAward() {
-        return leftBvForAward;
+    public String getTotalLBvMatch() {
+        return totalLBvMatch;
     }
 
-    public void setLeftBvForAward(String leftBvForAward) {
-        this.leftBvForAward = leftBvForAward;
+    public void setTotalLBvMatch(String totalLBvMatch) {
+        this.totalLBvMatch = totalLBvMatch;
     }
 
-    public Integer getRightBvForAward() {
-        return rightBvForAward;
+    public Integer getTotalRBvMatch() {
+        return totalRBvMatch;
     }
 
-    public void setRightBvForAward(Integer rightBvForAward) {
-        this.rightBvForAward = rightBvForAward;
+    public void setTotalRBvMatch(Integer totalRBvMatch) {
+        this.totalRBvMatch = totalRBvMatch;
     }
 
     public Integer getAmount() {
@@ -105,20 +92,12 @@ public class AwardReportRecordModel {
         this.amount = amount;
     }
 
-    public String getWonOnDate() {
-        return wonOnDate;
+    public String getEntryTime() {
+        return entryTime;
     }
 
-    public void setWonOnDate(String wonOnDate) {
-        this.wonOnDate = wonOnDate;
-    }
-
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
+    public void setEntryTime(String entryTime) {
+        this.entryTime = entryTime;
     }
 
     public Integer getUserLBv() {

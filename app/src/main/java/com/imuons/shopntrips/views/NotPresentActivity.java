@@ -18,7 +18,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.imuons.shopntrips.R;
-import com.imuons.shopntrips.fragments.TreeViewFragment;
 import com.imuons.shopntrips.model.GetCityDatumModel;
 import com.imuons.shopntrips.model.GetCityResponseModel;
 import com.imuons.shopntrips.model.GetStateDatumModel;
@@ -28,7 +27,7 @@ import com.imuons.shopntrips.model.UserProfileDataModel;
 import com.imuons.shopntrips.model.UserProfileResponseModel;
 import com.imuons.shopntrips.model.UserTopUpResponse;
 import com.imuons.shopntrips.retrofit.ApiHandler;
-import com.imuons.shopntrips.retrofit.ShopNTrips;
+import com.imuons.shopntrips.retrofit.Emwi;
 import com.imuons.shopntrips.utils.Constants;
 import com.imuons.shopntrips.utils.SharedPreferenceUtils;
 import com.imuons.shopntrips.utils.ViewUtils;
@@ -169,7 +168,7 @@ public class NotPresentActivity extends AppCompatActivity {
         final ProgressDialog pd = ViewUtils.getProgressBar(NotPresentActivity.this,
                 "Loading...", "Please wait..!");
 
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
         final Call<UserProfileResponseModel> loginCall = apiService.wsUserProfileInfo(
                 "Bearer " + SharedPreferenceUtils.getLoginObject(
                         NotPresentActivity.this).getData().getAccess_token());
@@ -205,7 +204,7 @@ public class NotPresentActivity extends AppCompatActivity {
         Map<String, String> loginMap = new HashMap<>();
         loginMap.put("country", "IN");
 
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
         final Call<GetStateResponseModel> loginCall = apiService.wsGetStateByCountry(loginMap);
 
         loginCall.enqueue(new Callback<GetStateResponseModel>() {
@@ -242,7 +241,7 @@ public class NotPresentActivity extends AppCompatActivity {
         Map<String, String> loginMap = new HashMap<>();
         loginMap.put("state", strstate);
 
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
         final Call<GetCityResponseModel> loginCall = apiService.wsGetCityByState(loginMap);
 
         loginCall.enqueue(new Callback<GetCityResponseModel>() {
@@ -304,7 +303,7 @@ public class NotPresentActivity extends AppCompatActivity {
         registerMap.put("pincode", strpincode);
 
 
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
         final Call<RegisterResponseModel> registerCall = apiService.wsRegister(registerMap);
         registerCall.enqueue(new Callback<RegisterResponseModel>() {
             @SuppressLint("WrongConstant")

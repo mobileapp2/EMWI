@@ -34,6 +34,9 @@ public class TopUpReportRecordModel {
     @SerializedName("entry_time")
     @Expose
     private String entryTime;
+    @SerializedName("status")
+    @Expose
+    private String status;
     @SerializedName("to_entry_time")
     @Expose
     private String toEntryTime;
@@ -122,6 +125,14 @@ public class TopUpReportRecordModel {
 
     public void setEntryTime(String entryTime) {
         this.entryTime = entryTime;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getToEntryTime() {

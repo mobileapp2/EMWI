@@ -4,7 +4,6 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class BinaryIncomeReportRecordModel {
-
     @SerializedName("id")
     @Expose
     private Integer id;
@@ -16,7 +15,7 @@ public class BinaryIncomeReportRecordModel {
     private String amount;
     @SerializedName("net_amount")
     @Expose
-    private String netAmount;
+    private Object netAmount;
     @SerializedName("tax_amount")
     @Expose
     private String taxAmount;
@@ -31,16 +30,16 @@ public class BinaryIncomeReportRecordModel {
     private Integer rightBv;
     @SerializedName("match_bv")
     @Expose
-    private Integer matchBv;
+    private String matchBv;
     @SerializedName("laps_bv")
     @Expose
-    private Double lapsBv;
+    private Integer lapsBv;
     @SerializedName("entry_time")
     @Expose
     private String entryTime;
     @SerializedName("pin")
     @Expose
-    private String pin;
+    private Object pin;
     @SerializedName("remark")
     @Expose
     private Object remark;
@@ -88,10 +87,13 @@ public class BinaryIncomeReportRecordModel {
     private String createdAt;
     @SerializedName("updated_at")
     @Expose
-    private String updatedAt;
+    private Object updatedAt;
     @SerializedName("fullname")
     @Expose
     private String fullname;
+    @SerializedName("capping")
+    @Expose
+    private Integer capping;
 
     public Integer getId() {
         return id;
@@ -117,11 +119,11 @@ public class BinaryIncomeReportRecordModel {
         this.amount = amount;
     }
 
-    public String getNetAmount() {
+    public Object getNetAmount() {
         return netAmount;
     }
 
-    public void setNetAmount(String netAmount) {
+    public void setNetAmount(Object netAmount) {
         this.netAmount = netAmount;
     }
 
@@ -157,19 +159,19 @@ public class BinaryIncomeReportRecordModel {
         this.rightBv = rightBv;
     }
 
-    public Integer getMatchBv() {
+    public String getMatchBv() {
         return matchBv;
     }
 
-    public void setMatchBv(Integer matchBv) {
+    public void setMatchBv(String matchBv) {
         this.matchBv = matchBv;
     }
 
-    public Double getLapsBv() {
+    public Integer getLapsBv() {
         return lapsBv;
     }
 
-    public void setLapsBv(Double lapsBv) {
+    public void setLapsBv(Integer lapsBv) {
         this.lapsBv = lapsBv;
     }
 
@@ -181,11 +183,11 @@ public class BinaryIncomeReportRecordModel {
         this.entryTime = entryTime;
     }
 
-    public String getPin() {
+    public Object getPin() {
         return pin;
     }
 
-    public void setPin(String pin) {
+    public void setPin(Object pin) {
         this.pin = pin;
     }
 
@@ -309,11 +311,11 @@ public class BinaryIncomeReportRecordModel {
         this.createdAt = createdAt;
     }
 
-    public String getUpdatedAt() {
+    public Object getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(String updatedAt) {
+    public void setUpdatedAt(Object updatedAt) {
         this.updatedAt = updatedAt;
     }
 
@@ -323,5 +325,13 @@ public class BinaryIncomeReportRecordModel {
 
     public void setFullname(String fullname) {
         this.fullname = fullname;
+    }
+
+    public Integer getCapping() {
+        return capping;
+    }
+
+    public void setCapping(Integer capping) {
+        this.capping = capping;
     }
 }

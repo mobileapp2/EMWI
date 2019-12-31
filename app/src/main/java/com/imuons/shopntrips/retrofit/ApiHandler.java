@@ -11,10 +11,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiHandler {
 
-    private static final String DEV_BASE_URL = "https://www.shopntripsindia.com/replica/shopntripsindia/public/api/";
+    private static final String DEV_BASE_URL = "https://www.emwi.in/emwi/public/api/";
 
     private static final long HTTP_TIMEOUT = TimeUnit.SECONDS.toMillis(60);
-    private static ShopNTrips apiService;
+    private static Emwi apiService;
 
     private static Retrofit.Builder builder =
             new Retrofit.Builder()
@@ -24,7 +24,7 @@ public class ApiHandler {
 
     private static OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
 
-    public static ShopNTrips getApiService() {
+    public static Emwi getApiService() {
         if (apiService == null) {
             httpClient.connectTimeout(HTTP_TIMEOUT, TimeUnit.MILLISECONDS);
             httpClient.writeTimeout(HTTP_TIMEOUT, TimeUnit.MILLISECONDS);
@@ -34,7 +34,7 @@ public class ApiHandler {
             logging.setLevel(HttpLoggingInterceptor.Level.BODY);
             httpClient.addInterceptor(logging);
             Retrofit retrofit = builder.client(httpClient.build()).build();
-            apiService = retrofit.create(ShopNTrips.class);
+            apiService = retrofit.create(Emwi.class);
             return apiService;
         } else {
             return apiService;

@@ -1,8 +1,6 @@
 package com.imuons.shopntrips.fragments;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -25,12 +23,10 @@ import android.widget.Toast;
 
 import com.imuons.shopntrips.R;
 import com.imuons.shopntrips.adapters.FundRequestReportAdapter;
-import com.imuons.shopntrips.adapters.TopUpReportAdapter;
 import com.imuons.shopntrips.model.FundRequestReportRecordModel;
 import com.imuons.shopntrips.model.FundRequestReportResponseModel;
-import com.imuons.shopntrips.model.TopUpReportResponseModel;
 import com.imuons.shopntrips.retrofit.ApiHandler;
-import com.imuons.shopntrips.retrofit.ShopNTrips;
+import com.imuons.shopntrips.retrofit.Emwi;
 import com.imuons.shopntrips.utils.Constants;
 import com.imuons.shopntrips.utils.SharedPreferenceUtils;
 import com.imuons.shopntrips.utils.Utils;
@@ -165,7 +161,7 @@ public class FundRequestReportFragment extends Fragment {
       roiMap.put("length", countselected);
       roiMap.put("search[value]",mStringUserId);
 
-      ShopNTrips apiService = ApiHandler.getApiService();
+      Emwi apiService = ApiHandler.getApiService();
       final Call<FundRequestReportResponseModel> loginCall = apiService.wsFundRequestReport(
               "Bearer " + SharedPreferenceUtils.getAccesstoken(FundRequestReportFragment.this.getContext()),roiMap);
       loginCall.enqueue(new Callback<FundRequestReportResponseModel>() {

@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.imuons.shopntrips.R;
 import com.imuons.shopntrips.model.ChangePasswordResponseModel;
 import com.imuons.shopntrips.retrofit.ApiHandler;
-import com.imuons.shopntrips.retrofit.ShopNTrips;
+import com.imuons.shopntrips.retrofit.Emwi;
 import com.imuons.shopntrips.utils.Constants;
 import com.imuons.shopntrips.utils.SharedPreferenceUtils;
 
@@ -70,7 +70,7 @@ public class UpdateSecurityActivity extends AppCompatActivity {
         passwordmap.put("retype_password", compass);
 
 
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
         final Call<ChangePasswordResponseModel> loginCall = apiService.wsChangePassword("Bearer " + SharedPreferenceUtils.getAccesstoken(UpdateSecurityActivity.this), passwordmap);
         loginCall.enqueue(new Callback<ChangePasswordResponseModel>() {
             @SuppressLint("WrongConstant")

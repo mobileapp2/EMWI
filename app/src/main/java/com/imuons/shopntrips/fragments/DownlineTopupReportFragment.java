@@ -24,13 +24,10 @@ import android.widget.Toast;
 
 import com.imuons.shopntrips.R;
 import com.imuons.shopntrips.adapters.DownlineTopUpReportAdapter;
-import com.imuons.shopntrips.adapters.TopUpReportAdapter;
 import com.imuons.shopntrips.model.DownlineTopUpReportRecordModel;
 import com.imuons.shopntrips.model.DownlineTopUpReportResponseModel;
-import com.imuons.shopntrips.model.TopUpReportRecordModel;
-import com.imuons.shopntrips.model.TopUpReportResponseModel;
 import com.imuons.shopntrips.retrofit.ApiHandler;
-import com.imuons.shopntrips.retrofit.ShopNTrips;
+import com.imuons.shopntrips.retrofit.Emwi;
 import com.imuons.shopntrips.utils.Constants;
 import com.imuons.shopntrips.utils.SharedPreferenceUtils;
 import com.imuons.shopntrips.utils.Utils;
@@ -165,7 +162,7 @@ public class DownlineTopupReportFragment extends Fragment {
         roiMap.put("length", countselected);
         roiMap.put("search[value]",mStringUserId);
 
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
         final Call<DownlineTopUpReportResponseModel> loginCall = apiService.wsDownlineTopupReport(
                 "Bearer " + SharedPreferenceUtils.getAccesstoken(DownlineTopupReportFragment.this.getContext()),roiMap);
         loginCall.enqueue(new Callback<DownlineTopUpReportResponseModel>() {

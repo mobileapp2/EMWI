@@ -13,7 +13,7 @@ import android.widget.Toast;
 import com.imuons.shopntrips.R;
 import com.imuons.shopntrips.model.ResetPasswordResponseModel;
 import com.imuons.shopntrips.retrofit.ApiHandler;
-import com.imuons.shopntrips.retrofit.ShopNTrips;
+import com.imuons.shopntrips.retrofit.Emwi;
 import com.imuons.shopntrips.utils.Constants;
 
 import butterknife.BindView;
@@ -57,7 +57,7 @@ public class ResetPassword extends AppCompatActivity {
         final String userName;
         userName = edit_userid.getText().toString().trim();
 
-        ShopNTrips apiService = ApiHandler.getApiService();
+        Emwi apiService = ApiHandler.getApiService();
 
         final Call<ResetPasswordResponseModel> loginCall = apiService.wsResetPassword(userName);
 
