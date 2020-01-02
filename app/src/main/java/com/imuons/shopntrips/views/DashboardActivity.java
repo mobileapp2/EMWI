@@ -40,6 +40,7 @@ import com.imuons.shopntrips.fragments.TeamViewFragment;
 import com.imuons.shopntrips.fragments.TopupReportFragment;
 import com.imuons.shopntrips.fragments.TopupFragment;
 import com.imuons.shopntrips.fragments.TreeViewFragment;
+import com.imuons.shopntrips.fragments.UsedEPinReportFragment;
 import com.imuons.shopntrips.fragments.WithdrawRequestReportFragment;
 import com.imuons.shopntrips.fragments.WithdrawHistoryReportFragment;
 import com.imuons.shopntrips.model.ExpandableListModel;
@@ -200,7 +201,7 @@ public class DashboardActivity extends AppCompatActivity {
                                 break;
 
                             case 1:
-                                fragmentManager.beginTransaction().replace(R.id.content_frame, BinaryIncomeFragment.newInstance()).commit();
+                                fragmentManager.beginTransaction().replace(R.id.content_frame, UsedEPinReportFragment.newInstance()).commit();
                                 getSupportActionBar().setTitle("Used E-Pin Report");
                                 mExpandableListView.setItemChecked(childPosition, true);
                                 mExpandableListView.setSelection(childPosition);

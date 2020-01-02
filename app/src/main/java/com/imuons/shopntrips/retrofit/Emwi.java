@@ -3,6 +3,7 @@ package com.imuons.shopntrips.retrofit;
 import com.imuons.shopntrips.model.ActiveTeamViewResponseModel;
 import com.imuons.shopntrips.model.AwardReportGetResponse;
 import com.imuons.shopntrips.model.AwardReportResponseModel;
+import com.imuons.shopntrips.model.BonanzaResponseModel;
 import com.imuons.shopntrips.model.ProductResponseModel;
 import com.imuons.shopntrips.model.RoyalityIncomeReportResponseModel;
 import com.imuons.shopntrips.model.DirectIncomeReportResponseModel;
@@ -36,6 +37,7 @@ import com.imuons.shopntrips.model.TicketResponseModel;
 import com.imuons.shopntrips.model.TopUpReportResponseModel;
 import com.imuons.shopntrips.model.TreeViewResponseModel;
 import com.imuons.shopntrips.model.UpdateProfileResponseModel;
+import com.imuons.shopntrips.model.UsedEpinReportResponseModel;
 import com.imuons.shopntrips.model.UserPhotosResponseModel;
 import com.imuons.shopntrips.model.UserProfileResponseModel;
 import com.imuons.shopntrips.model.UserTopUpResponse;
@@ -205,6 +207,10 @@ public interface Emwi {
     @POST("direct_list")
     Call<DirectUserListResponseModel> wsDirectUserList(@Header("Authorization") String authHeader, @FieldMap Map<String, String> loginMap);
 
+    @FormUrlEncoded
+    @POST("inactive_epins")
+    Call<UsedEpinReportResponseModel> wsUsedEpinReport(@Header("Authorization") String authHeader, @FieldMap Map<String, String> loginMap);
+
     @GET("downline-summary")
     Call<DownlineSummaryResponseModel> wsDownlineSummary(@Header("Authorization") String authHeader);
 
@@ -245,6 +251,9 @@ public interface Emwi {
     @POST("user/report/awardwinners")
     Call<AwardReportResponseModel> wsBAwardReport(@Header("Authorization") String authHeader, @FieldMap Map<String, String> loginMap);
 
+    @FormUrlEncoded
+    @POST("awardwinnerReport")
+    Call<BonanzaResponseModel> wsGetBonanzaReport(@Header("Authorization") String authHeader, @FieldMap Map<String, String> loginMap);
   /*
 
 

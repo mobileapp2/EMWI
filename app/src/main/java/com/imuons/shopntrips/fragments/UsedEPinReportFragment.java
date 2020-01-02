@@ -25,12 +25,12 @@ import android.widget.Toast;
 
 
 import com.imuons.shopntrips.R;
-import com.imuons.shopntrips.adapters.AwardReportAdapter;
-import com.imuons.shopntrips.adapters.BonanzaReportAdapter;
-import com.imuons.shopntrips.model.AwardReportRecordModel;
-import com.imuons.shopntrips.model.AwardReportResponseModel;
-import com.imuons.shopntrips.model.BonanzaRecordModel;
-import com.imuons.shopntrips.model.BonanzaResponseModel;
+import com.imuons.shopntrips.adapters.DirectUSerListAdapter;
+import com.imuons.shopntrips.adapters.UsedEpinReportAdapter;
+import com.imuons.shopntrips.model.DirectUserListRecordModel;
+import com.imuons.shopntrips.model.DirectUserListResponseModel;
+import com.imuons.shopntrips.model.UsedEpinReportRecordModel;
+import com.imuons.shopntrips.model.UsedEpinReportResponseModel;
 import com.imuons.shopntrips.retrofit.ApiHandler;
 import com.imuons.shopntrips.retrofit.Emwi;
 import com.imuons.shopntrips.utils.Constants;
@@ -49,10 +49,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-
-public class BonanzaReportFragment extends Fragment {
-    @BindView(R.id.recycler_bonanza_report)
-    RecyclerView recycler_bonanza_report;
+public class UsedEPinReportFragment extends Fragment {
+    @BindView(R.id.recycler_usedepin_report)
+    RecyclerView recycler_usedepin_report;
     @BindView(R.id.searchbyid)
     EditText searchbyid;
     @BindView(R.id.gif)
@@ -62,44 +61,46 @@ public class BonanzaReportFragment extends Fragment {
     @BindView(R.id.dropdoenentry)
     View dropdoenentry;
     String mStringUserId;
-    BonanzaReportAdapter bonanzaReportAdapter;
-    private List<BonanzaRecordModel> bList = new ArrayList<>();
+    UsedEpinReportAdapter usedEpinReportAdapter;
+    private List<UsedEpinReportRecordModel> ueList = new ArrayList<>();
     String countselected = "10";
     private FragmentManager fragmentManager;
     String entry[] ={"10","50","100","500","1000","5000","10000"};
     ListPopupWindow entrypopupwindow;
 
-    public BonanzaReportFragment() {
+
+    public UsedEPinReportFragment() {
         // Required empty public constructor
     }
 
 
-    public static BonanzaReportFragment newInstance() {
-        BonanzaReportFragment fragment = new BonanzaReportFragment();
+    public static UsedEPinReportFragment newInstance() {
+        UsedEPinReportFragment fragment = new UsedEPinReportFragment();
 
         return fragment;
     }
+
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_bonanza_report, container, false);
+        View view = inflater.inflate(R.layout.fragment_used_epin_report, container, false);
         ButterKnife.bind(this, view);
         fragmentManager = getFragmentManager();
 
         entrypopupwindow = new ListPopupWindow(
-                BonanzaReportFragment.this.getContext());
-        recycler_bonanza_report.setHasFixedSize(true);
-        recycler_bonanza_report.setLayoutManager(new LinearLayoutManager(BonanzaReportFragment.this.getContext(),LinearLayoutManager.VERTICAL,false));
+                UsedEPinReportFragment.this.getContext());
+        recycler_usedepin_report.setHasFixedSize(true);
+        recycler_usedepin_report.setLayoutManager(new LinearLayoutManager(UsedEPinReportFragment.this.getContext(),LinearLayoutManager.VERTICAL,false));
         getselectedentry.setText(countselected);
         dropdoenentry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 entrypopupwindow.setAdapter(new ArrayAdapter(
-                        BonanzaReportFragment.this.getContext(),
+                        UsedEPinReportFragment.this.getContext(),
                         R.layout.check_list_item, entry));
                 entrypopupwindow.setAnchorView(dropdoenentry);
                 entrypopupwindow.setWidth(170);
@@ -113,7 +114,7 @@ public class BonanzaReportFragment extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 getselectedentry.setText(entry[i]);
                 countselected = getselectedentry.getText().toString();
-                bList.clear();
+                ueList.clear();
                 mStringUserId="";
                 getData(mStringUserId);
                 entrypopupwindow.dismiss();
@@ -123,7 +124,7 @@ public class BonanzaReportFragment extends Fragment {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                    bList.clear();
+                    ueList.clear();
                     // if (validateUserId()) {
                     mStringUserId = searchbyid.getText().toString().trim();
                     getData(mStringUserId);
@@ -141,19 +142,18 @@ public class BonanzaReportFragment extends Fragment {
         });
         return view;
     }
-
     @Override
     public void onResume() {
         super.onResume();
-        if (Utils.checkInternetConnection(BonanzaReportFragment.this.getContext())) {
-            recycler_bonanza_report.setHasFixedSize(true);
-            recycler_bonanza_report.setLayoutManager(new LinearLayoutManager(BonanzaReportFragment.this.getContext(),LinearLayoutManager.VERTICAL,false));
-            bList.clear();
+        if (Utils.checkInternetConnection(UsedEPinReportFragment.this.getContext())) {
+            recycler_usedepin_report.setHasFixedSize(true);
+            recycler_usedepin_report.setLayoutManager(new LinearLayoutManager(UsedEPinReportFragment.this.getContext(),LinearLayoutManager.VERTICAL,false));
+            ueList.clear();
             mStringUserId="";
             getData(mStringUserId);
 
         } else {
-            Toast.makeText(BonanzaReportFragment.this.getContext(),
+            Toast.makeText(UsedEPinReportFragment.this.getContext(),
                     getString(R.string.no_internet_connection_message), Toast.LENGTH_SHORT).show();
         }
     }
@@ -170,43 +170,43 @@ public class BonanzaReportFragment extends Fragment {
         roiMap.put("search[value]",mStringUserId);
 
         Emwi apiService = ApiHandler.getApiService();
-        final Call<BonanzaResponseModel> loginCall = apiService.wsGetBonanzaReport(
-                "Bearer " + SharedPreferenceUtils.getAccesstoken(BonanzaReportFragment.this.getContext()),roiMap);
-        loginCall.enqueue(new Callback<BonanzaResponseModel>() {
+        final Call<UsedEpinReportResponseModel> loginCall = apiService.wsUsedEpinReport(
+                "Bearer " + SharedPreferenceUtils.getAccesstoken(UsedEPinReportFragment.this.getContext()),roiMap);
+        loginCall.enqueue(new Callback<UsedEpinReportResponseModel>() {
             @SuppressLint("WrongConstant")
             @Override
-            public void onResponse(Call<BonanzaResponseModel> call,
-                                   Response<BonanzaResponseModel> response) {
+            public void onResponse(Call<UsedEpinReportResponseModel> call,
+                                   Response<UsedEpinReportResponseModel> response) {
 //                pd.hide();
                 gif.setVisibility(View.GONE);
                 getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
                 if (response.isSuccessful()) {
-                    BonanzaResponseModel awardReportResponseModel = response.body();
-                    if (awardReportResponseModel.getCode() == Constants.RESPONSE_CODE_OK &&
-                            awardReportResponseModel.getStatus().equals("OK")) {
-                        bList.addAll(awardReportResponseModel.getData().getRecords());
-                        if(bList.size() > 0) {
-                            bonanzaReportAdapter = new BonanzaReportAdapter(BonanzaReportFragment.this.getContext(), bList);
-                            recycler_bonanza_report.setAdapter(bonanzaReportAdapter);
+                    UsedEpinReportResponseModel usedEpinReportResponseModel = response.body();
+                    if (usedEpinReportResponseModel.getCode() == Constants.RESPONSE_CODE_OK &&
+                            usedEpinReportResponseModel.getStatus().equals("OK")) {
+                        ueList.addAll(usedEpinReportResponseModel.getData().getRecords());
+                        if(ueList.size() > 0) {
+                            usedEpinReportAdapter = new UsedEpinReportAdapter(UsedEPinReportFragment.this.getContext(), ueList);
+                            recycler_usedepin_report.setAdapter(usedEpinReportAdapter);
                         }else{
-                            Toast.makeText(BonanzaReportFragment.this.getContext(), "No data available in table", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(UsedEPinReportFragment.this.getContext(), "No data available in table", Toast.LENGTH_SHORT).show();
                         }
                     } else {
-                        Toast.makeText(BonanzaReportFragment.this.getContext(), awardReportResponseModel.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(UsedEPinReportFragment.this.getContext(), usedEpinReportResponseModel.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }
             }
+
             @Override
-            public void onFailure(Call<BonanzaResponseModel> call,
+            public void onFailure(Call<UsedEpinReportResponseModel> call,
                                   Throwable t) {
 //                pd.hide();
                 gif.setVisibility(View.GONE);
                 getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
-                Toast.makeText(BonanzaReportFragment.this.getContext(), getString(R.string.something_went_wrong), Toast.LENGTH_SHORT).show();
+                Toast.makeText(UsedEPinReportFragment.this.getContext(), getString(R.string.something_went_wrong), Toast.LENGTH_SHORT).show();
             }
         });
     }
 }
-
 
 

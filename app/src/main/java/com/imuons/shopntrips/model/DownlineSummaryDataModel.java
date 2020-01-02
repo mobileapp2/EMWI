@@ -30,10 +30,22 @@ public class DownlineSummaryDataModel {
     private Integer activeR;
     @SerializedName("carry_left_bv")
     @Expose
-    private Integer carryLeftBv;
+    private String carryLeftBv;
     @SerializedName("carry_right_bv")
     @Expose
-    private Integer carryRightBv;
+    private String carryRightBv;
+    @SerializedName("l_bv_rep")
+    @Expose
+    private Integer lBvRep;
+    @SerializedName("r_bv_rep")
+    @Expose
+    private Integer rBvRep;
+    @SerializedName("carry_left_bv_r")
+    @Expose
+    private String carryLeftBvR;
+    @SerializedName("carry_right_bv_r")
+    @Expose
+    private String carryRightBvR;
 
     public String getUserId() {
         return userId;
@@ -99,20 +111,52 @@ public class DownlineSummaryDataModel {
         this.activeR = activeR;
     }
 
-    public Integer getCarryLeftBv() {
+    public String getCarryLeftBv() {
         return carryLeftBv;
     }
 
-    public void setCarryLeftBv(Integer carryLeftBv) {
+    public void setCarryLeftBv(String carryLeftBv) {
         this.carryLeftBv = carryLeftBv;
     }
 
-    public Integer getCarryRightBv() {
+    public String getCarryRightBv() {
         return carryRightBv;
     }
 
-    public void setCarryRightBv(Integer carryRightBv) {
+    public void setCarryRightBv(String carryRightBv) {
         this.carryRightBv = carryRightBv;
+    }
+
+    public Integer getLBvRep() {
+        return lBvRep;
+    }
+
+    public void setLBvRep(Integer lBvRep) {
+        this.lBvRep = lBvRep;
+    }
+
+    public Integer getRBvRep() {
+        return rBvRep;
+    }
+
+    public void setRBvRep(Integer rBvRep) {
+        this.rBvRep = rBvRep;
+    }
+
+    public String getCarryLeftBvR() {
+        return carryLeftBvR;
+    }
+
+    public void setCarryLeftBvR(String carryLeftBvR) {
+        this.carryLeftBvR = carryLeftBvR;
+    }
+
+    public String getCarryRightBvR() {
+        return carryRightBvR;
+    }
+
+    public void setCarryRightBvR(String carryRightBvR) {
+        this.carryRightBvR = carryRightBvR;
     }
 
 }

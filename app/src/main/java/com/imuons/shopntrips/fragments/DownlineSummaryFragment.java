@@ -44,10 +44,19 @@ public class DownlineSummaryFragment extends Fragment {
     EditText leftbs;
     @BindView(R.id.rightbs)
     EditText rightbs;
+    @BindView(R.id.carryleftbv)
+    EditText carryleftbv;
+    @BindView(R.id.carryrightbv)
+    EditText carryrightbv;
     @BindView(R.id.carryleftbs)
     EditText carryleftbs;
     @BindView(R.id.carryrightbs)
     EditText carryrightbs;
+
+    @BindView(R.id.carryrepurchaseleftbs)
+    EditText carryrepurchaseleftbs;
+    @BindView(R.id.carryrepurchaserightbs)
+    EditText carryrepurchaserightbs;
 
     @BindView(R.id.gif)
     GifImageView gif;
@@ -126,8 +135,7 @@ public class DownlineSummaryFragment extends Fragment {
         int intrightuserid = data.getRCCount();
         int intleftbs = data.getLBv();
         int intrightbs = data.getRBv();
-        int cleft = data.getCarryLeftBv();
-        int cright = data.getCarryRightBv();
+
 
 
         leftuserid.setText(String.valueOf(intleftuserid));
@@ -136,8 +144,14 @@ public class DownlineSummaryFragment extends Fragment {
         leftbs.setText(String.valueOf(intleftbs));
         rightbs.setText(String.valueOf(intrightbs));
 
-        carryleftbs.setText(String.valueOf(cleft));
-        carryrightbs.setText(String.valueOf(cright));
+         carryleftbv.setText(data.getCarryLeftBv());
+        carryrightbv.setText(data.getCarryRightBv());
+
+        carryleftbs.setText(String.valueOf(data.getLBvRep()));
+        carryrightbs.setText(String.valueOf(data.getRBvRep()));
+
+        carryrepurchaseleftbs.setText(data.getCarryLeftBvR());
+        carryrepurchaserightbs.setText(data.getCarryRightBvR());
     }
 
 
