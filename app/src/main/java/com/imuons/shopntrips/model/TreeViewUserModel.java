@@ -38,12 +38,24 @@ public class TreeViewUserModel {
     @SerializedName("r_bv")
     @Expose
     private Integer rBv;
+    @SerializedName("l_bv_rep")
+    @Expose
+    private Integer lBvRep;
+    @SerializedName("r_bv_rep")
+    @Expose
+    private Integer rBvRep;
     @SerializedName("left_bv")
     @Expose
-    private Integer leftBv;
+    private String leftBv;
     @SerializedName("right_bv")
     @Expose
-    private Integer rightBv;
+    private String rightBv;
+    @SerializedName("carry_left_bv_rep")
+    @Expose
+    private String carryLeftBvRep;
+    @SerializedName("carry_right_bv_rep")
+    @Expose
+    private String carryRightBvRep;
     @SerializedName("left_bv_rep")
     @Expose
     private Integer leftBvRep;
@@ -163,20 +175,52 @@ public class TreeViewUserModel {
         this.rBv = rBv;
     }
 
-    public Integer getLeftBv() {
+    public Integer getLBvRep() {
+        return lBvRep;
+    }
+
+    public void setLBvRep(Integer lBvRep) {
+        this.lBvRep = lBvRep;
+    }
+
+    public Integer getRBvRep() {
+        return rBvRep;
+    }
+
+    public void setRBvRep(Integer rBvRep) {
+        this.rBvRep = rBvRep;
+    }
+
+    public String getLeftBv() {
         return leftBv;
     }
 
-    public void setLeftBv(Integer leftBv) {
+    public void setLeftBv(String leftBv) {
         this.leftBv = leftBv;
     }
 
-    public Integer getRightBv() {
+    public String getRightBv() {
         return rightBv;
     }
 
-    public void setRightBv(Integer rightBv) {
+    public void setRightBv(String rightBv) {
         this.rightBv = rightBv;
+    }
+
+    public String getCarryLeftBvRep() {
+        return carryLeftBvRep;
+    }
+
+    public void setCarryLeftBvRep(String carryLeftBvRep) {
+        this.carryLeftBvRep = carryLeftBvRep;
+    }
+
+    public String getCarryRightBvRep() {
+        return carryRightBvRep;
+    }
+
+    public void setCarryRightBvRep(String carryRightBvRep) {
+        this.carryRightBvRep = carryRightBvRep;
     }
 
     public Integer getLeftBvRep() {
@@ -258,4 +302,6 @@ public class TreeViewUserModel {
     public void setRightAmount(Integer rightAmount) {
         this.rightAmount = rightAmount;
     }
+
 }
+

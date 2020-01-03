@@ -35,6 +35,8 @@ import com.imuons.shopntrips.model.SubmitTopUpReponseModel;
 import com.imuons.shopntrips.model.TeamViewResponseModel;
 import com.imuons.shopntrips.model.TicketResponseModel;
 import com.imuons.shopntrips.model.TopUpReportResponseModel;
+import com.imuons.shopntrips.model.TransferEpinReportResponseModel;
+import com.imuons.shopntrips.model.TransferPinDetailResponseModel;
 import com.imuons.shopntrips.model.TreeViewResponseModel;
 import com.imuons.shopntrips.model.UpdateProfileResponseModel;
 import com.imuons.shopntrips.model.UsedEpinReportResponseModel;
@@ -163,6 +165,10 @@ public interface Emwi {
     Call<UserPhotosResponseModel> wsUserPhotos(@Header("Authorization") String authHeader);
 
     @FormUrlEncoded
+    @POST("get_transfer_pin_report")
+    Call<TransferEpinReportResponseModel> wsTransferEpinReport(@Header("Authorization") String authHeader, @FieldMap Map<String, String> loginMap);
+
+    @FormUrlEncoded
     @POST("change_password")
     Call<ChangePasswordResponseModel> wsChangePassword(@Header("Authorization") String authHeader, @FieldMap Map<String, String> loginMap);
 
@@ -172,6 +178,10 @@ public interface Emwi {
 
 //    @GET("getproducts")
 //    Call<GetProductResponseModel> wsGetProducts(@Header("Authorization") String authHeader);
+
+    @FormUrlEncoded
+    @POST("getTransferPinDetailReport")
+    Call<TransferPinDetailResponseModel> wsGetTransferPins(@Header("Authorization") String authHeader, @FieldMap Map<String, String> loginMap);
 
     @FormUrlEncoded
     @POST("getbalance")

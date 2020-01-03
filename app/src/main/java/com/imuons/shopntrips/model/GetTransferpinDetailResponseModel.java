@@ -3,7 +3,10 @@ package com.imuons.shopntrips.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class TreeViewResponseModel {
+import java.util.List;
+
+public class GetTransferpinDetailResponseModel {
+
     @SerializedName("code")
     @Expose
     private Integer code;
@@ -15,7 +18,7 @@ public class TreeViewResponseModel {
     private String message;
     @SerializedName("data")
     @Expose
-    private TreeViewDataModel data;
+    private List<GetTransferpinDetailDataModel> data = null;
 
     public Integer getCode() {
         return code;
@@ -41,11 +44,11 @@ public class TreeViewResponseModel {
         this.message = message;
     }
 
-    public TreeViewDataModel getData() {
+    public List<GetTransferpinDetailDataModel> getData() {
         return data;
     }
 
-    public void setData(TreeViewDataModel data) {
+    public void setData(List<GetTransferpinDetailDataModel> data) {
         this.data = data;
     }
 }

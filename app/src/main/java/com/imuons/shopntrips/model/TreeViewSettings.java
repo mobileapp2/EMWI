@@ -106,12 +106,9 @@ public class TreeViewSettings {
     @SerializedName("bv_remove_cron_status")
     @Expose
     private String bvRemoveCronStatus;
-    @SerializedName("with_from_date")
+    @SerializedName("start_date")
     @Expose
-    private String withFromDate;
-    @SerializedName("with_to_date")
-    @Expose
-    private String withToDate;
+    private String startDate;
 
     public Integer getId() {
         return id;
@@ -385,20 +382,11 @@ public class TreeViewSettings {
         this.bvRemoveCronStatus = bvRemoveCronStatus;
     }
 
-    public String getWithFromDate() {
-        return withFromDate;
+    public String getStartDate() {
+        return startDate;
     }
 
-    public void setWithFromDate(String withFromDate) {
-        this.withFromDate = withFromDate;
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
     }
-
-    public String getWithToDate() {
-        return withToDate;
-    }
-
-    public void setWithToDate(String withToDate) {
-        this.withToDate = withToDate;
-    }
-
 }

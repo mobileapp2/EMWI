@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/bgdash"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+  >
+
+
+    <LinearLayout
+
+        android:background="@color/bgsr"
+        android:weightSum="6"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <TextView
+            android:fontFamily="@font/open_sans_bold"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="0.6"
+            android:gravity="center"
+            android:text="Sr No"
+            android:textColor="@color/sr"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:background="@color/grey" />
+        <TextView
+            android:background="@drawable/yellowgrad"
+            android:fontFamily="@font/open_sans_bold"
+            android:textStyle="bold"
+            android:textColor="@color/sr"
+            android:text="E-Pins"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textSize="12sp"
+            android:layout_weight="5.5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+
+
+
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_transferepins"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:scrollbars="vertical" />
+
+</LinearLayout>

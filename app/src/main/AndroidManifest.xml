@@ -18,7 +18,8 @@
         android:roundIcon="@drawable/applogo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".adapters.UsedEpinReportAdapter"></activity>
+        <activity android:name=".adapters.TransferEpinReportAdapter"></activity>
+        <activity android:name=".adapters.UsedEpinReportAdapter" />
         <activity android:name=".views.NotPresentActivity" />
         <activity android:name=".views.ContactInfoActivity" />
         <activity android:name=".views.AboutActivity" />

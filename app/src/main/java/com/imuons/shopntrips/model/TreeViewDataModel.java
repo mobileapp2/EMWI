@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class TreeViewDataModel {
+public class  TreeViewDataModel {
     @SerializedName("user")
     @Expose
     private TreeViewUserModel user;
@@ -39,5 +39,6 @@ public class TreeViewDataModel {
     public void setSettings(TreeViewSettings settings) {
         this.settings = settings;
     }
+
 
 }

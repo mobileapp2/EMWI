@@ -4,9 +4,10 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class TreeViewLevelModel {
+
     @SerializedName("id")
     @Expose
-    private String id;
+    private Integer id;
     @SerializedName("user_id")
     @Expose
     private String userId;
@@ -27,28 +28,40 @@ public class TreeViewLevelModel {
     private String virtualFullname;
     @SerializedName("l_c_count")
     @Expose
-    private String lCCount;
+    private Integer lCCount;
     @SerializedName("r_c_count")
     @Expose
-    private String rCCount;
+    private Integer rCCount;
     @SerializedName("l_bv")
     @Expose
-    private String lBv;
+    private Integer lBv;
     @SerializedName("r_bv")
     @Expose
-    private String rBv;
+    private Integer rBv;
+    @SerializedName("l_bv_rep")
+    @Expose
+    private Integer lBvRep;
+    @SerializedName("r_bv_rep")
+    @Expose
+    private Integer rBvRep;
     @SerializedName("left_bv")
     @Expose
     private String leftBv;
     @SerializedName("right_bv")
     @Expose
     private String rightBv;
+    @SerializedName("carry_left_bv_rep")
+    @Expose
+    private String carryLeftBvRep;
+    @SerializedName("carry_right_bv_rep")
+    @Expose
+    private String carryRightBvRep;
     @SerializedName("left_bv_rep")
     @Expose
-    private String leftBvRep;
+    private Integer leftBvRep;
     @SerializedName("right_bv_rep")
     @Expose
-    private String rightBvRep;
+    private Integer rightBvRep;
     @SerializedName("position")
     @Expose
     private String position;
@@ -63,25 +76,22 @@ public class TreeViewLevelModel {
     private String entryTime;
     @SerializedName("act_time")
     @Expose
-    private Object actTime;
+    private String actTime;
     @SerializedName("cost")
     @Expose
     private String cost;
     @SerializedName("left_amount")
     @Expose
-    private String leftAmount;
+    private Integer leftAmount;
     @SerializedName("right_amount")
     @Expose
-    private String rightAmount;
-    @SerializedName("virtual_parent_id")
-    @Expose
-    private String virtualParentId;
+    private Integer rightAmount;
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -133,36 +143,52 @@ public class TreeViewLevelModel {
         this.virtualFullname = virtualFullname;
     }
 
-    public String getLCCount() {
+    public Integer getLCCount() {
         return lCCount;
     }
 
-    public void setLCCount(String lCCount) {
+    public void setLCCount(Integer lCCount) {
         this.lCCount = lCCount;
     }
 
-    public String getRCCount() {
+    public Integer getRCCount() {
         return rCCount;
     }
 
-    public void setRCCount(String rCCount) {
+    public void setRCCount(Integer rCCount) {
         this.rCCount = rCCount;
     }
 
-    public String getLBv() {
+    public Integer getLBv() {
         return lBv;
     }
 
-    public void setLBv(String lBv) {
+    public void setLBv(Integer lBv) {
         this.lBv = lBv;
     }
 
-    public String getRBv() {
+    public Integer getRBv() {
         return rBv;
     }
 
-    public void setRBv(String rBv) {
+    public void setRBv(Integer rBv) {
         this.rBv = rBv;
+    }
+
+    public Integer getLBvRep() {
+        return lBvRep;
+    }
+
+    public void setLBvRep(Integer lBvRep) {
+        this.lBvRep = lBvRep;
+    }
+
+    public Integer getRBvRep() {
+        return rBvRep;
+    }
+
+    public void setRBvRep(Integer rBvRep) {
+        this.rBvRep = rBvRep;
     }
 
     public String getLeftBv() {
@@ -181,19 +207,35 @@ public class TreeViewLevelModel {
         this.rightBv = rightBv;
     }
 
-    public String getLeftBvRep() {
+    public String getCarryLeftBvRep() {
+        return carryLeftBvRep;
+    }
+
+    public void setCarryLeftBvRep(String carryLeftBvRep) {
+        this.carryLeftBvRep = carryLeftBvRep;
+    }
+
+    public String getCarryRightBvRep() {
+        return carryRightBvRep;
+    }
+
+    public void setCarryRightBvRep(String carryRightBvRep) {
+        this.carryRightBvRep = carryRightBvRep;
+    }
+
+    public Integer getLeftBvRep() {
         return leftBvRep;
     }
 
-    public void setLeftBvRep(String leftBvRep) {
+    public void setLeftBvRep(Integer leftBvRep) {
         this.leftBvRep = leftBvRep;
     }
 
-    public String getRightBvRep() {
+    public Integer getRightBvRep() {
         return rightBvRep;
     }
 
-    public void setRightBvRep(String rightBvRep) {
+    public void setRightBvRep(Integer rightBvRep) {
         this.rightBvRep = rightBvRep;
     }
 
@@ -229,11 +271,11 @@ public class TreeViewLevelModel {
         this.entryTime = entryTime;
     }
 
-    public Object getActTime() {
+    public String getActTime() {
         return actTime;
     }
 
-    public void setActTime(Object actTime) {
+    public void setActTime(String actTime) {
         this.actTime = actTime;
     }
 
@@ -245,28 +287,20 @@ public class TreeViewLevelModel {
         this.cost = cost;
     }
 
-    public String getLeftAmount() {
+    public Integer getLeftAmount() {
         return leftAmount;
     }
 
-    public void setLeftAmount(String leftAmount) {
+    public void setLeftAmount(Integer leftAmount) {
         this.leftAmount = leftAmount;
     }
 
-    public String getRightAmount() {
+    public Integer getRightAmount() {
         return rightAmount;
     }
 
-    public void setRightAmount(String rightAmount) {
+    public void setRightAmount(Integer rightAmount) {
         this.rightAmount = rightAmount;
-    }
-
-    public String getVirtualParentId() {
-        return virtualParentId;
-    }
-
-    public void setVirtualParentId(String virtualParentId) {
-        this.virtualParentId = virtualParentId;
     }
 
 }

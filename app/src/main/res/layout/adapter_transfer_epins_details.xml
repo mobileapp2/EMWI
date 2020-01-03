@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content"
+    tools:context=".adapters.TransferEpinsDetailsAdapter">
+    <LinearLayout
+        android:id="@+id/llmain"
+        android:weightSum="9"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <LinearLayout
+            android:layout_weight="0.9"
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:fontFamily="@font/open_sans_light"
+                android:id="@+id/srno"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.3"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+        </LinearLayout>
+        <View
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:background="@color/grey" />
+        <TextView
+            android:singleLine="true"
+            android:fontFamily="@font/open_sans_bold"
+            android:id="@+id/epins"
+            android:textColor="@color/white"
+            android:text="epins"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:layout_weight="8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+</LinearLayout>
