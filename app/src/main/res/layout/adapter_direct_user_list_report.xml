@@ -176,6 +176,37 @@ android:visibility="gone"
                 android:layout_marginLeft="20dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/open_sans_bold"
+                android:text="Total rep. Business"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/totalbuss"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/open_sans_bold"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+        </LinearLayout>
+        <LinearLayout
+
+            android:background="@drawable/bluedt"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/open_sans_bold"
                 android:text="Date"
                 android:textColor="@color/white"
                 android:textSize="16sp" />

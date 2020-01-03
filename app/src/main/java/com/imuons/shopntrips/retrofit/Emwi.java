@@ -4,6 +4,9 @@ import com.imuons.shopntrips.model.ActiveTeamViewResponseModel;
 import com.imuons.shopntrips.model.AwardReportGetResponse;
 import com.imuons.shopntrips.model.AwardReportResponseModel;
 import com.imuons.shopntrips.model.BonanzaResponseModel;
+import com.imuons.shopntrips.model.DirectNewJoinResponseModel;
+import com.imuons.shopntrips.model.GetLevelResponseModel;
+import com.imuons.shopntrips.model.LevelViewResponseModel;
 import com.imuons.shopntrips.model.ProductResponseModel;
 import com.imuons.shopntrips.model.RoyalityIncomeReportResponseModel;
 import com.imuons.shopntrips.model.DirectIncomeReportResponseModel;
@@ -178,7 +181,8 @@ public interface Emwi {
 
 //    @GET("getproducts")
 //    Call<GetProductResponseModel> wsGetProducts(@Header("Authorization") String authHeader);
-
+    @GET("newDirectJoining")
+    Call<DirectNewJoinResponseModel> wsNewJoin(@Header("Authorization") String authHeader);
     @FormUrlEncoded
     @POST("getTransferPinDetailReport")
     Call<TransferPinDetailResponseModel> wsGetTransferPins(@Header("Authorization") String authHeader, @FieldMap Map<String, String> loginMap);
@@ -228,6 +232,9 @@ public interface Emwi {
     @POST("get-team-view")
     Call<TeamViewResponseModel> wsGetTeamView(@Header("Authorization") String authHeader, @FieldMap Map<String, String> loginMap);
 
+    @GET("get-level")
+    Call<GetLevelResponseModel> wsGetLevel(@Header("Authorization") String authHeader);
+
     @FormUrlEncoded
     @POST("active-team-view")
     Call<ActiveTeamViewResponseModel> wsGetActiveTeamView(@Header("Authorization") String authHeader, @FieldMap Map<String, String> loginMap);
@@ -264,6 +271,10 @@ public interface Emwi {
     @FormUrlEncoded
     @POST("awardwinnerReport")
     Call<BonanzaResponseModel> wsGetBonanzaReport(@Header("Authorization") String authHeader, @FieldMap Map<String, String> loginMap);
+
+    @FormUrlEncoded
+    @POST("level-view")
+    Call<LevelViewResponseModel> wsLevelViewReport(@Header("Authorization") String authHeader, @FieldMap Map<String, String> loginMap);
   /*
 
 
@@ -311,9 +322,7 @@ public interface Emwi {
     @POST("user/roi-income")
     Call<CashbackIncomeReportResponseModel> wsROIIncomeReport(@Header("Authorization") String authHeader, @FieldMap Map<String, String> loginMap);
 
-    @FormUrlEncoded
-    @POST("user/level-view")
-    Call<LevelViewResponseModel> wsLevelViewReport(@Header("Authorization") String authHeader, @FieldMap Map<String, String> loginMap);
+
 
     @FormUrlEncoded
     @POST("user/all-epins")

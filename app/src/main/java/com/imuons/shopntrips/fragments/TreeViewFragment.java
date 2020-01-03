@@ -32,6 +32,10 @@ import com.imuons.shopntrips.utils.Utils;
 import com.imuons.shopntrips.utils.ViewUtils;
 import com.imuons.shopntrips.views.NotPresentActivity;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -56,6 +60,8 @@ public class TreeViewFragment extends Fragment {
     GifImageView gifImageView;
     String strId = "";
     String mStringUserId="";
+    private String wdatefromurl,cdatefromurl;
+    private Date datec,datew;
     TreeViewResponseModel treeViewResponseModel;
 
     public TreeViewFragment() {
@@ -296,27 +302,54 @@ public class TreeViewFragment extends Fragment {
         TextView name = (TextView) dialog.findViewById(R.id.text_name);
         TextView sopnsorId = (TextView) dialog.findViewById(R.id.text_sponsor_id);
         TextView DOJ = (TextView) dialog.findViewById(R.id.text_date_of_joining);
-        TextView leftId = (TextView) dialog.findViewById(R.id.text_left_id);
-        TextView rightId = (TextView) dialog.findViewById(R.id.text_right_id);
-        TextView leftBV = (TextView) dialog.findViewById(R.id.text_left_bv);
-        TextView rightBV = (TextView) dialog.findViewById(R.id.text_right_bv);
-        TextView repurchaseLeftBV = (TextView) dialog.findViewById(R.id.text_repurchase_left_bv);
-        TextView repurchaseRightBV = (TextView) dialog.findViewById(R.id.text_repurchase_right_bv);
-        TextView productCost = (TextView) dialog.findViewById(R.id.text_product_cost);
+        TextView productcost = (TextView) dialog.findViewById(R.id.text_product_cost);
+        TextView activationdate = (TextView) dialog.findViewById(R.id.text_activation_code);
+        TextView leftid = (TextView) dialog.findViewById(R.id.text_left_id);
+        TextView rightid = (TextView) dialog.findViewById(R.id.text_right_id);
+        TextView leftbv = (TextView) dialog.findViewById(R.id.text_left_bv);
+        TextView rightbv = (TextView) dialog.findViewById(R.id.text_right_bv);
+        TextView carrylbv = (TextView) dialog.findViewById(R.id.text_carry_lbv);
+        TextView carryrbv = (TextView) dialog.findViewById(R.id.text_carry_rbv);
+        TextView leftbvrep = (TextView) dialog.findViewById(R.id.text_left_bv_rep);
+        TextView rightbvrep = (TextView) dialog.findViewById(R.id.text_right_bv_rep);
+        TextView carrylbvrep = (TextView) dialog.findViewById(R.id.text_carry_lbv_rep);
+        TextView carryrbvrep = (TextView) dialog.findViewById(R.id.text_carry_rbv_rep);
+
         ImageView imageClose = dialog.findViewById(R.id.image_close);
 
         try {
+
+//            cdatefromurl = details.getDateOfjoining();
+//        if(cdatefromurl != null) {
+//        SimpleDateFormat simpleDateFormatc = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
+//        try {
+//        datew = simpleDateFormatc.parse(wdatefromurl);
+//        } catch (ParseException e) {
+//        e.printStackTrace();
+//        }
+//        DateFormat dateFormatc = new SimpleDateFormat("yyyy/MM/dd");
+//        String ccdate = dateFormatc.format(datew);
+//        activationdate.setText(ccdate);
+//        }else {
+//        activationdate.setText("-");
+//        }
+
             userId.setText(details.getUser_id());
             name.setText(details.getFullname());
             sopnsorId.setText(details.getSponser_id());
             DOJ.setText(details.getDateOfjoining());
-            leftId.setText(details.getLeft_id());
-            rightId.setText(details.getRight_id());
-            leftBV.setText(details.getLeft_bv());
-            rightBV.setText(details.getRight_bv());
-            repurchaseLeftBV.setText(details.getL_bv_rep());
-            repurchaseRightBV.setText(details.getR_bv_rep());
-            productCost.setText(details.getStatus());
+            productcost.setText(details.getStatus());
+            activationdate.setText(details.getDateOfjoining());
+            leftid.setText(details.getLeft_id());
+            rightid.setText(details.getRight_id());
+            leftbv.setText(details.getLeft_bv());
+            rightbv.setText(details.getRight_bv());
+            carrylbv.setText(details.getCarry_left_bv());
+            carryrbv.setText(details.getCarry_right_bv());
+            leftbvrep.setText(details.getBinary_left_bv());
+            rightbvrep.setText(details.getBinary_right_bv());
+            carrylbvrep.setText(details.getL_bv_rep());
+            carryrbvrep.setText(details.getR_bv_rep());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -358,7 +391,8 @@ public class TreeViewFragment extends Fragment {
         model.setImage(data.getUser().getImage());
         model.setSponser_id(data.getUser().getSponsorId());
         model.setFullname(data.getUser().getFullname());
-//        model.setStatus(data.getUser().getCost());
+        model.setStatus(data.getUser().getCost());
+
         try {
             model.setDateOfjoining(data.getUser().getEntryTime().split(" ")[0]);
         } catch (Exception e) {
@@ -368,17 +402,21 @@ public class TreeViewFragment extends Fragment {
         model.setRight_id(String.valueOf(data.getUser().getRCCount().toString()));
         model.setLeft_bv(String.valueOf(data.getUser().getLBv().toString()));
         model.setRight_bv(String.valueOf(data.getUser().getRBv().toString()));
-        model.setL_bv_rep(String.valueOf(data.getUser().getLeftBvRep().toString()));
-        model.setR_bv_rep(String.valueOf(data.getUser().getRightBvRep().toString()));
+        model.setBinary_left_bv(String.valueOf(data.getUser().getLBvRep()).toString());
+        model.setBinary_right_bv(String.valueOf(data.getUser().getRBvRep() .toString()));
+        model.setCarry_left_bv(String.valueOf(data.getUser().getLeftBv() .toString()));
+        model.setCarry_right_bv(String.valueOf(data.getUser().getRightBv().toString()));
+        model.setL_bv_rep(String.valueOf(data.getUser().getCarryLeftBvRep().toString()));
+        model.setR_bv_rep(String.valueOf(data.getUser().getCarryRightBvRep().toString()));
         TreeNode rootNode = new TreeNode(model);
 
         model = new PositionDataModel();
         model.setUser_id(data.getTreeData().get(0).getLevel().get(0).getUserId());
         model.setImage(data.getTreeData().get(0).getLevel().get(0).getImage());
         model.setSponser_id(data.getTreeData().get(0).getLevel().get(0).getSponsorId());
-//        model.setFullname(data.getTreeData().get(0).getLevel().get(0).getSponsorId());
-        model.setFullname(data.getUser().getFullname());
-//        model.setStatus(data.getUser().getCost());
+      // model.setFullname(data.getTreeData().get(0).getLevel().get(0).getSponsorId());
+        model.setFullname(data.getTreeData().get(0).getLevel().get(0).getFullname());
+        model.setStatus(data.getTreeData().get(0).getLevel().get(0).getCost());
         try {
             model.setDateOfjoining(data.getTreeData().get(0).getLevel().get(0).getEntryTime().split(" ")[0]);
         } catch (Exception e) {
@@ -388,16 +426,20 @@ public class TreeViewFragment extends Fragment {
         model.setRight_id(String.valueOf(data.getTreeData().get(0).getLevel().get(0).getRCCount().toString()));
         model.setLeft_bv(String.valueOf(data.getTreeData().get(0).getLevel().get(0).getLBv().toString()));
         model.setRight_bv(String.valueOf(data.getTreeData().get(0).getLevel().get(0).getRBv().toString()));
-        model.setL_bv_rep(String.valueOf(data.getTreeData().get(0).getLevel().get(0).getLeftBvRep().toString()));
-        model.setR_bv_rep(String.valueOf(data.getTreeData().get(0).getLevel().get(0).getRightBvRep().toString()));
+        model.setBinary_left_bv(String.valueOf(data.getTreeData().get(0).getLevel().get(0).getLBvRep().toString()));
+        model.setBinary_right_bv(String.valueOf(data.getTreeData().get(0).getLevel().get(0).getRBvRep().toString()));
+        model.setCarry_left_bv(String.valueOf(data.getTreeData().get(0).getLevel().get(0).getLeftBv() .toString()));
+        model.setCarry_right_bv(String.valueOf(data.getTreeData().get(0).getLevel().get(0).getRightBv().toString()));
+        model.setL_bv_rep(String.valueOf(data.getTreeData().get(0).getLevel().get(0).getCarryLeftBvRep().toString()));
+        model.setR_bv_rep(String.valueOf(data.getTreeData().get(0).getLevel().get(0).getCarryRightBvRep().toString()));
         TreeNode nodeLevelOneLeft = new TreeNode(model);
 
         model = new PositionDataModel();
         model.setUser_id(data.getTreeData().get(0).getLevel().get(1).getUserId());
         model.setImage(data.getTreeData().get(0).getLevel().get(1).getImage());
         model.setSponser_id(data.getTreeData().get(0).getLevel().get(1).getSponsorId());
-        model.setFullname(data.getUser().getFullname());
-//        model.setStatus(data.getUser().getCost());
+        model.setFullname(data.getTreeData().get(0).getLevel().get(1).getFullname());
+        model.setStatus(data.getTreeData().get(0).getLevel().get(1).getCost());
         try {
             model.setDateOfjoining(data.getTreeData().get(0).getLevel().get(1).getEntryTime().split(" ")[0]);
         } catch (Exception e) {
@@ -407,8 +449,12 @@ public class TreeViewFragment extends Fragment {
         model.setRight_id(String.valueOf(data.getTreeData().get(0).getLevel().get(1).getRCCount().toString()));
         model.setLeft_bv(String.valueOf(data.getTreeData().get(0).getLevel().get(1).getLBv().toString()));
         model.setRight_bv(String.valueOf(data.getTreeData().get(0).getLevel().get(1).getRBv().toString()));
-        model.setL_bv_rep(String.valueOf(data.getTreeData().get(0).getLevel().get(1).getLeftBvRep().toString()));
-        model.setR_bv_rep(String.valueOf(data.getTreeData().get(0).getLevel().get(1).getRightBvRep().toString()));
+        model.setBinary_left_bv(String.valueOf(data.getTreeData().get(0).getLevel().get(1).getLBvRep().toString()));
+        model.setBinary_right_bv(String.valueOf(data.getTreeData().get(0).getLevel().get(1).getRBvRep().toString()));
+        model.setCarry_left_bv(String.valueOf(data.getTreeData().get(0).getLevel().get(1).getLeftBv() .toString()));
+        model.setCarry_right_bv(String.valueOf(data.getTreeData().get(0).getLevel().get(1).getRightBv().toString()));
+        model.setL_bv_rep(String.valueOf(data.getTreeData().get(0).getLevel().get(1).getCarryLeftBvRep().toString()));
+        model.setR_bv_rep(String.valueOf(data.getTreeData().get(0).getLevel().get(1).getCarryRightBvRep().toString()));
         TreeNode nodeLevelOneRight = new TreeNode(model);
 
         rootNode.addChild(nodeLevelOneLeft);
@@ -418,8 +464,8 @@ public class TreeViewFragment extends Fragment {
         model.setUser_id(data.getTreeData().get(1).getLevel().get(0).getUserId());
         model.setImage(data.getTreeData().get(1).getLevel().get(0).getImage());
         model.setSponser_id(data.getTreeData().get(1).getLevel().get(0).getSponsorId());
-        model.setFullname(data.getUser().getFullname());
-//        model.setStatus(data.getUser().getCost());
+        model.setFullname(data.getTreeData().get(1).getLevel().get(0).getFullname());
+       model.setStatus(data.getTreeData().get(1).getLevel().get(0).getCost());
         try {
             model.setDateOfjoining(data.getTreeData().get(1).getLevel().get(0).getEntryTime().split(" ")[0]);
         } catch (Exception e) {
@@ -429,16 +475,20 @@ public class TreeViewFragment extends Fragment {
         model.setRight_id(String.valueOf(data.getTreeData().get(1).getLevel().get(0).getRCCount().toString()));
         model.setLeft_bv(String.valueOf(data.getTreeData().get(1).getLevel().get(0).getLBv().toString()));
         model.setRight_bv(String.valueOf(data.getTreeData().get(1).getLevel().get(0).getRBv().toString()));
-        model.setL_bv_rep(String.valueOf(data.getTreeData().get(1).getLevel().get(0).getLeftBvRep().toString()));
-        model.setR_bv_rep(String.valueOf(data.getTreeData().get(1).getLevel().get(0).getRightBvRep().toString()));
+        model.setBinary_left_bv(String.valueOf(data.getTreeData().get(1).getLevel().get(0).getLBvRep().toString()));
+        model.setBinary_right_bv(String.valueOf(data.getTreeData().get(1).getLevel().get(0).getRBvRep().toString()));
+        model.setCarry_left_bv(String.valueOf(data.getTreeData().get(1).getLevel().get(0).getLeftBv() .toString()));
+        model.setCarry_right_bv(String.valueOf(data.getTreeData().get(1).getLevel().get(0).getRightBv().toString()));
+        model.setL_bv_rep(String.valueOf(data.getTreeData().get(1).getLevel().get(0).getCarryLeftBvRep().toString()));
+        model.setR_bv_rep(String.valueOf(data.getTreeData().get(1).getLevel().get(0).getCarryRightBvRep().toString()));
         TreeNode nodeLevelTwoLeftChildOne = new TreeNode(model);
 
         model = new PositionDataModel();
         model.setUser_id(data.getTreeData().get(1).getLevel().get(1).getUserId());
         model.setImage(data.getTreeData().get(1).getLevel().get(1).getImage());
         model.setSponser_id(data.getTreeData().get(1).getLevel().get(1).getSponsorId());
-        model.setFullname(data.getUser().getFullname());
-//        model.setStatus(data.getUser().getCost());
+        model.setFullname(data.getTreeData().get(1).getLevel().get(1).getFullname());
+        model.setStatus(data.getTreeData().get(1).getLevel().get(1).getCost());
         try {
             model.setDateOfjoining(data.getTreeData().get(1).getLevel().get(1).getEntryTime().split(" ")[0]);
         } catch (Exception e) {
@@ -448,8 +498,12 @@ public class TreeViewFragment extends Fragment {
         model.setRight_id(String.valueOf(data.getTreeData().get(1).getLevel().get(1).getRCCount().toString()));
         model.setLeft_bv(String.valueOf(data.getTreeData().get(1).getLevel().get(1).getLBv().toString()));
         model.setRight_bv(String.valueOf(data.getTreeData().get(1).getLevel().get(1).getRBv().toString()));
-        model.setL_bv_rep(String.valueOf(data.getTreeData().get(1).getLevel().get(1).getLeftBvRep().toString()));
-        model.setR_bv_rep(String.valueOf(data.getTreeData().get(1).getLevel().get(1).getRightBvRep().toString()));
+        model.setBinary_left_bv(String.valueOf(data.getTreeData().get(1).getLevel().get(1).getLBvRep().toString()));
+        model.setBinary_right_bv(String.valueOf(data.getTreeData().get(1).getLevel().get(1).getRBvRep().toString()));
+        model.setCarry_left_bv(String.valueOf(data.getTreeData().get(1).getLevel().get(1).getLeftBv() .toString()));
+        model.setCarry_right_bv(String.valueOf(data.getTreeData().get(1).getLevel().get(1).getRightBv().toString()));
+        model.setL_bv_rep(String.valueOf(data.getTreeData().get(1).getLevel().get(1).getCarryLeftBvRep().toString()));
+        model.setR_bv_rep(String.valueOf(data.getTreeData().get(1).getLevel().get(1).getCarryRightBvRep().toString()));
         TreeNode nodeLevelOneLeftChildTwo = new TreeNode(model);
 
         nodeLevelOneLeft.addChild(nodeLevelTwoLeftChildOne);
@@ -459,8 +513,8 @@ public class TreeViewFragment extends Fragment {
         model.setUser_id(data.getTreeData().get(1).getLevel().get(2).getUserId());
         model.setImage(data.getTreeData().get(1).getLevel().get(2).getImage());
         model.setSponser_id(data.getTreeData().get(1).getLevel().get(2).getSponsorId());
-        model.setFullname(data.getUser().getFullname());
-//        model.setStatus(data.getUser().getCost());
+        model.setFullname(data.getTreeData().get(1).getLevel().get(2).getFullname());
+        model.setStatus(data.getTreeData().get(1).getLevel().get(2).getCost());
         try {
             model.setDateOfjoining(data.getTreeData().get(1).getLevel().get(2).getEntryTime().split(" ")[0]);
         } catch (Exception e) {
@@ -470,16 +524,20 @@ public class TreeViewFragment extends Fragment {
         model.setRight_id(String.valueOf(data.getTreeData().get(1).getLevel().get(2).getRCCount().toString()));
         model.setLeft_bv(String.valueOf(data.getTreeData().get(1).getLevel().get(2).getLBv().toString()));
         model.setRight_bv(String.valueOf(data.getTreeData().get(1).getLevel().get(2).getRBv().toString()));
-        model.setL_bv_rep(String.valueOf(data.getTreeData().get(1).getLevel().get(2).getLeftBvRep().toString()));
-        model.setR_bv_rep(String.valueOf(data.getTreeData().get(1).getLevel().get(2).getRightBvRep().toString()));
+        model.setBinary_left_bv(String.valueOf(data.getTreeData().get(1).getLevel().get(2).getLBvRep().toString()));
+        model.setBinary_right_bv(String.valueOf(data.getTreeData().get(1).getLevel().get(2).getRBvRep().toString()));
+        model.setCarry_left_bv(String.valueOf(data.getTreeData().get(1).getLevel().get(2).getLeftBv() .toString()));
+        model.setCarry_right_bv(String.valueOf(data.getTreeData().get(1).getLevel().get(2).getRightBv().toString()));
+        model.setL_bv_rep(String.valueOf(data.getTreeData().get(1).getLevel().get(2).getCarryLeftBvRep().toString()));
+        model.setR_bv_rep(String.valueOf(data.getTreeData().get(1).getLevel().get(2).getCarryRightBvRep().toString()));
         TreeNode nodeLevelTwoRightChildOne = new TreeNode(model);
 
         model = new PositionDataModel();
         model.setUser_id(data.getTreeData().get(1).getLevel().get(3).getUserId());
         model.setImage(data.getTreeData().get(1).getLevel().get(3).getImage());
         model.setSponser_id(data.getTreeData().get(1).getLevel().get(3).getSponsorId());
-        model.setFullname(data.getUser().getFullname());
-//        model.setStatus(data.getUser().getCost());
+        model.setFullname(data.getTreeData().get(1).getLevel().get(3).getFullname());
+        model.setStatus(data.getTreeData().get(1).getLevel().get(3).getCost());
         try {
             model.setDateOfjoining(data.getTreeData().get(1).getLevel().get(3).getEntryTime().split(" ")[0]);
         } catch (Exception e) {
@@ -489,8 +547,12 @@ public class TreeViewFragment extends Fragment {
         model.setRight_id(String.valueOf(data.getTreeData().get(1).getLevel().get(3).getRCCount().toString()));
         model.setLeft_bv(String.valueOf(data.getTreeData().get(1).getLevel().get(3).getLBv().toString()));
         model.setRight_bv(String.valueOf(data.getTreeData().get(1).getLevel().get(3).getRBv().toString()));
-        model.setL_bv_rep(String.valueOf(data.getTreeData().get(1).getLevel().get(3).getLeftBvRep().toString()));
-        model.setR_bv_rep(String.valueOf(data.getTreeData().get(1).getLevel().get(3).getRightBvRep().toString()));
+        model.setBinary_left_bv(String.valueOf(data.getTreeData().get(1).getLevel().get(3).getLBvRep().toString()));
+        model.setBinary_right_bv(String.valueOf(data.getTreeData().get(1).getLevel().get(3).getRBvRep().toString()));
+        model.setCarry_left_bv(String.valueOf(data.getTreeData().get(1).getLevel().get(3).getLeftBv() .toString()));
+        model.setCarry_right_bv(String.valueOf(data.getTreeData().get(1).getLevel().get(3).getRightBv().toString()));
+        model.setL_bv_rep(String.valueOf(data.getTreeData().get(1).getLevel().get(3).getCarryLeftBvRep().toString()));
+        model.setR_bv_rep(String.valueOf(data.getTreeData().get(1).getLevel().get(3).getCarryRightBvRep().toString()));
         TreeNode nodeLevelOneRightChildTwo = new TreeNode(model);
 
         nodeLevelOneRight.addChild(nodeLevelTwoRightChildOne);

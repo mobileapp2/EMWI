@@ -26,5 +26,4 @@ public class TeamViewProductModel {
     public void setBvalue(String bvalue) {
         this.bvalue = bvalue;
     }
-
 }

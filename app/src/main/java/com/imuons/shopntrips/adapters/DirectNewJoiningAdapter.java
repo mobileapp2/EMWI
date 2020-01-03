@@ -13,12 +13,10 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.imuons.shopntrips.R;
-import com.imuons.shopntrips.fragments.TeamViewFragment;
-import com.imuons.shopntrips.model.TeamViewRecordModel;
+import com.imuons.shopntrips.fragments.BinaryIncomeFragment;
+import com.imuons.shopntrips.model.AwardReportRecordModel;
+import com.imuons.shopntrips.model.DirectNewJoinDatumModel;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -26,38 +24,37 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class TeamViewAdapter extends RecyclerView.Adapter<TeamViewAdapter.TeamViewAdapterHolder> {
-
+public class DirectNewJoiningAdapter extends RecyclerView.Adapter<DirectNewJoiningAdapter.DirectNewJoiningAdapterHolder> {
+    private List<DirectNewJoinDatumModel> duList = new ArrayList<>();
     private Context context;
-    private List<TeamViewRecordModel> teamViewList = new ArrayList<>();
-    private TeamViewFragment teamViewFragment;
+    private BinaryIncomeFragment roiIncomeFragment;
     private String wdatefromurl,cdatefromurl;
     private Date datec,datew;
     private static int currentPosition = 0;
 
-    public TeamViewAdapter(Context context, List<TeamViewRecordModel> teamViewList) {
-        this.teamViewList = teamViewList;
+    public DirectNewJoiningAdapter(Context context, List<DirectNewJoinDatumModel> duList) {
+        this.duList = duList;
 
         this.context = context;
-        Log.e("list: ", teamViewList.size() + "");
+        Log.e("list: ", duList.size() + "");
     }
 
     @Override
-    public TeamViewAdapter.TeamViewAdapterHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public DirectNewJoiningAdapter.DirectNewJoiningAdapterHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_team_view, parent, false);
-        return new TeamViewAdapter.TeamViewAdapterHolder(v);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_direct_join_report, parent, false);
+        return new DirectNewJoiningAdapter.DirectNewJoiningAdapterHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(final TeamViewAdapter.TeamViewAdapterHolder holder, final int position) {
+    public void onBindViewHolder(final DirectNewJoiningAdapter.DirectNewJoiningAdapterHolder holder, final int position) {
 
-        final TeamViewRecordModel teamViewRecordModel = teamViewList.get(position);
+        final DirectNewJoinDatumModel directNewJoinDatumModel = duList.get(position);
 
         holder.hiddenlayout.setVisibility(View.GONE);
-//        wdatefromurl = teamViewRecordModel.getJoiningDate();
+//        wdatefromurl = binaryIncomeReportRecordModel.getEntryTime();
 //        if(wdatefromurl != null) {
-//            SimpleDateFormat simpleDateFormatw = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
+//            SimpleDateFormat simpleDateFormatw = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 //            try {
 //                datew = simpleDateFormatw.parse(wdatefromurl);
 //            } catch (ParseException e) {
@@ -67,8 +64,8 @@ public class TeamViewAdapter extends RecyclerView.Adapter<TeamViewAdapter.TeamVi
 //            String wcdate = dateFormatw.format(datew);
 //            holder.date.setText(wcdate);
 //        }else{
-//            holder.date.setText("-");
-//        }
+        holder.date.setText(directNewJoinDatumModel.getEntryTime());
+        //     }
 
 //        cdatefromurl = withdrawHistoryRecordModel.getCompleteDate();
 //        if(cdatefromurl != null) {
@@ -96,24 +93,12 @@ public class TeamViewAdapter extends RecyclerView.Adapter<TeamViewAdapter.TeamVi
 
         holder.srno.setText(String.valueOf(position + 1));
 
-        holder.userid.setText(teamViewRecordModel.getUserId());
+        holder.fullname.setText(directNewJoinDatumModel.getFullname());
+        holder.userid.setText(directNewJoinDatumModel.getUserId());
+
+        holder.position.setText(String.valueOf(directNewJoinDatumModel.getPosition()));
 
 
-        holder.fullname.setText(teamViewRecordModel.getFullname());
-
-        holder.sponsorid.setText(teamViewRecordModel.getSponserId());
-
-        holder.uplineid.setText(teamViewRecordModel.getUplineId());
-
-        holder.position.setText(teamViewRecordModel.getPosition());
-
-        int intlefvbv = teamViewRecordModel.getLeftBv();
-        int intrightbv = teamViewRecordModel.getRightBv();
-
-        holder.leftbv.setText(String.valueOf(intlefvbv));
-        holder.rightbv.setText(String.valueOf(intrightbv));
-holder.level.setText(String.valueOf(teamViewRecordModel.getLevel()));
-        holder.leftbvrep.setText(String.valueOf(teamViewRecordModel.getLeftBvRep()));
 
         //if the position is equals to the item position which is to be expanded
         if (currentPosition == position) {
@@ -144,31 +129,22 @@ holder.level.setText(String.valueOf(teamViewRecordModel.getLevel()));
 
     @Override
     public int getItemCount() {
-        return teamViewList.size();
+        return duList.size();
     }
 
-    public class TeamViewAdapterHolder extends RecyclerView.ViewHolder {
+    public class DirectNewJoiningAdapterHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.srno)
         TextView srno;
 
+        @BindView(R.id.date)
+        TextView date;
+        @BindView(R.id.position)
+        TextView position;
         @BindView(R.id.userid)
         TextView userid;
         @BindView(R.id.fullname)
         TextView fullname;
-        @BindView(R.id.sponsorid)
-        TextView sponsorid;
-        @BindView(R.id.uplineid)
-        TextView uplineid;
-        @BindView(R.id.position)
-        TextView position;
-        @BindView(R.id.leftbv)
-        TextView leftbv;
-        @BindView(R.id.rightbv)
-        TextView rightbv;
-        @BindView(R.id.leftbvrep)
-        TextView leftbvrep;
-        @BindView(R.id.level)
-        TextView level;
+
 
 
 
@@ -179,7 +155,7 @@ holder.level.setText(String.valueOf(teamViewRecordModel.getLevel()));
         View container;
 
 
-        public TeamViewAdapterHolder(View itemView) {
+        public DirectNewJoiningAdapterHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
             container = itemView;
@@ -187,4 +163,3 @@ holder.level.setText(String.valueOf(teamViewRecordModel.getLevel()));
     }
 
 }
-

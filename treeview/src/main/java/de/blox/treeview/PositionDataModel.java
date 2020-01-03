@@ -33,16 +33,16 @@ public class PositionDataModel implements Serializable {
     @SerializedName("right_id")
     @Expose
     public String right_id;
-    @SerializedName("left_bv")
+    @SerializedName("l_bv")
     @Expose
     public String left_bv;
-    @SerializedName("right_bv")
+    @SerializedName("r_bv")
     @Expose
     public String right_bv;
-    @SerializedName("binary_left_bv")
+    @SerializedName("left_bv")
     @Expose
     public String binary_left_bv;
-    @SerializedName("binary_right_bv")
+    @SerializedName("right_bv")
     @Expose
     public String binary_right_bv;
     @SerializedName("position")
@@ -66,7 +66,7 @@ public class PositionDataModel implements Serializable {
     @SerializedName("carry_right_bv")
     @Expose
     public String carry_right_bv;
-    @SerializedName("status")
+    @SerializedName("cost")
     @Expose
     public String status;
     @SerializedName("l_bv_rep")
@@ -75,7 +75,7 @@ public class PositionDataModel implements Serializable {
     @SerializedName("r_bv_rep")
     @Expose
     public String r_bv_rep;
-    @SerializedName("dateOfjoining")
+    @SerializedName("entry_time")
     @Expose
     public String dateOfjoining;
     @SerializedName("image")

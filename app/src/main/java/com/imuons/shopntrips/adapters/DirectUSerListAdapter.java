@@ -103,7 +103,7 @@ final DirectUserListRecordModel directRoiReportRecordModel = duList.get(position
 
 
         holder.position.setText(directRoiReportRecordModel.getPosition());
-
+holder.totalbus.setText(String.valueOf(directRoiReportRecordModel.getTotalBusiness()));
 
 
 
@@ -150,7 +150,8 @@ public class DirectUSerListAdapterHolder extends RecyclerView.ViewHolder {
     TextView userid;
     @BindView(R.id.fullname)
     TextView fullname;
-
+@BindView(R.id.totalbuss)
+TextView totalbus;
 
     @BindView(R.id.mobile)
     TextView mobile;

@@ -5,8 +5,8 @@ import com.google.gson.annotations.SerializedName;
 
 public class TeamViewUserBinaryModel {
     @SerializedName("left_id")
-@Expose
-private Integer leftId;
+    @Expose
+    private Integer leftId;
     @SerializedName("right_id")
     @Expose
     private Integer rightId;

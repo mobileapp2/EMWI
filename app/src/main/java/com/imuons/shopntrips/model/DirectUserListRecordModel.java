@@ -20,6 +20,9 @@ public class DirectUserListRecordModel
     @SerializedName("email")
     @Expose
     private String email;
+    @SerializedName("total_business")
+    @Expose
+    private Integer totalBusiness;
     @SerializedName("position")
     @Expose
     private String position;
@@ -64,6 +67,14 @@ public class DirectUserListRecordModel
         this.email = email;
     }
 
+    public Integer getTotalBusiness() {
+        return totalBusiness;
+    }
+
+    public void setTotalBusiness(Integer totalBusiness) {
+        this.totalBusiness = totalBusiness;
+    }
+
     public String getPosition() {
         return position;
     }
@@ -71,4 +82,5 @@ public class DirectUserListRecordModel
     public void setPosition(String position) {
         this.position = position;
     }
+
 }

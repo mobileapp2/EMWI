@@ -5,19 +5,16 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class TeamViewDataModel {
+public class LevelViewDataModel {
     @SerializedName("recordsTotal")
     @Expose
     private Integer recordsTotal;
     @SerializedName("recordsFiltered")
     @Expose
     private Integer recordsFiltered;
-    @SerializedName("user_binary")
-    @Expose
-    private TeamViewUserBinaryModel userBinary;
     @SerializedName("records")
     @Expose
-    private List<TeamViewRecordModel> records = null;
+    private List<LevelViewRecordModel> records = null;
 
     public Integer getRecordsTotal() {
         return recordsTotal;
@@ -35,21 +32,12 @@ public class TeamViewDataModel {
         this.recordsFiltered = recordsFiltered;
     }
 
-    public TeamViewUserBinaryModel getUserBinary() {
-        return userBinary;
-    }
-
-    public void setUserBinary(TeamViewUserBinaryModel userBinary) {
-        this.userBinary = userBinary;
-    }
-
-    public List<TeamViewRecordModel> getRecords() {
+    public List<LevelViewRecordModel> getRecords() {
         return records;
     }
 
-    public void setRecords(List<TeamViewRecordModel> records) {
+    public void setRecords(List<LevelViewRecordModel> records) {
         this.records = records;
     }
-
 
 }

@@ -75,7 +75,7 @@
             <!--                android:background="@color/grey" />-->
 
             <TextView
-                android:id="@+id/fullname"
+                android:id="@+id/name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -91,7 +91,7 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
     <LinearLayout
-android:visibility="gone"
+
         android:id="@+id/hiddenlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -116,12 +116,12 @@ android:visibility="gone"
                 android:layout_marginLeft="20dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/open_sans_bold"
-                android:text="	Sponser ID"
+                android:text="Sponser Id"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/sponsorid"
+                android:id="@+id/sponserid"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -140,67 +140,9 @@ android:visibility="gone"
 
 
 
-        <LinearLayout
-            android:background="@drawable/bluedt"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:orientation="horizontal"
-            android:weightSum="2">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="20dp"
-                android:layout_weight="1"
-                android:fontFamily="@font/open_sans_bold"
-                android:text="Upline ID"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/uplineid"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="20dp"
-                android:layout_weight="1"
-                android:fontFamily="@font/open_sans_bold"
-                android:text=""
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-        </LinearLayout>
 
-        <LinearLayout
-            android:background="@drawable/bluedt"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:orientation="horizontal"
-            android:weightSum="2">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="20dp"
-                android:layout_weight="1"
-                android:fontFamily="@font/open_sans_bold"
-                android:text="Position"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/position"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="20dp"
-                android:layout_weight="1"
-                android:fontFamily="@font/open_sans_bold"
-                android:text=""
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-        </LinearLayout>
         <LinearLayout
             android:background="@drawable/bluedt"
             android:layout_width="match_parent"
@@ -233,7 +175,6 @@ android:visibility="gone"
         </LinearLayout>
 
         <LinearLayout
-
             android:background="@drawable/bluedt"
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -247,12 +188,12 @@ android:visibility="gone"
                 android:layout_marginLeft="20dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/open_sans_bold"
-                android:text="Left BV"
+                android:text="Registration Date"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/leftbv"
+                android:id="@+id/date"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -263,77 +204,6 @@ android:visibility="gone"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
         </LinearLayout>
-
-
-
-
-
-
-
-
-        <LinearLayout
-            android:background="@drawable/bluedt"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:orientation="horizontal"
-            android:weightSum="2">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="20dp"
-                android:layout_weight="1"
-                android:fontFamily="@font/open_sans_bold"
-                android:text="Right BV"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/rightbv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="20dp"
-                android:layout_weight="1"
-                android:fontFamily="@font/open_sans_bold"
-                android:text=""
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:background="@drawable/bluedt"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:orientation="horizontal"
-            android:weightSum="2">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="20dp"
-                android:layout_weight="1"
-                android:fontFamily="@font/open_sans_bold"
-                android:text="Left BV Rep."
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/leftbvrep"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="20dp"
-                android:layout_weight="1"
-                android:fontFamily="@font/open_sans_bold"
-                android:text=""
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-        </LinearLayout>
-
-
     </LinearLayout>
 </LinearLayout>
 

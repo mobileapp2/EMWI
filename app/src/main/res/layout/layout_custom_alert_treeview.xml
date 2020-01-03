@@ -39,10 +39,11 @@
                 <TextView
                     android:id="@+id/text_user_id"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:fontFamily="@font/open_sans_light"
                     android:layout_weight="1"
-
+android:padding="5dp"
+                    android:layout_margin="5dp"
                     android:text=""
                    />
 
@@ -66,10 +67,11 @@
                 <TextView
                     android:id="@+id/text_name"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
 
                     android:layout_weight="1"
-
+                    android:padding="5dp"
+                    android:layout_margin="5dp"
                     android:text=""
                     android:fontFamily="@font/open_sans_light" />
 
@@ -93,8 +95,9 @@
                 <TextView
                     android:id="@+id/text_sponsor_id"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:layout_margin="5dp"
                     android:layout_weight="1"
 
                     android:text=""
@@ -121,8 +124,9 @@
                     android:fontFamily="@font/open_sans_light"
                     android:id="@+id/text_date_of_joining"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:text=""
                    />
@@ -132,7 +136,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
+
                 android:orientation="horizontal"
                 android:weightSum="2">
 
@@ -147,8 +151,38 @@
                     android:text="@string/product_cost" />
 
                 <TextView
+
                     android:fontFamily="@font/open_sans_light"
                     android:id="@+id/text_product_cost"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:padding="5dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:fontFamily="@font/open_sans_light"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="Activation Date" />
+
+                <TextView
+
+                    android:fontFamily="@font/open_sans_light"
+                    android:id="@+id/text_activation_code"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -175,8 +209,9 @@
                 <TextView
                     android:id="@+id/text_left_id"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:layout_margin="5dp"
                     android:layout_weight="1"
 
                     android:text=""
@@ -203,8 +238,9 @@
                     android:fontFamily="@font/open_sans_light"
                     android:id="@+id/text_right_id"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:text=""
                      />
@@ -223,7 +259,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:layout_weight="1"
-                    android:text="Left Business"
+                    android:text="Left Bv"
                     android:padding="5dp"
                    />
 
@@ -231,8 +267,9 @@
                     android:fontFamily="@font/open_sans_light"
                     android:id="@+id/text_left_bv"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:layout_margin="5dp"
                     android:text=""
                     android:layout_weight="1"
                      />
@@ -251,7 +288,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:layout_weight="1"
-                    android:text="Right Business"
+                    android:text="Right Bv"
                     android:padding="5dp"
                      />
 
@@ -259,8 +296,9 @@
                     android:fontFamily="@font/open_sans_light"
                     android:id="@+id/text_right_bv"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:text=""
                    />
@@ -271,7 +309,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:visibility="gone"
+
                 android:weightSum="2">
 
                 <TextView
@@ -281,11 +319,12 @@
                     android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:padding="5dp"
-                    android:text="@string/repurchase_left_bv" />
+                    android:text="Carry LBV" />
 
                 <TextView
+
                     android:fontFamily="@font/open_sans_light"
-                    android:id="@+id/text_repurchase_left_bv"
+                    android:id="@+id/text_carry_lbv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -298,7 +337,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:visibility="gone"
+
                 android:weightSum="2">
 
                 <TextView
@@ -308,11 +347,119 @@
                     android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:padding="5dp"
-                    android:text="@string/repurchase_right_bv" />
+                    android:text="Carry RBV" />
 
                 <TextView
                     android:fontFamily="@font/open_sans_light"
-                    android:id="@+id/text_repurchase_right_bv"
+                    android:id="@+id/text_carry_rbv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:padding="5dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+
+                android:weightSum="2">
+
+                <TextView
+                    android:fontFamily="@font/open_sans_light"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="Left BV Rep." />
+
+                <TextView
+                    android:fontFamily="@font/open_sans_light"
+                    android:id="@+id/text_left_bv_rep"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:padding="5dp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+
+                android:weightSum="2">
+
+                <TextView
+                    android:fontFamily="@font/open_sans_light"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="Right BV Rep." />
+
+                <TextView
+                    android:fontFamily="@font/open_sans_light"
+                    android:id="@+id/text_right_bv_rep"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:padding="5dp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+
+                android:weightSum="2">
+
+                <TextView
+                    android:fontFamily="@font/open_sans_light"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="Carry LBV Rep." />
+
+                <TextView
+                    android:fontFamily="@font/open_sans_light"
+                    android:id="@+id/text_carry_lbv_rep"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:padding="5dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+
+                android:weightSum="2">
+
+                <TextView
+                    android:fontFamily="@font/open_sans_light"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="Carry RBV Rep." />
+
+                <TextView
+                    android:fontFamily="@font/open_sans_light"
+                    android:id="@+id/text_carry_rbv_rep"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"

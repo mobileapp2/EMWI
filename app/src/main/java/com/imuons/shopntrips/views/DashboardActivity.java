@@ -21,6 +21,7 @@ import com.imuons.shopntrips.adapters.CustomExpandableListAdapter;
 import com.imuons.shopntrips.fragments.ActiveTeamViewFragment;
 import com.imuons.shopntrips.fragments.AwardReportFragment;
 import com.imuons.shopntrips.fragments.BonanzaReportFragment;
+import com.imuons.shopntrips.fragments.LevelViewFragment;
 import com.imuons.shopntrips.fragments.RoyalityIncomeReportFragment;
 import com.imuons.shopntrips.fragments.DirectIncomeReportFragment;
 import com.imuons.shopntrips.fragments.RepurchaseIncomeReportFragment;
@@ -171,7 +172,7 @@ public class DashboardActivity extends AppCompatActivity {
                                 mExpandableListView.setSelection(childPosition);
                                 break;
                             case 2:
-                                fragmentManager.beginTransaction().replace(R.id.content_frame, ActiveTeamViewFragment.newInstance()).commit();
+                                fragmentManager.beginTransaction().replace(R.id.content_frame, LevelViewFragment.newInstance()).commit();
                                 getSupportActionBar().setTitle("Level View");
                                 mExpandableListView.setItemChecked(childPosition, true);
                                 mExpandableListView.setSelection(childPosition);

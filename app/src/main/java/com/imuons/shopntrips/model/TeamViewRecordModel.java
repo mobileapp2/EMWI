@@ -20,6 +20,12 @@ public class TeamViewRecordModel {
     @SerializedName("upline_id")
     @Expose
     private String uplineId;
+    @SerializedName("level")
+    @Expose
+    private Integer level;
+    @SerializedName("total_business")
+    @Expose
+    private Integer totalBusiness;
     @SerializedName("position")
     @Expose
     private String position;
@@ -35,6 +41,12 @@ public class TeamViewRecordModel {
     @SerializedName("right_bv")
     @Expose
     private Integer rightBv;
+    @SerializedName("left_bv_rep")
+    @Expose
+    private Integer leftBvRep;
+    @SerializedName("right_bv_rep")
+    @Expose
+    private Integer rightBvRep;
     @SerializedName("pin_number")
     @Expose
     private String pinNumber;
@@ -43,7 +55,7 @@ public class TeamViewRecordModel {
     private String joiningDate;
     @SerializedName("total_investment")
     @Expose
-    private Object totalInvestment;
+    private Integer totalInvestment;
     @SerializedName("product")
     @Expose
     private TeamViewProductModel product;
@@ -88,6 +100,22 @@ public class TeamViewRecordModel {
         this.uplineId = uplineId;
     }
 
+    public Integer getLevel() {
+        return level;
+    }
+
+    public void setLevel(Integer level) {
+        this.level = level;
+    }
+
+    public Integer getTotalBusiness() {
+        return totalBusiness;
+    }
+
+    public void setTotalBusiness(Integer totalBusiness) {
+        this.totalBusiness = totalBusiness;
+    }
+
     public String getPosition() {
         return position;
     }
@@ -128,6 +156,22 @@ public class TeamViewRecordModel {
         this.rightBv = rightBv;
     }
 
+    public Integer getLeftBvRep() {
+        return leftBvRep;
+    }
+
+    public void setLeftBvRep(Integer leftBvRep) {
+        this.leftBvRep = leftBvRep;
+    }
+
+    public Integer getRightBvRep() {
+        return rightBvRep;
+    }
+
+    public void setRightBvRep(Integer rightBvRep) {
+        this.rightBvRep = rightBvRep;
+    }
+
     public String getPinNumber() {
         return pinNumber;
     }
@@ -144,11 +188,11 @@ public class TeamViewRecordModel {
         this.joiningDate = joiningDate;
     }
 
-    public Object getTotalInvestment() {
+    public Integer getTotalInvestment() {
         return totalInvestment;
     }
 
-    public void setTotalInvestment(Object totalInvestment) {
+    public void setTotalInvestment(Integer totalInvestment) {
         this.totalInvestment = totalInvestment;
     }
 
@@ -161,3 +205,4 @@ public class TeamViewRecordModel {
     }
 
 }
+
