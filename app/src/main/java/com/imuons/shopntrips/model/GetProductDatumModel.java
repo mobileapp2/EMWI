@@ -18,7 +18,7 @@ public class GetProductDatumModel {
     private String bvalue;
     @SerializedName("usd")
     @Expose
-    private Object usd;
+    private Integer usd;
     @SerializedName("mp")
     @Expose
     private Integer mp;
@@ -33,7 +33,7 @@ public class GetProductDatumModel {
     private Integer perPairAmount;
     @SerializedName("binary_per")
     @Expose
-    private Double binaryPer;
+    private Integer binaryPer;
     @SerializedName("percentage")
     @Expose
     private String percentage;
@@ -46,6 +46,9 @@ public class GetProductDatumModel {
     @SerializedName("capping")
     @Expose
     private Integer capping;
+    @SerializedName("repurchase_limit")
+    @Expose
+    private String repurchaseLimit;
     @SerializedName("status_product")
     @Expose
     private String statusProduct;
@@ -78,7 +81,7 @@ public class GetProductDatumModel {
     private Integer roi1;
     @SerializedName("roi_2")
     @Expose
-    private Double roi2;
+    private Integer roi2;
     @SerializedName("date_diff")
     @Expose
     private Integer dateDiff;
@@ -93,7 +96,7 @@ public class GetProductDatumModel {
     private String directRoiPercentage;
     @SerializedName("joining_count")
     @Expose
-    private Object joiningCount;
+    private String joiningCount;
     @SerializedName("no_of_pins_available")
     @Expose
     private Integer noOfPinsAvailable;
@@ -130,11 +133,11 @@ public class GetProductDatumModel {
         this.bvalue = bvalue;
     }
 
-    public Object getUsd() {
+    public Integer getUsd() {
         return usd;
     }
 
-    public void setUsd(Object usd) {
+    public void setUsd(Integer usd) {
         this.usd = usd;
     }
 
@@ -170,11 +173,11 @@ public class GetProductDatumModel {
         this.perPairAmount = perPairAmount;
     }
 
-    public Double getBinaryPer() {
+    public Integer getBinaryPer() {
         return binaryPer;
     }
 
-    public void setBinaryPer(Double binaryPer) {
+    public void setBinaryPer(Integer binaryPer) {
         this.binaryPer = binaryPer;
     }
 
@@ -208,6 +211,14 @@ public class GetProductDatumModel {
 
     public void setCapping(Integer capping) {
         this.capping = capping;
+    }
+
+    public String getRepurchaseLimit() {
+        return repurchaseLimit;
+    }
+
+    public void setRepurchaseLimit(String repurchaseLimit) {
+        this.repurchaseLimit = repurchaseLimit;
     }
 
     public String getStatusProduct() {
@@ -290,11 +301,11 @@ public class GetProductDatumModel {
         this.roi1 = roi1;
     }
 
-    public Double getRoi2() {
+    public Integer getRoi2() {
         return roi2;
     }
 
-    public void setRoi2(Double roi2) {
+    public void setRoi2(Integer roi2) {
         this.roi2 = roi2;
     }
 
@@ -330,11 +341,11 @@ public class GetProductDatumModel {
         this.directRoiPercentage = directRoiPercentage;
     }
 
-    public Object getJoiningCount() {
+    public String getJoiningCount() {
         return joiningCount;
     }
 
-    public void setJoiningCount(Object joiningCount) {
+    public void setJoiningCount(String joiningCount) {
         this.joiningCount = joiningCount;
     }
 
@@ -345,4 +356,5 @@ public class GetProductDatumModel {
     public void setNoOfPinsAvailable(Integer noOfPinsAvailable) {
         this.noOfPinsAvailable = noOfPinsAvailable;
     }
+
 }

@@ -25,8 +25,7 @@ import android.widget.Toast;
 import com.imuons.shopntrips.R;
 import com.imuons.shopntrips.model.CheckDownlineUserResponseModel;
 import com.imuons.shopntrips.model.GetBalanceReponseModel;
-import com.imuons.shopntrips.model.GetProductDatumModel;
-import com.imuons.shopntrips.model.GetProductResponseModel;
+
 import com.imuons.shopntrips.model.ProductDatumModel;
 import com.imuons.shopntrips.model.ProductResponseModel;
 import com.imuons.shopntrips.model.SubmitTopUpReponseModel;
