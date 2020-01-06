@@ -4,7 +4,7 @@
     android:background="@drawable/bgdash"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
->
+    >
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/gif"
@@ -33,7 +33,7 @@
             android:padding="8dp"
             android:fontFamily="@font/open_sans_bold"
             android:paddingStart="40dp"
-            android:text="TopUp Balance"
+            android:text="Available E-Pins"
             android:textColor="@color/colorBlack"
             android:textSize="12sp"
             android:textStyle="bold"
@@ -41,7 +41,7 @@
 
         <EditText
             android:focusable="false"
-            android:id="@+id/topupbal"
+            android:id="@+id/availableepins"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_gravity="center"
@@ -59,15 +59,15 @@
             android:padding="8dp"
             android:fontFamily="@font/open_sans_bold"
             android:paddingStart="40dp"
-            android:text="User Id"
+            android:text="Transfer To User Id"
             android:textColor="@color/colorBlack"
             android:textSize="12sp"
             android:textStyle="bold"
             tools:ignore="RtlSymmetry" />
 
         <EditText
-            android:hint="Enter User Id"
-            android:id="@+id/userid"
+            android:hint=" Enter Transfer To UserId"
+            android:id="@+id/transuserid"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_gravity="center"
@@ -85,18 +85,18 @@
             android:padding="8dp"
             android:fontFamily="@font/open_sans_bold"
             android:paddingStart="40dp"
-            android:text="Full Name"
+            android:text="Number Of E-Pins"
             android:textColor="@color/colorBlack"
             android:textSize="12sp"
             android:textStyle="bold"
             tools:ignore="RtlSymmetry" />
 
         <EditText
-            android:hint="Enter Full Name"
-            android:id="@+id/fullname"
+            android:hint="Enter Number of E-pins"
+            android:id="@+id/nopfepins"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:focusable="false"
+
             android:layout_gravity="center"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
@@ -109,7 +109,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:background="@drawable/editviewbg"
-android:padding="8dp"
+            android:padding="8dp"
             android:fontFamily="@font/open_sans_bold"
             android:paddingStart="40dp"
             android:text="Select Product"
@@ -123,7 +123,7 @@ android:padding="8dp"
             android:id="@+id/selectproduct"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:text="Select Product"
+            android:hint="Select Product"
             android:paddingRight="15dp"
             android:drawableRight="@drawable/arrow_down"
             android:layout_gravity="center"
@@ -135,14 +135,14 @@ android:padding="8dp"
             android:textColor="@color/white" />
 
 
-<Button
-    android:text="Submit"
-    android:id="@+id/submit"
-    android:layout_marginTop="30dp"
-    android:background="@drawable/btnlogin"
-    android:layout_width="150dp"
-    android:layout_gravity="center"
-    android:layout_height="50dp"/>
+        <Button
+            android:text="Submit"
+            android:id="@+id/submit"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/btnlogin"
+            android:layout_width="150dp"
+            android:layout_gravity="center"
+            android:layout_height="50dp"/>
     </LinearLayout>
 
 

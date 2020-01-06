@@ -6,7 +6,9 @@ import com.imuons.shopntrips.model.AwardReportResponseModel;
 import com.imuons.shopntrips.model.BonanzaResponseModel;
 import com.imuons.shopntrips.model.DirectNewJoinResponseModel;
 import com.imuons.shopntrips.model.GetLevelResponseModel;
+import com.imuons.shopntrips.model.GetProductFroPinTransferResponseModel;
 import com.imuons.shopntrips.model.LevelViewResponseModel;
+import com.imuons.shopntrips.model.PinResponseModel;
 import com.imuons.shopntrips.model.ProductResponseModel;
 import com.imuons.shopntrips.model.RoyalityIncomeReportResponseModel;
 import com.imuons.shopntrips.model.DirectIncomeReportResponseModel;
@@ -40,6 +42,7 @@ import com.imuons.shopntrips.model.TicketResponseModel;
 import com.imuons.shopntrips.model.TopUpReportResponseModel;
 import com.imuons.shopntrips.model.TransferEpinReportResponseModel;
 import com.imuons.shopntrips.model.TransferPinDetailResponseModel;
+import com.imuons.shopntrips.model.TransferPinResponseModel;
 import com.imuons.shopntrips.model.TreeViewResponseModel;
 import com.imuons.shopntrips.model.UpdateProfileResponseModel;
 import com.imuons.shopntrips.model.UsedEpinReportResponseModel;
@@ -179,8 +182,8 @@ public interface Emwi {
     @POST("checkdownlineuser")
     Call<CheckDownlineUserResponseModel> wsCheckDownlineUser(@Header("Authorization") String authHeader, @FieldMap Map<String, String> loginMap);
 
-//    @GET("getproducts")
-//    Call<GetProductResponseModel> wsGetProducts(@Header("Authorization") String authHeader);
+    @GET("getproducts")
+    Call<GetProductResponseModel> wsGetProducts(@Header("Authorization") String authHeader);
     @GET("newDirectJoining")
     Call<DirectNewJoinResponseModel> wsNewJoin(@Header("Authorization") String authHeader);
     @FormUrlEncoded
@@ -235,6 +238,9 @@ public interface Emwi {
     @GET("get-level")
     Call<GetLevelResponseModel> wsGetLevel(@Header("Authorization") String authHeader);
 
+    @GET("get_products_for_pin_transfer")
+    Call<GetProductFroPinTransferResponseModel> wsPinTransfer(@Header("Authorization") String authHeader);
+
     @FormUrlEncoded
     @POST("active-team-view")
     Call<ActiveTeamViewResponseModel> wsGetActiveTeamView(@Header("Authorization") String authHeader, @FieldMap Map<String, String> loginMap);
@@ -275,6 +281,15 @@ public interface Emwi {
     @FormUrlEncoded
     @POST("level-view")
     Call<LevelViewResponseModel> wsLevelViewReport(@Header("Authorization") String authHeader, @FieldMap Map<String, String> loginMap);
+
+
+    @FormUrlEncoded
+    @POST("transfer_pins")
+    Call<TransferPinResponseModel> wsTransferPins(@Header("Authorization") String authHeader, @FieldMap Map<String, String> loginMap);
+
+    @FormUrlEncoded
+    @POST("epin-details")
+    Call<PinResponseModel> wsEPinReport(@Header("Authorization") String authHeader, @FieldMap Map<String, String> loginMap);
   /*
 
 
@@ -298,9 +313,6 @@ public interface Emwi {
     @FormUrlEncoded
     @POST("user/change-password")
     Call<ChangePasswordResponseModel> wsChangePassword(@Header("Authorization") String authHeader, @FieldMap Map<String, String> loginMap);
-    @FormUrlEncoded
-    @POST("user/transfer_pins")
-    Call<TransferPinResponseModel> wsTransferPins(@Header("Authorization") String authHeader, @FieldMap Map<String, String> loginMap);
 
     @FormUrlEncoded
     @POST("user/get_transfer_pin_report")
@@ -351,9 +363,7 @@ public interface Emwi {
     Call<GetProductsPinTransferResponseModel> wsGetProductsForPinTransfer(@Header("Authorization") String authHeader);
 
 //
-    @FormUrlEncoded
-    @POST("user/epin-details-unused")
-    Call<ActivePinRequestResponseModel> wsActivePinReport(@Header("Authorization") String authHeader, @FieldMap Map<String, String> loginMap);
+
 
     @GET("user/get_products_for_pin_request")
     Call<ProductsForPinRequestResponseModel> wsGetProductForPinRequest(@Header("Authorization") String authHeader);
