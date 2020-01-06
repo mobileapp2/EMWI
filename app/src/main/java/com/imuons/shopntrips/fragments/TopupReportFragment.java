@@ -48,7 +48,8 @@ import retrofit2.Response;
  * A simple {@link Fragment} subclass.
  */
 public class TopupReportFragment extends Fragment {
-
+    @BindView(R.id.selecttype)
+    EditText selecttype;
     @BindView(R.id.recycler_topup_report)
     RecyclerView recycler_topup_report;
     @BindView(R.id.searchbyid)
@@ -59,13 +60,15 @@ public class TopupReportFragment extends Fragment {
     TextView getselectedentry;
     @BindView(R.id.dropdoenentry)
     View dropdoenentry;
+    ListPopupWindow entrypopupwindow,selecttypepopupwindow;
     String mStringUserId;
     TopUpReportAdapter topUpReportAdapter;
     private List<TopUpReportRecordModel> trList = new ArrayList<>();
     String countselected = "10";
     private FragmentManager fragmentManager;
     String entry[] ={"10","50","100","500","1000","5000","10000"};
-    ListPopupWindow entrypopupwindow;
+    String team[] ={"All","Purchase","Repurchase"};
+    String strselecttype=" ";
 
     public TopupReportFragment() {
         // Required empty public constructor
@@ -82,7 +85,8 @@ public class TopupReportFragment extends Fragment {
         View view= inflater.inflate(R.layout.fragment_topup_report, container, false);
         ButterKnife.bind(this, view);
         fragmentManager = getFragmentManager();
-
+        selecttypepopupwindow = new ListPopupWindow(
+                TopupReportFragment.this.getContext());
         entrypopupwindow = new ListPopupWindow(
                 TopupReportFragment.this.getContext());
         recycler_topup_report.setHasFixedSize(true);
@@ -111,6 +115,46 @@ public class TopupReportFragment extends Fragment {
                 mStringUserId="";
                 getData(mStringUserId);
                 entrypopupwindow.dismiss();
+            }
+        });
+
+        selecttype.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                selecttypepopupwindow.setAdapter(new ArrayAdapter(
+                        TopupReportFragment.this.getContext(),
+                        R.layout.check_list_item, team));
+                selecttypepopupwindow.setAnchorView(selecttype);
+                selecttypepopupwindow.setWidth(300);
+                selecttypepopupwindow.setHeight(300);
+                selecttypepopupwindow.setModal(true);
+                selecttypepopupwindow.show();
+            }
+        });
+        selecttypepopupwindow.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                selecttype.setText(team[i]);
+                strselecttype = selecttype.getText().toString();
+                if(strselecttype.equals("Purchase")){
+                    strselecttype = "Purchase";
+                    trList .clear();
+                    mStringUserId="";
+                    getData(mStringUserId);
+                }else if(strselecttype.equals("Repurchase")){
+                    strselecttype = "Repurchase";
+                    trList .clear();
+                    mStringUserId="";
+                    getData(mStringUserId);
+                }else {
+                    strselecttype = "";
+                    trList .clear();
+                    mStringUserId="";
+                    getData(mStringUserId);
+
+                }
+                //getUserid = String.valueOf(teamViewList.get(i).getId());
+                selecttypepopupwindow.dismiss();
             }
         });
         searchbyid.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -163,6 +207,7 @@ public class TopupReportFragment extends Fragment {
         roiMap.put("start", String.valueOf(0));
         roiMap.put("length", countselected);
         roiMap.put("search[value]",mStringUserId);
+        roiMap.put("topup_type",strselecttype);
 
         Emwi apiService = ApiHandler.getApiService();
         final Call<TopUpReportResponseModel> loginCall = apiService.wsTopupReport(

@@ -23,6 +23,7 @@ import com.imuons.shopntrips.fragments.AwardReportFragment;
 import com.imuons.shopntrips.fragments.BonanzaReportFragment;
 import com.imuons.shopntrips.fragments.GenerateTicketFragment;
 import com.imuons.shopntrips.fragments.LevelViewFragment;
+import com.imuons.shopntrips.fragments.MakeWithdrawFragment;
 import com.imuons.shopntrips.fragments.RoyalityIncomeReportFragment;
 import com.imuons.shopntrips.fragments.DirectIncomeReportFragment;
 import com.imuons.shopntrips.fragments.RepurchaseIncomeReportFragment;
@@ -337,7 +338,7 @@ public class DashboardActivity extends AppCompatActivity {
                     case 7:
                         switch (childPosition) {
                             case 0:
-                                fragmentManager.beginTransaction().replace(R.id.content_frame, WithdrawRequestReportFragment.newInstance()).commit();
+                                fragmentManager.beginTransaction().replace(R.id.content_frame, MakeWithdrawFragment.newInstance()).commit();
                                 getSupportActionBar().setTitle("Make Withdraw");
                                 mExpandableListView.setItemChecked(childPosition, true);
                                 mExpandableListView.setSelection(childPosition);

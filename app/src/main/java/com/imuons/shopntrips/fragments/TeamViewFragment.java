@@ -58,7 +58,7 @@ public class TeamViewFragment extends Fragment {
     @BindView(R.id.edit_to_date)
     EditText todate;
     @BindView(R.id.selectteam)
-    TextView selectteam;
+    EditText selectteam;
     @BindView(R.id.edit_user_id)
     EditText edit_user_id;
     @BindView(R.id.searchbyid)
