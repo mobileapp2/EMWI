@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginEnd="10dp"
+    android:paddingBottom="5dp">
+
+    <TextView
+        android:id="@+id/text_message_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:fontFamily="@font/open_sans_light"
+        android:text="11:40"
+        android:textSize="10sp"
+        android:textColor="@color/black"
+        android:visibility="gone"
+        android:layout_gravity="end"/>
+
+    <TextView
+        android:id="@+id/text_message_body"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/rounded_rectangle_recieve"
+        android:fontFamily="@font/open_sans_light"
+        android:maxWidth="240dp"
+        android:padding="8dp"
+        android:layout_gravity="end"
+        android:text="hi man, how are you?"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        />
+<!-- android:clickable="true"-->
+
+    <ImageView
+        android:id="@+id/upload_image_admin"
+        android:layout_width="80dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="end"
+        android:transitionName="@string/transition_string"
+        android:visibility="gone"
+        android:clickable="true"/>
+
+
+
+
+
+</LinearLayout>

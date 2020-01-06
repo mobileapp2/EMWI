@@ -1,9 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.imuons.shopntrips.views.ChatActivity">
+    android:background="@drawable/bgdash">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gif"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:elevation="25dp"
+        android:visibility="gone" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvChat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/layoutfile"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="10dp"
+        android:transcriptMode="alwaysScroll" />
+
+
+    <LinearLayout
+        android:id="@+id/layoutfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/rlSend"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtpp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/white"
+            android:ellipsize="end"
+            android:fontFamily="@font/open_sans_bold"
+            android:gravity="center"
+            android:maxLength="16"
+            android:singleLine="true"
+            android:text="No File Selected"
+            android:textColor="@color/blue"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/rlSend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:weightSum="6">
+
+
+        <EditText
+            android:id="@+id/etMessage"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="4.4"
+            android:background="@drawable/searchback"
+            android:fontFamily="@font/open_sans_light"
+            android:hint=" Type Here...."
+            android:imeOptions="actionSend"
+            android:inputType="textShortMessage"
+            android:textColor="@color/black"
+            android:textCursorDrawable="@drawable/color_cursor" />
+
+        <ImageView
+            android:id="@+id/image_attachment"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="0.8"
+            android:padding="10dp"
+            android:src="@drawable/ic_attachment" />
+
+
+        <ImageView
+            android:id="@+id/btSend"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="0.8"
+            android:padding="7dp"
+            android:src="@drawable/ic_chat_send" />
+
+    </LinearLayout>
+</RelativeLayout>

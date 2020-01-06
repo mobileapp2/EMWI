@@ -137,9 +137,13 @@ public class DashboardActivity extends AppCompatActivity {
 //                        break;
 
                     case 9:
-                        fragmentManager.beginTransaction().replace(R.id.content_frame, GenerateTicketFragment.newInstance()).commit();
-                        getSupportActionBar().setTitle("Support");
-                        mDrawerLayout.closeDrawers();
+
+                        Intent i = new Intent(DashboardActivity.this, SuportActivity.class);
+                        startActivity(i);
+                        /*
+                        fragmentManager.beginTransaction().replace(R.id.content_frame, SuportActivity.newInstance()).commit();
+                        getSupportActionBar().setTitle("Support");*/
+                     //   mDrawerLayout.closeDrawers();
                         break;
 
                     case 10:
