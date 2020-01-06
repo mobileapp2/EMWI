@@ -72,7 +72,7 @@ public class AboutActivity extends AppCompatActivity {
     }
 
     private void getTopUp() {
-        mbtnUpdate.setVisibility(View.GONE);
+        mbtnUpdate.setVisibility(View.VISIBLE);
         final ProgressDialog pd = ViewUtils.getProgressBar(AboutActivity.this, "Loading...", "Please wait..!");
 
         Emwi apiService = ApiHandler.getApiService();
@@ -93,8 +93,8 @@ public class AboutActivity extends AppCompatActivity {
                             userTopUpResponse.getStatus().equals("Not Found")) {
                         mbtnUpdate.setVisibility(View.VISIBLE);
                     }else {
-                        mbtnUpdate.setVisibility(View.GONE);
-                        Toast.makeText(AboutActivity.this, "You Cannot Update", Toast.LENGTH_SHORT).show();
+                        mbtnUpdate.setVisibility(View.VISIBLE);
+                      //  Toast.makeText(AboutActivity.this, "You Cannot Update", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

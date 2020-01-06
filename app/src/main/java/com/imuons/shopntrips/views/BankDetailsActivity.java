@@ -260,7 +260,7 @@ public class BankDetailsActivity extends AppCompatActivity {
         mEditPanNo.setEnabled(true);
         mEditBankName.setEnabled(true);
         mEditIFSCCode.setEnabled(true);
-        mbtnEdit.setVisibility(View.GONE);
+        mbtnEdit.setVisibility(View.VISIBLE);
         mbtnSubmit.setVisibility(View.VISIBLE);
 
     }
