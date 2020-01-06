@@ -21,6 +21,7 @@ import com.imuons.shopntrips.adapters.CustomExpandableListAdapter;
 import com.imuons.shopntrips.fragments.ActiveTeamViewFragment;
 import com.imuons.shopntrips.fragments.AwardReportFragment;
 import com.imuons.shopntrips.fragments.BonanzaReportFragment;
+import com.imuons.shopntrips.fragments.GenerateTicketFragment;
 import com.imuons.shopntrips.fragments.LevelViewFragment;
 import com.imuons.shopntrips.fragments.RoyalityIncomeReportFragment;
 import com.imuons.shopntrips.fragments.DirectIncomeReportFragment;
@@ -135,7 +136,7 @@ public class DashboardActivity extends AppCompatActivity {
 //                        break;
 
                     case 9:
-                        fragmentManager.beginTransaction().replace(R.id.content_frame, DownloadPDFFragment.newInstance()).commit();
+                        fragmentManager.beginTransaction().replace(R.id.content_frame, GenerateTicketFragment.newInstance()).commit();
                         getSupportActionBar().setTitle("Support");
                         mDrawerLayout.closeDrawers();
                         break;

@@ -1,13 +1,21 @@
 package com.imuons.shopntrips.views;
 
 import android.annotation.SuppressLint;
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
+import android.util.Log;
+import android.view.Menu;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,7 +35,10 @@ import com.imuons.shopntrips.utils.SharedPreferenceUtils;
 import com.imuons.shopntrips.utils.ViewUtils;
 import com.squareup.picasso.Picasso;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 import butterknife.BindView;
@@ -36,7 +47,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ProfileInfoActivity extends AppCompatActivity {
+public class ProfileInfoActivity extends AppCompatActivity implements View.OnClickListener {
 
     private UserProfileResponseModel model;
 
@@ -51,6 +62,10 @@ public class ProfileInfoActivity extends AppCompatActivity {
 
     @BindView(R.id.txt_Email)
     EditText mTextEmail;
+    @BindView(R.id.txt_NomineeName)
+    EditText mNomineeName;
+    @BindView(R.id.txt_DOB)
+    EditText mTextDOB;
 
     @BindView(R.id.txt_name)
     EditText mTextName;
@@ -66,14 +81,26 @@ public class ProfileInfoActivity extends AppCompatActivity {
     @BindView(R.id.image_profile)
     ImageView mImageUser;
 
+    @BindView(R.id.txt_NomineeRelation)
+    Spinner mNomineeRelation;
+
+
     @BindView(R.id.btn_Edit)
     Button mbtnSubmit;
+
+    String myString = "Select Nominee Relation";
+    int sp_position;
+    String selected, spinner_item;
+
+    private DatePickerDialog fromDatePickerDialog;
+    private SimpleDateFormat dateFormatter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_info);
         ButterKnife.bind(this);
+
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle(R.string.profile);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -81,24 +108,84 @@ public class ProfileInfoActivity extends AppCompatActivity {
         Gson gS = new Gson();
         String target = getIntent().getStringExtra("object");
         model = gS.fromJson(target, UserProfileResponseModel.class);
+
         if (model != null && model.getData().getUserId() != null) {
             displayData(model);
         } else {
             Toast.makeText(ProfileInfoActivity.this, "No Data found!", Toast.LENGTH_SHORT).show();
         }
+
+        dateFormatter = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+        mTextDOB.setInputType(InputType.TYPE_NULL);
+        mTextDOB.requestFocus();
+
         getTopUp();
         getUserPhotos();
+        setDateTimeField();
+        ArrayAdapter<CharSequence> staticAdapter = ArrayAdapter.createFromResource(this, R.array.brew_array,
+                android.R.layout.simple_spinner_item);
 
+        staticAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sp_position = staticAdapter.getPosition(myString);
+        mNomineeRelation.setAdapter(staticAdapter);
+
+
+        mNomineeRelation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int position, long id) {
+                Log.v("item", (String) parent.getItemAtPosition(position));
+                selected = mNomineeRelation.getSelectedItem().toString();
+                if (!selected.equals("Select Nominee Relation"))
+                    spinner_item = selected;
+                System.out.println(selected);
+                setid();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // TODO Auto-generated method stub
+            }
+        });
         mbtnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (validateMobileNo()){
+                if (validateMobileNo()) {
                     UpdateProfile();
                 }
-
             }
         });
+
     }
+
+    private void setDateTimeField() {
+        mTextDOB.setOnClickListener(this);
+
+        Calendar newCalendar = Calendar.getInstance();
+        fromDatePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                Calendar newDate = Calendar.getInstance();
+                newDate.set(year, monthOfYear, dayOfMonth);
+                mTextDOB.setText(dateFormatter.format(newDate.getTime()));
+            }
+
+        },newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
+
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        //getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    private void setid() {
+        mNomineeRelation.setSelection(sp_position);
+    }
+
     private boolean validateMobileNo() {
         String mobile = mTextMobileNumbers.getText().toString().trim();
         if (mobile.isEmpty() || mobile.length() < 10) {
@@ -114,12 +201,16 @@ public class ProfileInfoActivity extends AppCompatActivity {
         String name = mTextName.getText().toString();
         String email = mTextEmail.getText().toString();
         String mobile = mTextMobileNumbers.getText().toString();
-
+        String nominee_name = mNomineeName.getText().toString();
+        String relation = mNomineeRelation.getSelectedItem().toString();
+        String dob = mTextDOB.getText().toString();
         Map<String, String> roiMap = new HashMap<>();
         roiMap.put("fullname", name);
         roiMap.put("mobile", mobile);
+        roiMap.put("nominee_name", nominee_name);
+        roiMap.put("relation", relation);
         roiMap.put("email", email);
-
+        roiMap.put("dob", dob);
 
         Emwi apiService = ApiHandler.getApiService();
 
@@ -176,11 +267,35 @@ public class ProfileInfoActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     UserTopUpResponse userTopUpResponse = response.body();
                     if (userTopUpResponse.getCode() == Constants.RESPONSE_ERRORS &&
-                            userTopUpResponse.getStatus().equals("Not Found")) {
+                            userTopUpResponse.getStatus().equals("Purchase")) {
 
                         mbtnSubmit.setVisibility(View.VISIBLE);
                     } else {
-                        mbtnSubmit.setVisibility(View.GONE);
+                        mbtnSubmit.setVisibility(View.VISIBLE);
+                        mTextUserID.setFocusable(false);
+                        mTextUserID.setFocusableInTouchMode(false);
+                        mTextUserID.setClickable(false);
+
+                        mTextSponsorID.setClickable(false);
+                        mTextSponsorID.setFocusable(false);
+                        mTextSponsorID.setFocusableInTouchMode(false);
+
+                      /*  mTextName.setClickable(false);
+                        mTextName.setFocusable(false);
+                        mTextName.setFocusableInTouchMode(false);
+*/
+                        mTextMobileNumbers.setClickable(false);
+                        mTextMobileNumbers.setFocusable(false);
+                        mTextMobileNumbers.setFocusableInTouchMode(false);
+
+                     /*   mTextEmail.setClickable(false);
+                        mTextEmail.setFocusable(false);
+                        mTextEmail.setFocusableInTouchMode(false);*/
+
+                        mTextDateOfJoining.setClickable(false);
+                        mTextDateOfJoining.setFocusable(false);
+                        mTextDateOfJoining.setFocusableInTouchMode(false);
+
                     }
                 }
             }
@@ -244,6 +359,16 @@ public class ProfileInfoActivity extends AppCompatActivity {
         mTextEmailIds.setText(data.getData().getEmail());
         mTextMobileNumber.setText(data.getData().getMobile());
         mTextDateOfJoining.setText(data.getData().getEntryTime());
+        // mNomineeRelation.setSelection(Integer.parseInt(data.getData().getRelation()));
+        mNomineeName.setText(data.getData().getNomineeName());
+        mTextDOB.setText(data.getData().getDob());
     }
 
+
+    @Override
+    public void onClick(View view) {
+        if(view == mTextDOB) {
+            fromDatePickerDialog.show();
+        }
+    }
 }

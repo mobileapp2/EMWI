@@ -204,4 +204,18 @@
     <string name="tab_3">Support</string>
     <string name="tab_4">Bussiness Plan</string>
     <string name="title_activity_recharge_report_adapter">RechargeReportAdapter</string>
+
+    <string-array name="brew_array">
+        <item>Father</item>
+        <item>Mother</item>
+        <item>Brother</item>
+        <item>Sister</item>
+        <item>Husband</item>
+        <item>Wife</item>
+        <item>Son</item>
+        <item>Daughter</item>
+        <item>Other</item>
+    </string-array>
+
+
 </resources>

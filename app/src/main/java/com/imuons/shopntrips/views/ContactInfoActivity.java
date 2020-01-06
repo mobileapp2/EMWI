@@ -59,6 +59,7 @@ public class ContactInfoActivity extends AppCompatActivity {
 
     List<String> listCityName = new ArrayList<>();
     private List<GetCityDatumModel> citylist = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -307,7 +308,8 @@ public class ContactInfoActivity extends AppCompatActivity {
                         mbtnSubmit.setVisibility(View.VISIBLE);
                         doEditNow();
                     } else {
-                        mbtnSubmit.setVisibility(View.GONE);
+                        mbtnSubmit.setVisibility(View.VISIBLE);
+                        doEditNow();
                     }
                 }
             }

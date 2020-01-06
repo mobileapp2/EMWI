@@ -122,6 +122,7 @@ public class GenerateTicketFragment extends Fragment {
         ButterKnife.bind(this, view);
         registerListener();
         checkPermission();
+        
         getDepartments();
         setRandomNo();
         return view;

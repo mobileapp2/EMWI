@@ -22,6 +22,9 @@ public class UserProfileDataModel {
     @SerializedName("mobile")
     @Expose
     private String mobile;
+    @SerializedName("dob")
+    @Expose
+    private String dob;
     @SerializedName("email")
     @Expose
     private String email;
@@ -75,13 +78,13 @@ public class UserProfileDataModel {
     private String state;
     @SerializedName("pincode")
     @Expose
-    private Object pincode;
+    private String pincode;
     @SerializedName("address")
     @Expose
     private String address;
     @SerializedName("about_us")
     @Expose
-    private Object aboutUs;
+    private String aboutUs;
     @SerializedName("nominee_name")
     @Expose
     private String nomineeName;
@@ -96,22 +99,22 @@ public class UserProfileDataModel {
     private String sponserId;
     @SerializedName("carry_left_bv")
     @Expose
-    private Integer carryLeftBv;
+    private String carryLeftBv;
     @SerializedName("carry_right_bv")
     @Expose
-    private Integer carryRightBv;
+    private String carryRightBv;
     @SerializedName("carry_left_bv_rep")
     @Expose
-    private Integer carryLeftBvRep;
+    private String carryLeftBvRep;
     @SerializedName("carry_right_bv_rep")
     @Expose
-    private Integer carryRightBvRep;
+    private String carryRightBvRep;
     @SerializedName("blood_group")
     @Expose
     private String bloodGroup;
     @SerializedName("designation")
     @Expose
-    private Object designation;
+    private String designation;
     @SerializedName("city")
     @Expose
     private String city;
@@ -168,6 +171,14 @@ public class UserProfileDataModel {
 
     public void setMobile(String mobile) {
         this.mobile = mobile;
+    }
+
+    public String getDob() {
+        return dob;
+    }
+
+    public void setDob(String dob) {
+        this.dob = dob;
     }
 
     public String getEmail() {
@@ -306,11 +317,11 @@ public class UserProfileDataModel {
         this.state = state;
     }
 
-    public Object getPincode() {
+    public String getPincode() {
         return pincode;
     }
 
-    public void setPincode(Object pincode) {
+    public void setPincode(String pincode) {
         this.pincode = pincode;
     }
 
@@ -322,11 +333,11 @@ public class UserProfileDataModel {
         this.address = address;
     }
 
-    public Object getAboutUs() {
+    public String getAboutUs() {
         return aboutUs;
     }
 
-    public void setAboutUs(Object aboutUs) {
+    public void setAboutUs(String aboutUs) {
         this.aboutUs = aboutUs;
     }
 
@@ -362,35 +373,35 @@ public class UserProfileDataModel {
         this.sponserId = sponserId;
     }
 
-    public Integer getCarryLeftBv() {
+    public String getCarryLeftBv() {
         return carryLeftBv;
     }
 
-    public void setCarryLeftBv(Integer carryLeftBv) {
+    public void setCarryLeftBv(String carryLeftBv) {
         this.carryLeftBv = carryLeftBv;
     }
 
-    public Integer getCarryRightBv() {
+    public String getCarryRightBv() {
         return carryRightBv;
     }
 
-    public void setCarryRightBv(Integer carryRightBv) {
+    public void setCarryRightBv(String carryRightBv) {
         this.carryRightBv = carryRightBv;
     }
 
-    public Integer getCarryLeftBvRep() {
+    public String getCarryLeftBvRep() {
         return carryLeftBvRep;
     }
 
-    public void setCarryLeftBvRep(Integer carryLeftBvRep) {
+    public void setCarryLeftBvRep(String carryLeftBvRep) {
         this.carryLeftBvRep = carryLeftBvRep;
     }
 
-    public Integer getCarryRightBvRep() {
+    public String getCarryRightBvRep() {
         return carryRightBvRep;
     }
 
-    public void setCarryRightBvRep(Integer carryRightBvRep) {
+    public void setCarryRightBvRep(String carryRightBvRep) {
         this.carryRightBvRep = carryRightBvRep;
     }
 
@@ -402,11 +413,11 @@ public class UserProfileDataModel {
         this.bloodGroup = bloodGroup;
     }
 
-    public Object getDesignation() {
+    public String getDesignation() {
         return designation;
     }
 
-    public void setDesignation(Object designation) {
+    public void setDesignation(String designation) {
         this.designation = designation;
     }
 
