@@ -28,7 +28,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <androidx.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:layout_marginLeft="9dp"
@@ -96,8 +96,8 @@
 
 
         </LinearLayout>
-    </androidx.support.v7.widget.CardView>
-    <androidx.support.v7.widget.RecyclerView
+    </androidx.cardview.widget.CardView>
+    <androidx.recyclerview.widget.RecyclerView
 
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
