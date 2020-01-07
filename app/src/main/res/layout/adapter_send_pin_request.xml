@@ -10,8 +10,11 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="35dp"
-        app:cardCornerRadius="5dp">
+        app:cardCornerRadius="5dp"
+        app:cardBackgroundColor ="@android:color/transparent"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_height="35dp">
 
         <LinearLayout
             android:id="@+id/llmain"
@@ -26,14 +29,7 @@
                 android:layout_gravity="center"
                 android:layout_weight=".7">
 
-                <ImageView
-                    android:id="@+id/eye"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:layout_weight="0.3"
-                    android:padding="5dp"
-                    />
+
 
                 <TextView
                     android:id="@+id/srno"
@@ -44,15 +40,11 @@
                     android:fontFamily="@font/open_sans_light"
                     android:gravity="center"
                     android:text="1"
-                    android:textColor="@color/adapterchildtxt"
+                    android:textColor="@color/white"
                     android:textSize="16sp" />
             </LinearLayout>
 
-            <View
 
-                android:layout_width="1dp"
-                android:layout_height="wrap_content"
-                android:background="@color/grey" />
 
             <TextView
                 android:id="@+id/productname"
@@ -63,14 +55,10 @@
                 android:fontFamily="@font/open_sans_bold"
                 android:gravity="center"
 
-                android:textColor="@color/adapterchildtxt"
+                android:textColor="@color/white"
                 android:textSize="14sp" />
 
-            <View
 
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="@color/grey" />
 
             <TextView
                 android:id="@+id/price"
@@ -83,7 +71,7 @@
                 android:gravity="center"
                 android:singleLine="true"
 
-                android:textColor="@color/adapterchildtxt"
+                android:textColor="@color/white"
                 android:textSize="14sp" />
 
         </LinearLayout>
@@ -96,7 +84,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:elevation="5dp"
-        android:background="@color/adapterchildbg"
+
         android:orientation="vertical">
 
         <!--<LinearLayout-->

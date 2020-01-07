@@ -45,8 +45,7 @@
         <activity android:name=".views.ResetPassword" />
         <activity android:name=".views.SignUp" />
         <activity android:name=".views.Registration" />
-        <activity android:name=".views.SuportActivity" />
-        <activity android:name=".views.ChatActivity" />
+
         <activity
             android:name=".views.DashboardActivity"
             android:screenOrientation="portrait" />

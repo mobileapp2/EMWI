@@ -8,6 +8,7 @@ import com.imuons.shopntrips.model.AwardReportResponseModel;
 import com.imuons.shopntrips.model.BonanzaResponseModel;
 import com.imuons.shopntrips.model.ChatRecievedResponseModel;
 import com.imuons.shopntrips.model.DirectNewJoinResponseModel;
+import com.imuons.shopntrips.model.EPinProductDetailResponseModel;
 import com.imuons.shopntrips.model.GetLevelResponseModel;
 import com.imuons.shopntrips.model.GetProductFroPinTransferResponseModel;
 import com.imuons.shopntrips.model.GetProductsPinRequestResponseModel;
@@ -313,6 +314,10 @@ public interface Emwi {
     @FormUrlEncoded
     @POST("getproducts")
     Call<ProductResponseModel> wsGetProduct(@Header("Authorization") String authHeader, @FieldMap Map<String, String> loginMap);
+
+    @FormUrlEncoded
+    @POST("get-user-order-items")
+    Call<EPinProductDetailResponseModel> wsEPinProductDetail(@Header("Authorization") String authHeader, @FieldMap Map<String, String> loginMap);
 
     @FormUrlEncoded
     @POST("user/report/awardwinners")

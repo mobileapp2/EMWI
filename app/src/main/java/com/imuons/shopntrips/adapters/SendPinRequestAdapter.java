@@ -70,13 +70,13 @@ public class SendPinRequestAdapter extends RecyclerView.Adapter<SendPinRequestAd
         final GetProductsPinRequestDataModel getProductsPinRequestDataModel = spList.get(position);
 
         holder.hiddenlayout.setVisibility(View.GONE);
-
-        if (position % 2 == 0) {
-            holder.llmain.setBackgroundColor(Color.parseColor("#f5f4f4"));
-        } else {
-            holder.llmain.setBackgroundColor(Color.parseColor("#c9caca"));
-
-        }
+//
+//        if (position % 2 == 0) {
+//            holder.llmain.setBackgroundColor(Color.parseColor("#f5f4f4"));
+//        } else {
+//            holder.llmain.setBackgroundColor(Color.parseColor("#c9caca"));
+//
+//        }
 
         holder.srno.setText(String.valueOf(position + 1));
 
@@ -220,8 +220,7 @@ public class SendPinRequestAdapter extends RecyclerView.Adapter<SendPinRequestAd
         @BindView(R.id.addtocarttxt)
         TextView addtocarttxt;
 
-        @BindView(R.id.eye)
-        ImageView eye;
+
 
 
         @BindView(R.id.llmain)

@@ -43,6 +43,7 @@ public class EPinRequestReportAdapter extends RecyclerView.Adapter<EPinRequestRe
     private Date datec,datew;
     private static int currentPosition = 0;
     private FragmentManager fragmentManager;
+    PinRequestReportRecordModel pinRequestReportRecordModel;
     public EPinRequestReportAdapter(Context context, List<PinRequestReportRecordModel> prList) {
         this.prList = prList;
 
@@ -60,7 +61,7 @@ public class EPinRequestReportAdapter extends RecyclerView.Adapter<EPinRequestRe
     @Override
     public void onBindViewHolder(final EPinRequestReportAdapter.EPinRequestReportAdapterHolder holder, final int position) {
 
-        final PinRequestReportRecordModel pinRequestReportRecordModel = prList.get(position);
+        pinRequestReportRecordModel  = prList.get(position);
 
         holder.hiddenlayout.setVisibility(View.GONE);
         wdatefromurl = pinRequestReportRecordModel.getEntryTime();
@@ -108,7 +109,8 @@ public class EPinRequestReportAdapter extends RecyclerView.Adapter<EPinRequestRe
         holder.product.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int requestid = pinRequestReportRecordModel.getUserCart().get(0).getPinRequestId();
+                pinRequestReportRecordModel  = prList.get(position);
+                int requestid = pinRequestReportRecordModel.getId();
 
                 SharedPreferenceUtils.storeReqid(context, String.valueOf(requestid));
 
@@ -129,10 +131,13 @@ public class EPinRequestReportAdapter extends RecyclerView.Adapter<EPinRequestRe
             }
         });
         holder.status.setText(pinRequestReportRecordModel.getStatus());
+        if(pinRequestReportRecordModel.getAttachment() != null){
         if(pinRequestReportRecordModel.getAttachment().endsWith(".png")){
             Picasso.get().load(pinRequestReportRecordModel.getAttachment()).into(holder.attachment);
 
         }else{
+            Picasso.get().load(R.drawable.applogo).into(holder.attachment);
+        }}else{
             Picasso.get().load(R.drawable.applogo).into(holder.attachment);
         }
 
