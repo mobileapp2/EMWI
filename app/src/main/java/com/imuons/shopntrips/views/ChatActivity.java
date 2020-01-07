@@ -324,9 +324,9 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClickCallback(View view, int position, String url) {
-     /*   Intent intent = new Intent(this.getApplicationContext(), ImageViewActivity.class);
+        Intent intent = new Intent(this.getApplicationContext(), ImageViewActivity.class);
         intent.putExtra("uploadImage", url);
-        startActivity(intent);*/
+        startActivity(intent);
     }
 
 
