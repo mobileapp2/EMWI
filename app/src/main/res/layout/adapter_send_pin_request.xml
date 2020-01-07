@@ -33,7 +33,7 @@
                     android:layout_gravity="center"
                     android:layout_weight="0.3"
                     android:padding="5dp"
-                    android:src="@drawable/oprneye" />
+                    />
 
                 <TextView
                     android:id="@+id/srno"
@@ -64,7 +64,7 @@
                 android:gravity="center"
 
                 android:textColor="@color/adapterchildtxt"
-                android:textSize="@dimen/adapter_item_text_size" />
+                android:textSize="14sp" />
 
             <View
 
@@ -84,7 +84,7 @@
                 android:singleLine="true"
 
                 android:textColor="@color/adapterchildtxt"
-                android:textSize="@dimen/adapter_item_text_size" />
+                android:textSize="14sp" />
 
         </LinearLayout>
     </androidx.support.v7.widget.CardView>
