@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bgdash"
+    android:layout_height="match_parent"
+    tools:context=".fragments.AddCartFragment">
+
+<TextView
+    android:id="@+id/selectdepositetype"
+    android:textSize="20sp"
+    android:layout_marginTop="10dp"
+    android:drawableRight="@drawable/arrowspinner"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:textColor="@color/colorBlack"
+    android:text="Select Deposite Type"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:background="@color/bgsr"
+        android:weightSum="6"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <TextView
+            android:fontFamily="@font/open_sans_bold"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="0.6"
+            android:gravity="center"
+            android:text="Sr No"
+            android:textColor="@color/sr"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:background="@color/grey" />
+        <TextView
+            android:fontFamily="@font/open_sans_bold"
+            android:textStyle="bold"
+            android:textColor="@color/sr"
+            android:text="Product Name"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textSize="12sp"
+            android:layout_weight="3.4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:background="@color/grey" />
+        <TextView
+            android:fontFamily="@font/open_sans_bold"
+            android:textStyle="bold"
+            android:textColor="@color/sr"
+            android:text="Price"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textSize="12sp"
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+    <androidx.support.v7.widget.RecyclerView
+
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/recycler_view_addtocart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:scrollbars="vertical" />
+
+</LinearLayout>
+
+

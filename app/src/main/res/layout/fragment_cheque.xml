@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/bgdash"
+    android:layout_height="match_parent"
+    tools:context=".fragments.ChequeFragment">
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:weightSum="2"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+
+            android:textColor="@color/blue"
+            android:fontFamily="@font/open_sans_bold"
+            android:text="Date"
+            android:textSize="16sp"
+            android:layout_weight="0.8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:focusable="false"
+            android:singleLine="true"
+            android:textColor="@color/blue"
+            android:fontFamily="@font/open_sans_bold"
+            android:textSize="16sp"
+            android:id="@+id/date"
+            android:hint="Enter Date"
+            android:layout_weight="1.2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:weightSum="2"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+
+            android:textColor="@color/blue"
+            android:fontFamily="@font/open_sans_bold"
+            android:text="Cheque No"
+            android:textSize="16sp"
+            android:layout_weight="0.8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:inputType="number"
+            android:textColor="@color/blue"
+            android:fontFamily="@font/open_sans_bold"
+            android:textSize="16sp"
+            android:id="@+id/chequeno"
+            android:hint="Enter Cheque No"
+            android:layout_weight="1.2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:weightSum="2"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+
+            android:textColor="@color/blue"
+            android:fontFamily="@font/open_sans_bold"
+            android:text="Receipt No"
+            android:textSize="16sp"
+            android:layout_weight="0.8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:singleLine="true"
+            android:inputType="number"
+            android:textColor="@color/blue"
+            android:fontFamily="@font/open_sans_bold"
+            android:textSize="16sp"
+            android:id="@+id/receiptno"
+            android:hint="Enter Receipt No"
+            android:layout_weight="1.2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:weightSum="2"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+
+            android:textColor="@color/blue"
+            android:fontFamily="@font/open_sans_bold"
+            android:text="Amount"
+            android:textSize="16sp"
+            android:layout_weight="0.8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:singleLine="true"
+            android:inputType="number"
+            android:textColor="@color/blue"
+            android:fontFamily="@font/open_sans_bold"
+            android:textSize="16sp"
+            android:id="@+id/amount"
+            android:hint="Enter Amount"
+            android:layout_weight="1.2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:weightSum="2"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+
+            android:textColor="@color/blue"
+            android:fontFamily="@font/open_sans_bold"
+            android:text="Bank Name"
+            android:textSize="16sp"
+            android:layout_weight="0.8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <EditText
+android:singleLine="true"
+            android:textColor="@color/blue"
+            android:fontFamily="@font/open_sans_bold"
+            android:textSize="16sp"
+            android:id="@+id/bankname"
+            android:hint="Enter Bank Name"
+            android:layout_weight="1.2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:weightSum="2"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+
+            android:textColor="@color/blue"
+            android:fontFamily="@font/open_sans_bold"
+            android:text="Enter Description"
+            android:textSize="16sp"
+            android:layout_weight="0.8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:textColor="@color/blue"
+            android:fontFamily="@font/open_sans_bold"
+            android:textSize="16sp"
+            android:id="@+id/des"
+            android:singleLine="true"
+            android:maxLength="500"
+            android:maxLines="1"
+            android:hint="Enter description"
+            android:layout_weight="1.2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:weightSum="2"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+
+            android:textColor="@color/blue"
+            android:fontFamily="@font/open_sans_bold"
+            android:text="Payment Receipt"
+            android:textSize="16sp"
+            android:layout_weight="0.8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:id="@+id/cf"
+            android:src="@drawable/choosefiles"
+            android:layout_weight="0.5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/nfc"
+            android:layout_gravity="center"
+            android:textColor="@color/blue"
+            android:fontFamily="@font/open_sans_bold"
+            android:text="No File Choosen"
+            android:textSize="12sp"
+            android:layout_weight="0.7"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <Button
+        android:id="@+id/submit"
+        android:textColor="@color/white"
+        android:text="Submit"
+        android:textSize="15sp"
+        android:fontFamily="@font/open_sans_bold"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:background="@drawable/yellowgrad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>
+</RelativeLayout>

@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class GetProductResponseModel {
+public class UserCartResponseModel {
     @SerializedName("code")
     @Expose
     private Integer code;
@@ -17,7 +17,7 @@ public class GetProductResponseModel {
     private String message;
     @SerializedName("data")
     @Expose
-    private List<GetProductDatumModel> data = null;
+    private List<UserCartDataModel> data = null;
 
     public Integer getCode() {
         return code;
@@ -43,11 +43,11 @@ public class GetProductResponseModel {
         this.message = message;
     }
 
-    public List<GetProductDatumModel> getData() {
+    public List<UserCartDataModel> getData() {
         return data;
     }
 
-    public void setData(List<GetProductDatumModel> data) {
+    public void setData(List<UserCartDataModel> data) {
         this.data = data;
     }
 

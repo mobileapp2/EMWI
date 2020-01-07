@@ -1,15 +1,19 @@
 package com.imuons.shopntrips.retrofit;
 
 import com.imuons.shopntrips.model.ActiveTeamViewResponseModel;
+import com.imuons.shopntrips.model.AddToCartResponseModel;
 import com.imuons.shopntrips.model.AwardReportGetResponse;
 import com.imuons.shopntrips.model.AwardReportResponseModel;
 import com.imuons.shopntrips.model.BonanzaResponseModel;
 import com.imuons.shopntrips.model.DirectNewJoinResponseModel;
 import com.imuons.shopntrips.model.GetLevelResponseModel;
 import com.imuons.shopntrips.model.GetProductFroPinTransferResponseModel;
+import com.imuons.shopntrips.model.GetProductsPinRequestResponseModel;
 import com.imuons.shopntrips.model.LevelViewResponseModel;
+import com.imuons.shopntrips.model.MakeWthdrawReponseModel;
 import com.imuons.shopntrips.model.PinResponseModel;
 import com.imuons.shopntrips.model.ProductResponseModel;
+import com.imuons.shopntrips.model.RemoveProductResponseModel;
 import com.imuons.shopntrips.model.RoyalityIncomeReportResponseModel;
 import com.imuons.shopntrips.model.DirectIncomeReportResponseModel;
 import com.imuons.shopntrips.model.RepurchaseIncomeReportResponseModel;
@@ -36,6 +40,7 @@ import com.imuons.shopntrips.model.RegisterResponseModel;
 import com.imuons.shopntrips.model.ResetPasswordResponseModel;
 import com.imuons.shopntrips.model.BinaryIncomeReportResponseModel;
 import com.imuons.shopntrips.model.SearchTreeResponse;
+import com.imuons.shopntrips.model.SendMultiplePinResponseModel;
 import com.imuons.shopntrips.model.SubmitTopUpReponseModel;
 import com.imuons.shopntrips.model.TeamViewResponseModel;
 import com.imuons.shopntrips.model.TicketResponseModel;
@@ -46,6 +51,7 @@ import com.imuons.shopntrips.model.TransferPinResponseModel;
 import com.imuons.shopntrips.model.TreeViewResponseModel;
 import com.imuons.shopntrips.model.UpdateProfileResponseModel;
 import com.imuons.shopntrips.model.UsedEpinReportResponseModel;
+import com.imuons.shopntrips.model.UserCartResponseModel;
 import com.imuons.shopntrips.model.UserPhotosResponseModel;
 import com.imuons.shopntrips.model.UserProfileResponseModel;
 import com.imuons.shopntrips.model.UserTopUpResponse;
@@ -184,6 +190,7 @@ public interface Emwi {
 
     @GET("getproducts")
     Call<GetProductResponseModel> wsGetProducts(@Header("Authorization") String authHeader);
+
     @GET("newDirectJoining")
     Call<DirectNewJoinResponseModel> wsNewJoin(@Header("Authorization") String authHeader);
     @FormUrlEncoded
@@ -203,9 +210,35 @@ public interface Emwi {
     @POST("repurchaseProduct")
     Call<SubmitTopUpReponseModel> wsTopup(@Header("Authorization") String authHeader, @FieldMap Map<String, String> loginMap);
 
+
+    @FormUrlEncoded
+    @POST("make-withdraw")
+    Call<MakeWthdrawReponseModel> wsMakeWithdraw(@Header("Authorization") String authHeader, @FieldMap Map<String, String> loginMap);
+
+
+    @FormUrlEncoded
+    @POST("remove_items_from_cart")
+    Call<RemoveProductResponseModel> wsRemoveProduct(@Header("Authorization") String authHeader, @FieldMap Map<String, String> loginMap);
+
+
+    @FormUrlEncoded
+    @POST("add_to_cart")
+    Call<AddToCartResponseModel> wsAddToCart(@Header("Authorization") String authHeader, @FieldMap Map<String, String> loginMap);
+
+    @GET("get_user_cart_items")
+    Call<UserCartResponseModel> wsGetUserCart(@Header("Authorization") String authHeader);
+
     @FormUrlEncoded
     @POST("sendOtp-update-user-profile")
     Call<OTPResponseModel> wsSendOTP(@Header("Authorization") String authHeader, @FieldMap Map<String, String> loginMap);
+
+    @Multipart
+    @POST("send_multiple_pin_request")
+    Call<SendMultiplePinResponseModel> wsSendPinRequest(@Header("Authorization") String authHeader, @PartMap() Map<String, okhttp3.RequestBody> partMap,
+                                                        @Part MultipartBody.Part file);
+
+    @GET("get_products_for_pin_request")
+    Call<GetProductsPinRequestResponseModel> wsGetProductsForPinRequest(@Header("Authorization") String authHeader);
 
     @FormUrlEncoded
     @POST("checkotp1")

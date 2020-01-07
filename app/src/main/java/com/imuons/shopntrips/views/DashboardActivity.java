@@ -21,6 +21,8 @@ import com.imuons.shopntrips.adapters.CustomExpandableListAdapter;
 import com.imuons.shopntrips.fragments.ActiveTeamViewFragment;
 import com.imuons.shopntrips.fragments.AwardReportFragment;
 import com.imuons.shopntrips.fragments.BonanzaReportFragment;
+import com.imuons.shopntrips.fragments.EPinDetailsFragment;
+import com.imuons.shopntrips.fragments.EPinRequestReportFragment;
 import com.imuons.shopntrips.fragments.GenerateTicketFragment;
 import com.imuons.shopntrips.fragments.LevelViewFragment;
 import com.imuons.shopntrips.fragments.MakeWithdrawFragment;
@@ -39,10 +41,12 @@ import com.imuons.shopntrips.fragments.FundTransferFragment;
 import com.imuons.shopntrips.fragments.FundTransferReportFragment;
 import com.imuons.shopntrips.fragments.ProfileFragment;
 import com.imuons.shopntrips.fragments.BinaryIncomeFragment;
+import com.imuons.shopntrips.fragments.SendEpinRequestFragment;
 import com.imuons.shopntrips.fragments.TeamViewFragment;
 import com.imuons.shopntrips.fragments.TopupReportFragment;
 import com.imuons.shopntrips.fragments.TopupFragment;
 import com.imuons.shopntrips.fragments.TransferEPinReportFragment;
+import com.imuons.shopntrips.fragments.TransferEpinFragment;
 import com.imuons.shopntrips.fragments.TreeViewFragment;
 import com.imuons.shopntrips.fragments.UsedEPinReportFragment;
 import com.imuons.shopntrips.fragments.WithdrawRequestReportFragment;
@@ -198,7 +202,7 @@ public class DashboardActivity extends AppCompatActivity {
                     case 3:
                         switch (childPosition) {
                             case 0:
-                                fragmentManager.beginTransaction().replace(R.id.content_frame, DirectIncomeReportFragment.newInstance()).commit();
+                                fragmentManager.beginTransaction().replace(R.id.content_frame, EPinDetailsFragment.newInstance()).commit();
                                 getSupportActionBar().setTitle("E-Pin Details");
                                 mExpandableListView.setItemChecked(childPosition, true);
                                 mExpandableListView.setSelection(childPosition);
@@ -211,7 +215,7 @@ public class DashboardActivity extends AppCompatActivity {
                                 mExpandableListView.setSelection(childPosition);
                                 break;
                             case 2:
-                                fragmentManager.beginTransaction().replace(R.id.content_frame, RepurchaseIncomeReportFragment.newInstance()).commit();
+                                fragmentManager.beginTransaction().replace(R.id.content_frame, TransferEpinFragment.newInstance()).commit();
                                 getSupportActionBar().setTitle("Transfer E-Pin");
                                 mExpandableListView.setItemChecked(childPosition, true);
                                 mExpandableListView.setSelection(childPosition);
@@ -229,13 +233,13 @@ public class DashboardActivity extends AppCompatActivity {
                                 mExpandableListView.setSelection(childPosition);
                                 break;
                             case 5:
-                                fragmentManager.beginTransaction().replace(R.id.content_frame, RoyalityIncomeReportFragment.newInstance()).commit();
-                                getSupportActionBar().setTitle("Send E-Pin Request");
+                                fragmentManager.beginTransaction().replace(R.id.content_frame, SendEpinRequestFragment.newInstance()).commit();
+                                getSupportActionBar().setTitle("Add Product To Cart");
                                 mExpandableListView.setItemChecked(childPosition, true);
                                 mExpandableListView.setSelection(childPosition);
                                 break;
                             case 6:
-                                fragmentManager.beginTransaction().replace(R.id.content_frame, RoyalityIncomeReportFragment.newInstance()).commit();
+                                fragmentManager.beginTransaction().replace(R.id.content_frame, EPinRequestReportFragment.newInstance()).commit();
                                 getSupportActionBar().setTitle("E-Pin Request Report");
                                 mExpandableListView.setItemChecked(childPosition, true);
                                 mExpandableListView.setSelection(childPosition);
