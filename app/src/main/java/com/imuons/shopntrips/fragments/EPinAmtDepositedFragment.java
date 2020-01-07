@@ -50,14 +50,10 @@ import retrofit2.Response;
 public class EPinAmtDepositedFragment extends Fragment {
     @BindView(R.id.recycler_epin_amt_dep_report)
     RecyclerView recycler_epin_amt_dep_report;
-    @BindView(R.id.searchbyid)
-    EditText searchbyid;
+
     @BindView(R.id.gif)
     GifImageView gif;
-    @BindView(R.id.getselectedentry)
-    TextView getselectedentry;
-    @BindView(R.id.dropdoenentry)
-    View dropdoenentry;
+
     String mStringUserId;
     EPinAmtDepAdapter ePinAmtDepAdapter;
     private List<PinRequestReportRecordModel> prList = new ArrayList<>();
@@ -86,56 +82,56 @@ public class EPinAmtDepositedFragment extends Fragment {
         ButterKnife.bind(this, view);
         fragmentManager = getFragmentManager();
 
-        entrypopupwindow = new ListPopupWindow(
-                EPinAmtDepositedFragment.this.getContext());
+//        entrypopupwindow = new ListPopupWindow(
+//                EPinAmtDepositedFragment.this.getContext());
         recycler_epin_amt_dep_report.setHasFixedSize(true);
         recycler_epin_amt_dep_report.setLayoutManager(new LinearLayoutManager(EPinAmtDepositedFragment.this.getContext(),LinearLayoutManager.VERTICAL,false));
 
-        dropdoenentry.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                entrypopupwindow.setAdapter(new ArrayAdapter(
-                        EPinAmtDepositedFragment.this.getContext(),
-                        R.layout.check_list_item, entry));
-                entrypopupwindow.setAnchorView(dropdoenentry);
-                entrypopupwindow.setWidth(170);
-                entrypopupwindow.setHeight(500);
-                entrypopupwindow.setModal(true);
-                entrypopupwindow.show();
-            }
-        });
-        entrypopupwindow.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                getselectedentry.setText(entry[i]);
-                countselected = getselectedentry.getText().toString();
-                prList .clear();
-                mStringUserId="";
-                getData(mStringUserId);
-                entrypopupwindow.dismiss();
-            }
-        });
-        searchbyid.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                    prList.clear();
-                    // if (validateUserId()) {
-                    mStringUserId = searchbyid.getText().toString().trim();
-                    getData(mStringUserId);
-//                    } else {
-//                        mStringUserId = "";
-//                        getdata(mStringUserId);
-//                        Toast.makeText(GetDonationReportFragment.this.getContext(),
-//                                getString(R.string.invalid_user_id), Toast.LENGTH_SHORT).show();
-//                    }
-
-                    return true;
-                }
-                return false;
-            }
-        });
+//        dropdoenentry.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                entrypopupwindow.setAdapter(new ArrayAdapter(
+//                        EPinAmtDepositedFragment.this.getContext(),
+//                        R.layout.check_list_item, entry));
+//                entrypopupwindow.setAnchorView(dropdoenentry);
+//                entrypopupwindow.setWidth(170);
+//                entrypopupwindow.setHeight(500);
+//                entrypopupwindow.setModal(true);
+//                entrypopupwindow.show();
+//            }
+//        });
+//        entrypopupwindow.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                getselectedentry.setText(entry[i]);
+//                countselected = getselectedentry.getText().toString();
+//                prList .clear();
+//                mStringUserId="";
+//                getData(mStringUserId);
+//                entrypopupwindow.dismiss();
+//            }
+//        });
+//        searchbyid.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+//            @Override
+//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+//                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+//                    prList.clear();
+//                    // if (validateUserId()) {
+//                    mStringUserId = searchbyid.getText().toString().trim();
+//                    getData(mStringUserId);
+////                    } else {
+////                        mStringUserId = "";
+////                        getdata(mStringUserId);
+////                        Toast.makeText(GetDonationReportFragment.this.getContext(),
+////                                getString(R.string.invalid_user_id), Toast.LENGTH_SHORT).show();
+////                    }
+//
+//                    return true;
+//                }
+//                return false;
+//            }
+//        });
         return view;
     }
     @Override
