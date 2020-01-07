@@ -2,9 +2,11 @@ package com.imuons.shopntrips.retrofit;
 
 import com.imuons.shopntrips.model.ActiveTeamViewResponseModel;
 import com.imuons.shopntrips.model.AddToCartResponseModel;
+import com.imuons.shopntrips.model.AllTicketsResponseModel;
 import com.imuons.shopntrips.model.AwardReportGetResponse;
 import com.imuons.shopntrips.model.AwardReportResponseModel;
 import com.imuons.shopntrips.model.BonanzaResponseModel;
+import com.imuons.shopntrips.model.ChatRecievedResponseModel;
 import com.imuons.shopntrips.model.DirectNewJoinResponseModel;
 import com.imuons.shopntrips.model.GetLevelResponseModel;
 import com.imuons.shopntrips.model.GetProductFroPinTransferResponseModel;
@@ -243,6 +245,14 @@ public interface Emwi {
     @FormUrlEncoded
     @POST("checkotp1")
     Call<VerifyOTPResponseModel> wsVeryfiedOTP(@Header("Authorization") String authHeader, @FieldMap Map<String, String> loginMap);
+
+    @FormUrlEncoded
+    @POST("view-tickets-by-id")
+    Call<ChatRecievedResponseModel> wsSupportChat(@Header("Authorization") String authHeader, @FieldMap Map<String, Integer> loginMap);
+
+
+    @GET("get-user-all-tickets")
+    Call<AllTicketsResponseModel> wsAllTickets(@Header("Authorization") String authHeader);
 
     @FormUrlEncoded
     @POST("update-user-profile")
