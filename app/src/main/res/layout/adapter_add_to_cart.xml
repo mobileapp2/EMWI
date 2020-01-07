@@ -80,7 +80,7 @@
             android:textSize="14sp" />
     </LinearLayout>
     <LinearLayout
-        android:background="@color/adapterchildbg"
+        android:background="@drawable/bluedt"
         android:id="@+id/hiddenlayout"
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -171,6 +171,7 @@
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:text="Action"
+
                 android:layout_height="wrap_content" />
 
             <ImageView
@@ -180,7 +181,7 @@ android:layout_marginRight="25dp"
                 android:textColor="@color/white"
                 android:fontFamily="@font/open_sans_bold"
 android:layout_gravity="center"
-
+                android:src="@drawable/actionimg"
                 android:layout_weight="0.3"
 
                 android:layout_width="0dp"

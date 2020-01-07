@@ -13,6 +13,7 @@ import com.imuons.shopntrips.model.GetProductFroPinTransferResponseModel;
 import com.imuons.shopntrips.model.GetProductsPinRequestResponseModel;
 import com.imuons.shopntrips.model.LevelViewResponseModel;
 import com.imuons.shopntrips.model.MakeWthdrawReponseModel;
+import com.imuons.shopntrips.model.PinRequestReportResponseModel;
 import com.imuons.shopntrips.model.PinResponseModel;
 import com.imuons.shopntrips.model.ProductResponseModel;
 import com.imuons.shopntrips.model.RemoveProductResponseModel;
@@ -333,6 +334,11 @@ public interface Emwi {
     @FormUrlEncoded
     @POST("epin-details")
     Call<PinResponseModel> wsEPinReport(@Header("Authorization") String authHeader, @FieldMap Map<String, String> loginMap);
+
+    @FormUrlEncoded
+    @POST("get_pin_requests")
+    Call<PinRequestReportResponseModel> wsPinrequestReportReport(@Header("Authorization") String authHeader, @FieldMap Map<String, String> loginMap);
+
   /*
 
 

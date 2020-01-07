@@ -149,7 +149,7 @@ public class SendPinRequestAdapter extends RecyclerView.Adapter<SendPinRequestAd
     private void getData(String getid, String getNo) {
         Map<String, String> edMap = new HashMap<>();
 
-        edMap.put("id",getid);
+        edMap.put("product_id",getid);
         edMap.put("quantity", getNo);
 
 

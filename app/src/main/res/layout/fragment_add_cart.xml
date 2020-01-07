@@ -79,7 +79,7 @@
 
 
     </LinearLayout>
-    <androidx.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
 
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
