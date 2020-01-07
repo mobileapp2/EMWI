@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginStart="10dp">
+
+    <TextView
+        android:id="@+id/text_message_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:fontFamily="@font/open_sans_light"
+        android:text="11:40"
+        android:textSize="10sp"
+        android:visibility="gone"
+       />
+
+
+    <TextView
+        android:id="@+id/text_message_body"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/rounded_rectangle_sent"
+        android:maxWidth="240dp"
+        android:padding="8dp"
+        android:text="hi"
+        android:textColor="@color/colorBlack"
+        android:visibility="gone"
+       />
+
+    <ImageView
+        android:id="@+id/upload_image"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="12dp"
+        android:clickable="true"
+        android:transitionName="@string/transition_string"
+        android:visibility="gone"
+    />
+
+
+
+</LinearLayout>

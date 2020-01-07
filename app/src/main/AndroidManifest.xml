@@ -38,10 +38,15 @@
         <activity android:name=".adapters.RepurchaseIncomeReportAdapter" />
         <activity android:name=".adapters.BinaryIncomeReportAdapter" />
         <activity android:name=".adapters.DirectIncomeReportAdapter" />
+        <activity android:name=".adapters.AllTicketsAdapter" />
+        <activity android:name=".adapters.OpenTicketsAdapter" />
+        <activity android:name=".adapters.MessageListAdapter" />
         <activity android:name=".views.ShowPassword" />
         <activity android:name=".views.ResetPassword" />
         <activity android:name=".views.SignUp" />
         <activity android:name=".views.Registration" />
+        <activity android:name=".views.SuportActivity" />
+        <activity android:name=".views.ChatActivity" />
         <activity
             android:name=".views.DashboardActivity"
             android:screenOrientation="portrait" />
