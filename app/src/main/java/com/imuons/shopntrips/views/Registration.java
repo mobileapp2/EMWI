@@ -262,8 +262,8 @@ public class Registration extends AppCompatActivity {
         return true;
     }
 
-        private boolean comfirmPassword() {
-    cpassword = edit_cpassword.getText().toString().trim();
+    private boolean comfirmPassword() {
+        cpassword = edit_cpassword.getText().toString().trim();
         if (password.isEmpty() && cpassword.length() > 5) {
             Toast.makeText(Registration.this, getString(R.string.empty_password), Toast.LENGTH_SHORT).show();
             return false;

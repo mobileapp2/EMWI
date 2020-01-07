@@ -45,7 +45,7 @@ public class MessageListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         ChatMsg message = mMessageList.get(position);
 
 
-       // String userId = SharedPreferenceUtils.getId(mContext).toUpperCase();
+        // String userId = SharedPreferenceUtils.getId(mContext).toUpperCase();
 
         if (message.getRight() != null ) {
             //            // If the current user is the sender of the message
@@ -86,7 +86,6 @@ public class MessageListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         holder.setIsRecyclable(false);
         switch (holder.getItemViewType()) {
             case VIEW_TYPE_MESSAGE_SENT:
-
 
                 ((SentMessageHolder) holder).bind(message);
 
@@ -149,7 +148,7 @@ public class MessageListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             } else {
                 sentAttachment.setVisibility(View.GONE);
             }
-            if (message.getRight().getAttachment().equals("") && message.getRight().getAttachment() == null ){
+            if (message.getRight().getAttachment() == null){
                 sentAttachment.setVisibility(View.GONE);
             }
         }
@@ -192,7 +191,7 @@ public class MessageListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             } else {
                 attachmentAdmin.setVisibility(View.GONE);
             }
-            if (message.getLeft().getAttachment().equals("") && message.getLeft().getAttachment() == null ){
+            if (message.getLeft().getAttachment() == null ){
                 attachmentAdmin.setVisibility(View.GONE);
             }
         }

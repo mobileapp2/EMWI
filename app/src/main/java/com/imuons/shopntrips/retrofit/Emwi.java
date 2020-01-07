@@ -44,6 +44,7 @@ import com.imuons.shopntrips.model.RegisterResponseModel;
 import com.imuons.shopntrips.model.ResetPasswordResponseModel;
 import com.imuons.shopntrips.model.BinaryIncomeReportResponseModel;
 import com.imuons.shopntrips.model.SearchTreeResponse;
+import com.imuons.shopntrips.model.SendChatResponseModel;
 import com.imuons.shopntrips.model.SendMultiplePinResponseModel;
 import com.imuons.shopntrips.model.SubmitTopUpReponseModel;
 import com.imuons.shopntrips.model.TeamViewResponseModel;
@@ -343,7 +344,11 @@ public interface Emwi {
     @FormUrlEncoded
     @POST("get_pin_requests")
     Call<PinRequestReportResponseModel> wsPinrequestReportReport(@Header("Authorization") String authHeader, @FieldMap Map<String, String> loginMap);
-
+    @Multipart
+    @POST("submit-comment")
+    Call<SendChatResponseModel> wsSupportSendMessage(@Header("Authorization") String authHeader, @PartMap() Map<String, okhttp3.RequestBody> partMap
+            , @Part MultipartBody.Part file
+    );
   /*
 
 

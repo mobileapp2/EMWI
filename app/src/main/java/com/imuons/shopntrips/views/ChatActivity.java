@@ -1,12 +1,5 @@
 package com.imuons.shopntrips.views;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -16,20 +9,30 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.imuons.shopntrips.R;
 import com.imuons.shopntrips.adapters.MessageListAdapter;
 import com.imuons.shopntrips.model.ChatMsg;
 import com.imuons.shopntrips.model.ChatRecievedResponseModel;
+import com.imuons.shopntrips.model.SendChatResponseModel;
 import com.imuons.shopntrips.retrofit.ApiHandler;
 import com.imuons.shopntrips.retrofit.Emwi;
 import com.imuons.shopntrips.utils.SharedPreferenceUtils;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -38,13 +41,15 @@ import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 import static android.widget.Toast.LENGTH_SHORT;
 
-public class ChatActivity extends AppCompatActivity implements View.OnClickListener, MessageListAdapter.RecyclerViewClickListener{
+public class ChatActivity extends AppCompatActivity implements View.OnClickListener, MessageListAdapter.RecyclerViewClickListener {
 
     String transitionId;
     String m_selectedPath, filenamestr;
@@ -78,11 +83,38 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
         registerListener(transitionId);
         handlePermission();
 
+        btnSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mTextMessage = mEditTextMessage.getText().toString();
+                if (!mTextMessage.equals("")) {
+                    sendMessage(mTextMessage, transitionId);
+                    mEditTextMessage.getText().clear();
+
+                } else {
+                    Toast.makeText(ChatActivity.this
+                            , "Write a messaage !!", LENGTH_SHORT).show();
+                }
+                if (path != null && !mTextMessage.equals("")) {
+                    registerListener(transitionId);
+                    txtpp.setText("No File Choosen");
+                }
+
+            }
+        });
+
+        btnAttachment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                selectedcf = "photo";
+                askForPermission(Manifest.permission.READ_EXTERNAL_STORAGE, READ_EXST);
+
+                openImageChooser();
+            }
+        });
     }
 
     private void registerListener(String transitionId) {
-        
-
         int at = Integer.parseInt(transitionId);
         Map<String, Integer> loginMap = new HashMap<>();
 
@@ -128,6 +160,66 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+
+    private void sendMessage(String mTextMessage, String transitionId) {
+        int at = Integer.parseInt(transitionId);
+        okhttp3.RequestBody transaction_id = okhttp3.RequestBody.create(MediaType.parse("text/plain"), transitionId);
+
+        okhttp3.RequestBody msg = okhttp3.RequestBody.create(MediaType.parse("text/plain"), mTextMessage);
+        okhttp3.MultipartBody.Part body = null;
+        try {
+            File file = new File(m_selectedPath);
+            okhttp3.RequestBody requestFile = okhttp3.RequestBody.create(MediaType.parse("multipart/form-data"), file);
+            body = okhttp3.MultipartBody.Part.createFormData("file", file.getName().replace(" ", "_"), requestFile);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        HashMap<String, RequestBody> map = new HashMap<>();
+        map.put("ticketno", transaction_id);
+        map.put("message", msg);
+
+
+        Emwi apiService = ApiHandler.getApiService();
+        Call<SendChatResponseModel> call = apiService.wsSupportSendMessage("Bearer " + SharedPreferenceUtils.getLoginObject(
+                ChatActivity.this.getApplication()).getData().getAccess_token(), map, body); //, body
+        call.enqueue(new Callback<SendChatResponseModel>() {
+            @Override
+            public void onResponse(Call<SendChatResponseModel> call, Response<SendChatResponseModel> response) {
+
+                if (response.isSuccessful()) {
+                    // tasks available
+                    SendChatResponseModel responseState = response.body();
+                    if (responseState.getCode() == 200) {
+                        Toast.makeText(ChatActivity.this.getApplication(),
+                                responseState.getMessage(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(ChatActivity.this, "Message Send", LENGTH_SHORT).show();
+
+                        //   registerListener(transitionId);
+                        Intent intent = new Intent(ChatActivity.this, DashboardActivity.class);
+                        startActivity(intent);
+
+                    } else {
+
+                        Log.v("Error code 400", response.errorBody().toString());
+                        Toast.makeText(ChatActivity.this.getApplication(),
+                                responseState.getMessage(), LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(ChatActivity.this.getApplication(),
+                            "not uploading", LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<SendChatResponseModel> call, Throwable t) {
+                // something went completely south (like no internet connection)
+                Toast.makeText(ChatActivity.this.getApplication(),
+                        t.toString(), LENGTH_SHORT).show();
+
+            }
+        });
+    }
+
     private void askForPermission(String permission, Integer requestCode) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (getApplication().checkSelfPermission(permission) != PackageManager.PERMISSION_GRANTED) {
@@ -137,6 +229,7 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
     }
+
     private void handlePermission() {
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
@@ -163,17 +256,16 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
                 // Get the path from the Uri
                 path = getPathFromUri(selectedImageUri);
                 m_selectedPath = path;
-                if (path !=null){
-                    filenamestr= path.substring(path.lastIndexOf("/")+1);
+                if (path != null) {
+                    filenamestr = path.substring(path.lastIndexOf("/") + 1);
 
-                    if (selectedcf.equals("photo")){
+                    if (selectedcf.equals("photo")) {
                         txtpp.setText(filenamestr);
                     }
 
-                }else {
+                } else {
                     Toast.makeText(ChatActivity.this.getApplication(), "Select Image", LENGTH_SHORT).show();
                 }
-
 
 
             }
@@ -216,7 +308,7 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
 
                 mTextMessage = mEditTextMessage.getText().toString();
                 if (!mTextMessage.equals("")) {
-                //    sendMessage(mTextMessage, transitionId);
+                    sendMessage(mTextMessage, transitionId);
                     mEditTextMessage.getText().clear();
 
                 } else {
@@ -236,4 +328,6 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
         intent.putExtra("uploadImage", url);
         startActivity(intent);*/
     }
+
+
 }

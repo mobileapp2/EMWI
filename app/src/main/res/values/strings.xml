@@ -206,6 +206,7 @@
     <string name="title_activity_recharge_report_adapter">RechargeReportAdapter</string>
 
     <string-array name="brew_array">
+        <item>Nominee Relation</item>
         <item>Father</item>
         <item>Mother</item>
         <item>Brother</item>

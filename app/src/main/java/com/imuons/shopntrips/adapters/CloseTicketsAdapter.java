@@ -19,15 +19,15 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class OpenTicketsAdapter extends RecyclerView.Adapter<OpenTicketsAdapter.OpenTicketAdapderHolder> {
+public class CloseTicketsAdapter extends RecyclerView.Adapter<CloseTicketsAdapter.OpenTicketAdapderHolder> {
     private List<AllTicketsDataModel> teList = new ArrayList<>();
     private Context context;
 
     private static int currentPosition = 0;
     AllTicketsDataModel transferEpinReportRecordModel;
-    OpenTicketsRecyclerViewClickListener listener;
+    ClosedTicketsRecyclerViewClickListener listener;
 
-    public OpenTicketsAdapter(Context context, List<AllTicketsDataModel> teList, OpenTicketsRecyclerViewClickListener listener) {
+    public CloseTicketsAdapter(Context context, List<AllTicketsDataModel> teList, ClosedTicketsRecyclerViewClickListener listener) {
         this.teList = teList;
         this.context = context;
         this.listener = listener;
@@ -35,43 +35,43 @@ public class OpenTicketsAdapter extends RecyclerView.Adapter<OpenTicketsAdapter.
     }
 
     @Override
-    public OpenTicketsAdapter.OpenTicketAdapderHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public CloseTicketsAdapter.OpenTicketAdapderHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_opentickets, parent, false);
-        return new OpenTicketsAdapter.OpenTicketAdapderHolder(v);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_closetickets, parent, false);
+        return new CloseTicketsAdapter.OpenTicketAdapderHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(final OpenTicketsAdapter.OpenTicketAdapderHolder holder, final int position) {
+    public void onBindViewHolder(final CloseTicketsAdapter.OpenTicketAdapderHolder holder, final int position) {
 
         transferEpinReportRecordModel = teList.get(position);
 
-        if (transferEpinReportRecordModel.getStatus().equals("Open")) {
+        if (transferEpinReportRecordModel.getStatus().equals("Close")) {
             holder.userId.setText(transferEpinReportRecordModel.getTicketNo());
-            holder.open.setVisibility(View.VISIBLE);
+            holder.close.setVisibility(View.VISIBLE);
         } else {
 
-            holder.open.setVisibility(View.GONE);
+            holder.close.setVisibility(View.GONE);
+        }
+        if (transferEpinReportRecordModel.getStatus().equals("Open")) {
+
+            holder.close.setVisibility(View.GONE);
+        } else {
+            holder.userId.setText(transferEpinReportRecordModel.getTicketNo());
+            holder.close.setVisibility(View.VISIBLE);
         }
 
-        if (transferEpinReportRecordModel.getStatus().equals("Close")) {
 
-            holder.open.setVisibility(View.GONE);
-        }
 
-        holder.btn_Chat.setOnClickListener(new View.OnClickListener() {
+        /*holder.userId.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 transferEpinReportRecordModel = teList.get(position);
-
-                listener.onClickCallOpenbacks(view, position, String.valueOf(transferEpinReportRecordModel.getId()));
+                listener.onClickCallClosebacks(view,position, String.valueOf(transferEpinReportRecordModel.getId()));
 
             }
-        });
-
-
+        });*/
     }
-
 
     @Override
     public int getItemCount() {
@@ -82,10 +82,8 @@ public class OpenTicketsAdapter extends RecyclerView.Adapter<OpenTicketsAdapter.
 
         @BindView(R.id.userId)
         TextView userId;
-        @BindView(R.id.btn_Chat)
-        TextView btn_Chat;
-        @BindView(R.id.open)
-        CardView open;
+        @BindView(R.id.close)
+        CardView close;
         View container;
 
 
@@ -96,9 +94,9 @@ public class OpenTicketsAdapter extends RecyclerView.Adapter<OpenTicketsAdapter.
         }
     }
 
-    public interface OpenTicketsRecyclerViewClickListener {
+    public interface ClosedTicketsRecyclerViewClickListener {
 
-        void onClickCallOpenbacks(View view, int position, String url);
+        void onClickCallClosebacks(View view, int position, String url);
 
     }
 

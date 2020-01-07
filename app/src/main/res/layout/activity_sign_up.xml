@@ -253,13 +253,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_gravity="center"
-android:maxLength="6"
                             android:background="@drawable/rounded_edittext"
                             android:drawableEnd="@drawable/pincode"
                             android:fontFamily="@font/open_sans_light"
                             android:hint="PinCode"
                             android:imeOptions="actionNext"
                             android:inputType="number"
+                            android:maxLength="6"
                             android:paddingLeft="15dp"
                             android:paddingRight="15dp"
                             android:singleLine="true"
@@ -271,14 +271,87 @@ android:maxLength="6"
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/register_editbox_height"
+                        android:layout_marginTop="10dp">
+
+
+                        <EditText
+                            android:id="@+id/txt_DOB"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:background="@drawable/rounded_edittext"
+                            android:drawableEnd="@drawable/pincode"
+                            android:fontFamily="@font/open_sans_light"
+                            android:hint="Date of Birth"
+                            android:imeOptions="actionNext"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="15dp"
+                            android:singleLine="true"
+                            android:inputType="date"
+                            android:focusable="false"
+                            android:textColor="@color/colorDarkGray"
+                            android:textSize="@dimen/register_textsize"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/register_editbox_height">
+
+
+                        <EditText
+                            android:id="@+id/edit_nomineeName"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:background="@drawable/rounded_edittext"
+                            android:drawableEnd="@drawable/name"
+                            android:fontFamily="@font/open_sans_light"
+                            android:hint="Nominee Name"
+                            android:imeOptions="actionNext"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="15dp"
+                            android:singleLine="true"
+                            android:textColor="@color/colorDarkGray"
+                            android:textSize="@dimen/register_textsize"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/register_editbox_height">
+
+
+                        <Spinner
+                            android:id="@+id/txt_NomineeRelation"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:background="@drawable/rounded_edittext"
+                            android:drawableEnd="@drawable/downarrow"
+                            android:fontFamily="@font/open_sans_light"
+                            android:hint="Nominee Relation"
+                            android:imeOptions="actionNext"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="15dp"
+                            android:singleLine="true"
+                            android:textColor="@color/colorDarkGray"
+                            android:textSize="@dimen/register_textsize"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/register_editbox_height"
                         android:layout_marginTop="10dp"
                         android:orientation="horizontal">
 
                         <CheckBox
                             android:id="@+id/checkterm"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/border" />
+                            android:layout_height="wrap_content" />
 
                         <TextView
                             android:layout_width="match_parent"

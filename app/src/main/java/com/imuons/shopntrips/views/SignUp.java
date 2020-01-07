@@ -1,20 +1,26 @@
 package com.imuons.shopntrips.views;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
+import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListPopupWindow;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.imuons.shopntrips.R;
 import com.imuons.shopntrips.model.GetCityDatumModel;
@@ -27,9 +33,12 @@ import com.imuons.shopntrips.retrofit.Emwi;
 import com.imuons.shopntrips.utils.Constants;
 import com.imuons.shopntrips.utils.ViewUtils;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import butterknife.BindView;
@@ -38,7 +47,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SignUp extends AppCompatActivity {
+public class SignUp extends AppCompatActivity implements View.OnClickListener {
 
     @BindView(R.id.edit_name)
     EditText edit_name;
@@ -60,9 +69,22 @@ public class SignUp extends AppCompatActivity {
     TextView login;
     @BindView(R.id.checkterm)
     CheckBox checkterm;
-    ListPopupWindow statelistPopupWindow,citylistPopupWindow;
-    String  selectedradio,sponsorname,sponsorid,userid,password,cpassword,email,mobile,fullName,
-            strstate,straddress,strcity,strpincode;
+    @BindView(R.id.edit_nomineeName)
+    EditText mNomineeName;
+
+    @BindView(R.id.txt_DOB)
+    EditText mTextDOB;
+    @BindView(R.id.txt_NomineeRelation)
+    Spinner mNomineeRelation;
+    String myString = "Select Nominee Relation";
+    int sp_position;
+    String selected, spinner_item;
+    private DatePickerDialog fromDatePickerDialog;
+    private SimpleDateFormat dateFormatter;
+
+    ListPopupWindow statelistPopupWindow, citylistPopupWindow;
+    String selectedradio, sponsorname, sponsorid, userid, password, cpassword, email, mobile, fullName,
+            strstate, straddress, strcity, strpincode;
 
 
     List<String> listStateName = new ArrayList<>();
@@ -77,6 +99,7 @@ public class SignUp extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
         ButterKnife.bind(this);
         getStatebycountry();
+        setDateTimeField();
         selectedradio = getIntent().getStringExtra("selectedradio");
         sponsorname = getIntent().getStringExtra("sponsorname");
         sponsorid = getIntent().getStringExtra("sponsorid");
@@ -86,14 +109,42 @@ public class SignUp extends AppCompatActivity {
 
         statelistPopupWindow = new ListPopupWindow(SignUp.this);
         citylistPopupWindow = new ListPopupWindow(SignUp.this);
+        dateFormatter = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+        mTextDOB.setInputType(InputType.TYPE_NULL);
+        mTextDOB.requestFocus();
 
+        ArrayAdapter<CharSequence> staticAdapter = ArrayAdapter.createFromResource(this, R.array.brew_array,
+                android.R.layout.simple_spinner_item);
+
+        staticAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sp_position = staticAdapter.getPosition(myString);
+        mNomineeRelation.setAdapter(staticAdapter);
+
+
+        mNomineeRelation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int position, long id) {
+                Log.v("item", (String) parent.getItemAtPosition(position));
+                selected = mNomineeRelation.getSelectedItem().toString();
+                if (!selected.equals("Select Nominee Relation"))
+                    spinner_item = selected;
+                System.out.println(selected);
+                setid();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // TODO Auto-generated method stub
+            }
+        });
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (validateEmail() && validateMobileNo() && validateFullName() && validateCity() && validateState() && validatePincode() && validateAddress()) {
 
 
-                  register();
+                    register();
                 }
 
             }
@@ -148,6 +199,28 @@ public class SignUp extends AppCompatActivity {
         });
     }
 
+    private void setid() {
+        mNomineeRelation.setSelection(sp_position);
+    }
+
+
+    private void setDateTimeField() {
+        mTextDOB.setOnClickListener(SignUp.this);
+
+        Calendar newCalendar = Calendar.getInstance();
+        fromDatePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                Calendar newDate = Calendar.getInstance();
+                newDate.set(year, monthOfYear, dayOfMonth);
+                mTextDOB.setText(dateFormatter.format(newDate.getTime()));
+            }
+
+        }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
+
+
+    }
+
     private void getcitybystate(String strstate) {
         final ProgressDialog pd = ViewUtils.getProgressBar(SignUp.this, "Loading...", "Please wait..!");
 
@@ -185,16 +258,18 @@ public class SignUp extends AppCompatActivity {
         });
     }
 
-        private void getcitybyname(List<GetCityDatumModel> data) {
+    private void getcitybyname(List<GetCityDatumModel> data) {
 
-            for (int i = 0; i < data.size(); i++) {
-                listCityName.add(data.get(i).getName());
-            }
-
+        for (int i = 0; i < data.size(); i++) {
+            listCityName.add(data.get(i).getName());
         }
 
-    private void register() {
+    }
 
+    private void register() {
+        String dob = mTextDOB.getText().toString();
+        String nominee_name = mNomineeName.getText().toString();
+        String relation = mNomineeRelation.getSelectedItem().toString();
         Map<String, String> registerMap = new HashMap<>();
         registerMap.put("confirm_password", cpassword);
         registerMap.put("email", email);
@@ -205,12 +280,14 @@ public class SignUp extends AppCompatActivity {
         registerMap.put("sponsor_name", sponsorname);
         registerMap.put("user_id", userid);
         registerMap.put("position", selectedradio);
-        registerMap.put("country","IN");
-        registerMap.put("state",strstate);
-        registerMap.put("address",straddress);
-        registerMap.put("city",strcity);
-        registerMap.put("pincode",strpincode);
-
+        registerMap.put("country", "IN");
+        registerMap.put("state", strstate);
+        registerMap.put("address", straddress);
+        registerMap.put("city", strcity);
+        registerMap.put("pincode", strpincode);
+        registerMap.put("dob", dob);
+        registerMap.put("nominee_name", nominee_name);
+        registerMap.put("relation", relation);
 
 
         Emwi apiService = ApiHandler.getApiService();
@@ -227,7 +304,7 @@ public class SignUp extends AppCompatActivity {
                             registerResponseModel.getStatus().equals("OK")) {
                         String useridtosend = String.valueOf(registerResponseModel.getData().getUserid());
                         String userpassword = registerResponseModel.getData().getPassword();
-                        Intent showpassword = new  Intent (SignUp.this,ShowPassword.class);
+                        Intent showpassword = new Intent(SignUp.this, ShowPassword.class);
                         showpassword.putExtra("userid", useridtosend);
                         showpassword.putExtra("password", userpassword);
                         startActivity(showpassword);
@@ -236,7 +313,7 @@ public class SignUp extends AppCompatActivity {
                     } else {
                         Toast.makeText(SignUp.this, registerResponseModel.getMessage(), Toast.LENGTH_SHORT).show();
                     }
-                }else{
+                } else {
                     Toast.makeText(SignUp.this, "Check username or password", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -267,9 +344,8 @@ public class SignUp extends AppCompatActivity {
     }
 
 
-
     private boolean validateFullName() {
-        fullName =  edit_name.getText().toString().trim();
+        fullName = edit_name.getText().toString().trim();
         if (fullName.isEmpty()) {
             Toast.makeText(SignUp.this,
                     getString(R.string.invalid_full_name_message), Toast.LENGTH_SHORT).show();
@@ -321,6 +397,7 @@ public class SignUp extends AppCompatActivity {
             listStateName.add(data.get(i).getName());
         }
     }
+
     private boolean validateMobileNo() {
         mobile = edit_mobile.getText().toString().trim();
         if (mobile.isEmpty() || mobile.length() < 10) {
@@ -330,6 +407,7 @@ public class SignUp extends AppCompatActivity {
         }
         return true;
     }
+
     private boolean validatePincode() {
         strpincode = edit_pincode.getText().toString().trim();
         if (strpincode.isEmpty() || strpincode.length() < 6) {
@@ -358,6 +436,7 @@ public class SignUp extends AppCompatActivity {
         }
         return true;
     }
+
     private boolean validateAddress() {
         straddress = edit_address.getText().toString().trim();
         if (straddress.isEmpty()) {
@@ -365,6 +444,20 @@ public class SignUp extends AppCompatActivity {
                     "Enter Address", Toast.LENGTH_SHORT).show();
             return false;
         }
+        return true;
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view == mTextDOB) {
+            fromDatePickerDialog.show();
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        //getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 }

@@ -12,16 +12,16 @@
         android:layout_marginRight="5dp"
         app:cardBackgroundColor="@android:color/transparent"
         app:cardCornerRadius="5dp"
-        android:id="@+id/open"
-        android:visibility="gone">
+        android:visibility="gone"
+        android:id="@+id/close">
 
         <LinearLayout
             android:id="@+id/llmain"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="@color/black"
             android:orientation="horizontal"
-            android:weightSum="2">
+            android:weightSum="1">
 
 
             <TextView
@@ -29,25 +29,14 @@
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center"
-                android:layout_weight="1.5"
+                android:layout_weight="1"
                 android:fontFamily="@font/open_sans_bold"
                 android:gravity="center"
                 android:text=""
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/btn_Chat"
-                android:layout_width="0dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:layout_weight="0.5"
-                android:background="@color/yellow"
-                android:fontFamily="@font/open_sans_bold"
-                android:gravity="center"
-                android:text="Chat"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
+
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
