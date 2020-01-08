@@ -31,6 +31,7 @@ import com.imuons.shopntrips.utils.ViewUtils;
 import com.imuons.shopntrips.views.AboutActivity;
 import com.imuons.shopntrips.views.BankDetailsActivity;
 import com.imuons.shopntrips.views.ContactInfoActivity;
+import com.imuons.shopntrips.views.KYCActivity;
 import com.imuons.shopntrips.views.ProfileInfoActivity;
 import com.imuons.shopntrips.views.UpdateSecurityActivity;
 import com.squareup.picasso.Picasso;
@@ -103,6 +104,13 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         registerListeners();
         getUserPhotos();
         getUserProfileInfo();
+        mBtnKyc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+              Intent intent = new Intent(ProfileFragment.this.getContext(), KYCActivity.class);
+                startActivity(intent);
+            }
+        });
         return view;
     }
 
@@ -157,6 +165,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                 intent.putExtra("object", object);
                 startActivity(intent);
                 break;
+
             default:
                 break;
         }

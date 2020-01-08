@@ -56,6 +56,7 @@ import com.imuons.shopntrips.model.TransferPinDetailResponseModel;
 import com.imuons.shopntrips.model.TransferPinResponseModel;
 import com.imuons.shopntrips.model.TreeViewResponseModel;
 import com.imuons.shopntrips.model.UpdateProfileResponseModel;
+import com.imuons.shopntrips.model.UploadPhotosResponseModel;
 import com.imuons.shopntrips.model.UsedEpinReportResponseModel;
 import com.imuons.shopntrips.model.UserCartResponseModel;
 import com.imuons.shopntrips.model.UserPhotosResponseModel;
@@ -354,6 +355,14 @@ public interface Emwi {
     Call<SendChatResponseModel> wsSupportSendMessage(@Header("Authorization") String authHeader, @PartMap() Map<String, okhttp3.RequestBody> partMap
             , @Part MultipartBody.Part file
     );
+
+
+    @Multipart
+    @POST("upload-photos")
+    Call<UploadPhotosResponseModel> wsUploadPhotos(@Header("Authorization") String authHeader, @PartMap() Map<String, okhttp3.RequestBody> partMap,
+                                                   @Part MultipartBody.Part file);
+
+
   /*
 
 
