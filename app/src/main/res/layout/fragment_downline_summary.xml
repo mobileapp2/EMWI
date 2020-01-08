@@ -2,353 +2,355 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/bgdash"
-
-    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:background="@drawable/bgdash"
+    android:orientation="vertical"
     tools:context=".fragments.DownlineSummaryFragment">
+
     <RelativeLayout
         android:id="@+id/loader_view"
-        android:elevation="10dp"
-        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        >
+        android:elevation="10dp"
+        android:visibility="gone">
+
         <pl.droidsonroids.gif.GifImageView
             android:id="@+id/gif"
             android:layout_width="110dp"
             android:layout_height="110dp"
             android:layout_centerInParent="true"
-            android:elevation="25dp"
             android:layout_gravity="center"
+            android:elevation="25dp"
 
             android:src="@drawable/loader" />
     </RelativeLayout>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbars="none">
-    <LinearLayout
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingBottom="30dp">
 
-        <EditText
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/editviewbg"
-            android:editable="false"
-            android:fontFamily="@font/open_sans_bold"
-            android:paddingStart="40dp"
-            android:text="User Id"
-            android:textColor="@color/colorBlack"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            tools:ignore="RtlSymmetry" />
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:orientation="vertical"
+            android:paddingBottom="30dp">
 
-        <EditText
-            android:id="@+id/userid"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/textviewbg"
-            android:gravity="center"
-            android:singleLine="true"
-            android:editable="false"
-            android:textColor="@color/white" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/editviewbg"
+                android:editable="false"
+                android:fontFamily="@font/open_sans_bold"
+                android:paddingStart="40dp"
+                android:text="User Id"
+                android:textColor="@color/colorBlack"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                tools:ignore="RtlSymmetry" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/editviewbg"
-            android:editable="false"
-            android:fontFamily="@font/open_sans_bold"
-            android:paddingStart="40dp"
-            android:text="Full Name"
-            android:textColor="@color/colorBlack"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            tools:ignore="RtlSymmetry" />
+            <EditText
+                android:id="@+id/userid"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/textviewbg"
+                android:editable="false"
+                android:gravity="center"
+                android:singleLine="true"
+                android:textColor="@color/white" />
 
-        <EditText
-            android:id="@+id/fullname"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/textviewbg"
-            android:gravity="center"
-            android:singleLine="true"
-            android:editable="false"
-            android:textColor="@color/white" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/editviewbg"
+                android:editable="false"
+                android:fontFamily="@font/open_sans_bold"
+                android:paddingStart="40dp"
+                android:text="Full Name"
+                android:textColor="@color/colorBlack"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                tools:ignore="RtlSymmetry" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/editviewbg"
-            android:editable="false"
-            android:fontFamily="@font/open_sans_bold"
-            android:paddingStart="40dp"
-            android:text="Left User Id"
-            android:textColor="@color/colorBlack"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            tools:ignore="RtlSymmetry" />
+            <EditText
+                android:id="@+id/fullname"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/textviewbg"
+                android:editable="false"
+                android:gravity="center"
+                android:singleLine="true"
+                android:textColor="@color/white" />
 
-        <EditText
-            android:id="@+id/leftuserid"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/textviewbg"
-            android:gravity="center"
-            android:singleLine="true"
-            android:editable="false"
-            android:textColor="@color/white" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/editviewbg"
+                android:editable="false"
+                android:fontFamily="@font/open_sans_bold"
+                android:paddingStart="40dp"
+                android:text="Left User Id"
+                android:textColor="@color/colorBlack"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                tools:ignore="RtlSymmetry" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/editviewbg"
-            android:editable="false"
-            android:fontFamily="@font/open_sans_bold"
-            android:paddingStart="40dp"
-            android:text="Right User Id"
-            android:textColor="@color/colorBlack"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            tools:ignore="RtlSymmetry" />
+            <EditText
+                android:id="@+id/leftuserid"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/textviewbg"
+                android:editable="false"
+                android:gravity="center"
+                android:singleLine="true"
+                android:textColor="@color/white" />
 
-        <EditText
-            android:id="@+id/rightuserid"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/textviewbg"
-            android:gravity="center"
-            android:singleLine="true"
-            android:editable="false"
-            android:textColor="@color/white" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/editviewbg"
+                android:editable="false"
+                android:fontFamily="@font/open_sans_bold"
+                android:paddingStart="40dp"
+                android:text="Right User Id"
+                android:textColor="@color/colorBlack"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                tools:ignore="RtlSymmetry" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/editviewbg"
-            android:editable="false"
-            android:fontFamily="@font/open_sans_bold"
-            android:paddingStart="40dp"
-            android:text="Left Bv"
-            android:textColor="@color/colorBlack"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            tools:ignore="RtlSymmetry" />
+            <EditText
+                android:id="@+id/rightuserid"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/textviewbg"
+                android:editable="false"
+                android:gravity="center"
+                android:singleLine="true"
+                android:textColor="@color/white" />
 
-        <EditText
-            android:id="@+id/leftbs"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/textviewbg"
-            android:gravity="center"
-            android:singleLine="true"
-            android:editable="false"
-            android:textColor="@color/white" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/editviewbg"
+                android:editable="false"
+                android:fontFamily="@font/open_sans_bold"
+                android:paddingStart="40dp"
+                android:text="Left Bv"
+                android:textColor="@color/colorBlack"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                tools:ignore="RtlSymmetry" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/editviewbg"
-            android:editable="false"
-            android:fontFamily="@font/open_sans_bold"
-            android:paddingStart="40dp"
-            android:text="Right Bv"
-            android:textColor="@color/colorBlack"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            tools:ignore="RtlSymmetry" />
+            <EditText
+                android:id="@+id/leftbs"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/textviewbg"
+                android:editable="false"
+                android:gravity="center"
+                android:singleLine="true"
+                android:textColor="@color/white" />
 
-        <EditText
-            android:id="@+id/rightbs"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/textviewbg"
-            android:gravity="center"
-            android:singleLine="true"
-            android:editable="false"
-            android:textColor="@color/white" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/editviewbg"
+                android:editable="false"
+                android:fontFamily="@font/open_sans_bold"
+                android:paddingStart="40dp"
+                android:text="Right Bv"
+                android:textColor="@color/colorBlack"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                tools:ignore="RtlSymmetry" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/editviewbg"
-            android:editable="false"
-            android:fontFamily="@font/open_sans_bold"
-            android:paddingStart="40dp"
-            android:text="Carry Left Bv"
-            android:textColor="@color/colorBlack"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            tools:ignore="RtlSymmetry" />
+            <EditText
+                android:id="@+id/rightbs"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/textviewbg"
+                android:editable="false"
+                android:gravity="center"
+                android:singleLine="true"
+                android:textColor="@color/white" />
 
-        <EditText
-            android:id="@+id/carryleftbv"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/textviewbg"
-            android:gravity="center"
-            android:editable="false"
-            android:singleLine="true"
-            android:textColor="@color/white" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/editviewbg"
+                android:editable="false"
+                android:fontFamily="@font/open_sans_bold"
+                android:paddingStart="40dp"
+                android:text="Carry Left Bv"
+                android:textColor="@color/colorBlack"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                tools:ignore="RtlSymmetry" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/editviewbg"
-            android:editable="false"
-            android:fontFamily="@font/open_sans_bold"
-            android:paddingStart="40dp"
-            android:text="Carry Right Bv"
-            android:textColor="@color/colorBlack"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            tools:ignore="RtlSymmetry" />
+            <EditText
+                android:id="@+id/carryleftbv"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/textviewbg"
+                android:editable="false"
+                android:gravity="center"
+                android:singleLine="true"
+                android:textColor="@color/white" />
 
-        <EditText
-            android:id="@+id/carryrightbv"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/textviewbg"
-            android:gravity="center"
-            android:singleLine="true"
-            android:editable="false"
-            android:textColor="@color/white" />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/editviewbg"
-            android:editable="false"
-            android:fontFamily="@font/open_sans_bold"
-            android:paddingStart="40dp"
-            android:text="Repurchase Left Bv"
-            android:textColor="@color/colorBlack"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            tools:ignore="RtlSymmetry" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/editviewbg"
+                android:editable="false"
+                android:fontFamily="@font/open_sans_bold"
+                android:paddingStart="40dp"
+                android:text="Carry Right Bv"
+                android:textColor="@color/colorBlack"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                tools:ignore="RtlSymmetry" />
 
-        <EditText
-            android:id="@+id/carryleftbs"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/textviewbg"
-            android:gravity="center"
-            android:singleLine="true"
-            android:editable="false"
-            android:textColor="@color/white" />
+            <EditText
+                android:id="@+id/carryrightbv"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/textviewbg"
+                android:editable="false"
+                android:gravity="center"
+                android:singleLine="true"
+                android:textColor="@color/white" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/editviewbg"
-            android:editable="false"
-            android:fontFamily="@font/open_sans_bold"
-            android:paddingStart="40dp"
-            android:text="Repurchase Right Bv"
-            android:textColor="@color/colorBlack"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            tools:ignore="RtlSymmetry" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/editviewbg"
+                android:editable="false"
+                android:fontFamily="@font/open_sans_bold"
+                android:paddingStart="40dp"
+                android:text="Repurchase Left Bv"
+                android:textColor="@color/colorBlack"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                tools:ignore="RtlSymmetry" />
 
-        <EditText
-            android:id="@+id/carryrightbs"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/textviewbg"
-            android:gravity="center"
-            android:singleLine="true"
-            android:editable="false"
-            android:textColor="@color/white" />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/editviewbg"
-            android:editable="false"
-            android:fontFamily="@font/open_sans_bold"
-            android:paddingStart="40dp"
-            android:text="Carry Repurchase Left Bv"
-            android:textColor="@color/colorBlack"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            tools:ignore="RtlSymmetry" />
+            <EditText
+                android:id="@+id/carryleftbs"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/textviewbg"
+                android:editable="false"
+                android:gravity="center"
+                android:singleLine="true"
+                android:textColor="@color/white" />
 
-        <EditText
-            android:id="@+id/carryrepurchaseleftbs"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/textviewbg"
-            android:gravity="center"
-            android:singleLine="true"
-            android:editable="false"
-            android:textColor="@color/white" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/editviewbg"
+                android:editable="false"
+                android:fontFamily="@font/open_sans_bold"
+                android:paddingStart="40dp"
+                android:text="Repurchase Right Bv"
+                android:textColor="@color/colorBlack"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                tools:ignore="RtlSymmetry" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/editviewbg"
-            android:editable="false"
-            android:fontFamily="@font/open_sans_bold"
-            android:paddingStart="40dp"
-            android:text="Carry Repurchase Right Bv"
-            android:textColor="@color/colorBlack"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            tools:ignore="RtlSymmetry" />
+            <EditText
+                android:id="@+id/carryrightbs"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/textviewbg"
+                android:editable="false"
+                android:gravity="center"
+                android:singleLine="true"
+                android:textColor="@color/white" />
 
-        <EditText
-            android:id="@+id/carryrepurchaserightbs"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/textviewbg"
-            android:gravity="center"
-            android:singleLine="true"
-            android:editable="false"
-            android:textColor="@color/white" />
-    </LinearLayout>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/editviewbg"
+                android:editable="false"
+                android:fontFamily="@font/open_sans_bold"
+                android:paddingStart="40dp"
+                android:text="Carry Repurchase Left Bv"
+                android:textColor="@color/colorBlack"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                tools:ignore="RtlSymmetry" />
+
+            <EditText
+                android:id="@+id/carryrepurchaseleftbs"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/textviewbg"
+                android:editable="false"
+                android:gravity="center"
+                android:singleLine="true"
+                android:textColor="@color/white" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/editviewbg"
+                android:editable="false"
+                android:fontFamily="@font/open_sans_bold"
+                android:paddingStart="40dp"
+                android:text="Carry Repurchase Right Bv"
+                android:textColor="@color/colorBlack"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                tools:ignore="RtlSymmetry" />
+
+            <EditText
+                android:id="@+id/carryrepurchaserightbs"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/textviewbg"
+                android:editable="false"
+                android:gravity="center"
+                android:singleLine="true"
+                android:textColor="@color/white" />
+        </LinearLayout>
     </ScrollView>
-
-
 </RelativeLayout>
