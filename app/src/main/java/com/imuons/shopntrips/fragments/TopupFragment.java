@@ -61,12 +61,15 @@ EditText fullname;
 EditText selectproduct;
 @BindView(R.id.submit)
     Button submit;
+@BindView(R.id.password)
+EditText password;
+
     private FragmentManager fragmentManager;
     @BindView(R.id.gif)
     GifImageView gif;
     ListPopupWindow productlistPopupWindow;
     List<String> listProductName = new ArrayList<>();
-    String strproduct,productid,fullName,strselectproduct,struserid,strbal;
+    String strproduct,productid,fullName,strselectproduct,struserid,strbal,strpassword;
     boolean mSponsorAvailable;
     private List<ProductDatumModel> productlist = new ArrayList<>();
     public TopupFragment() {
@@ -139,7 +142,7 @@ productid = String.valueOf(productlist.get(i).getId());
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (validateFullname() && validateProduct() && validateSponserId()  && validateBal()) {
+                if (validateFullname() && validateProduct() && validateSponserId()  && validateBal() && validatePassword()) {
 
 
                     callsubmit();
@@ -147,6 +150,16 @@ productid = String.valueOf(productlist.get(i).getId());
             }
         });
         return view;
+    }
+
+    private boolean validatePassword() {
+        strpassword = password.getText().toString().trim();
+        if (strpassword.isEmpty() ) {
+            Toast.makeText(TopupFragment.this.getContext(),
+                    "Password is empty", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
     }
 
     private boolean validateBal() {
@@ -196,6 +209,7 @@ productid = String.valueOf(productlist.get(i).getId());
         submitmap.put("product_id",productid);
         submitmap.put("user_id",struserid);
         submitmap.put("type","balance");
+        submitmap.put("password",strpassword);
         Emwi apiService = ApiHandler.getApiService();
         final Call<SubmitTopUpReponseModel> loginCall = apiService.wsTopup(
                 "Bearer " + SharedPreferenceUtils.getAccesstoken(TopupFragment.this.getContext()),submitmap);

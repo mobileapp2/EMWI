@@ -104,7 +104,33 @@
             android:gravity="center"
             android:singleLine="true"
             android:textColor="@color/white" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/editviewbg"
+            android:padding="8dp"
+            android:fontFamily="@font/open_sans_bold"
+            android:paddingStart="40dp"
+            android:text="Password"
+            android:textColor="@color/colorBlack"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            tools:ignore="RtlSymmetry" />
 
+        <EditText
+            android:hint="Enter Full Name"
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+
+            android:layout_gravity="center"
+            android:layout_marginStart="16dp"
+            android:inputType="textPassword"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/textviewbg"
+            android:gravity="center"
+            android:singleLine="true"
+            android:textColor="@color/white" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="40dp"
