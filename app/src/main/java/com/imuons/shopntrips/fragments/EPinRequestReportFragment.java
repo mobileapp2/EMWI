@@ -88,7 +88,7 @@ public class EPinRequestReportFragment extends Fragment {
                 EPinRequestReportFragment.this.getContext());
         recycler_epin_request_report.setHasFixedSize(true);
         recycler_epin_request_report.setLayoutManager(new LinearLayoutManager(EPinRequestReportFragment.this.getContext(),LinearLayoutManager.VERTICAL,false));
-
+        getselectedentry.setText(countselected);
         dropdoenentry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

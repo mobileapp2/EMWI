@@ -20,6 +20,7 @@ import com.imuons.shopntrips.fragments.BinaryIncomeFragment;
 
 import com.imuons.shopntrips.fragments.EPinAmtDepositedFragment;
 import com.imuons.shopntrips.fragments.EPinProductDetailFragment;
+import com.imuons.shopntrips.fragments.EPinRequestReportFragment;
 import com.imuons.shopntrips.model.BinaryIncomeReportRecordModel;
 import com.imuons.shopntrips.model.PinRequestReportRecordModel;
 import com.imuons.shopntrips.utils.SharedPreferenceUtils;
@@ -38,7 +39,7 @@ import butterknife.ButterKnife;
 public class EPinRequestReportAdapter extends RecyclerView.Adapter<EPinRequestReportAdapter.EPinRequestReportAdapterHolder> {
     private List<PinRequestReportRecordModel> prList = new ArrayList<>();
     private Context context;
-    private BinaryIncomeFragment roiIncomeFragment;
+    private EPinRequestReportFragment roiIncomeFragment;
     private String wdatefromurl,cdatefromurl;
     private Date datec,datew;
     private static int currentPosition = 0;
@@ -132,7 +133,7 @@ public class EPinRequestReportAdapter extends RecyclerView.Adapter<EPinRequestRe
         });
         holder.status.setText(pinRequestReportRecordModel.getStatus());
         if(pinRequestReportRecordModel.getAttachment() != null){
-        if(pinRequestReportRecordModel.getAttachment().endsWith(".gif")){
+        if(pinRequestReportRecordModel.getAttachment().endsWith(".png")){
             Picasso.get().load(pinRequestReportRecordModel.getAttachment()).into(holder.attachment);
 
         }else{
