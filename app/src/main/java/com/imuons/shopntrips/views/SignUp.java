@@ -83,8 +83,8 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
     private SimpleDateFormat dateFormatter;
 
     ListPopupWindow statelistPopupWindow, citylistPopupWindow;
-    String selectedradio, sponsorname, sponsorid, userid, password, cpassword, email, mobile, fullName,
-            strstate, straddress, strcity, strpincode;
+    String selectedradio, sponsorname, sponsorid,  password, cpassword, email, mobile, fullName,
+            strstate, straddress, strcity, strpincode,struserid;
 
 
     List<String> listStateName = new ArrayList<>();
@@ -103,7 +103,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         selectedradio = getIntent().getStringExtra("selectedradio");
         sponsorname = getIntent().getStringExtra("sponsorname");
         sponsorid = getIntent().getStringExtra("sponsorid");
-        userid = getIntent().getStringExtra("userid");
+        struserid = getIntent().getStringExtra("userid");
         password = getIntent().getStringExtra("password");
         cpassword = getIntent().getStringExtra("cpassword");
 
@@ -197,6 +197,14 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                 citylistPopupWindow.show();
             }
         });
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(SignUp.this, LoginActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
     }
 
     private void setid() {
@@ -278,7 +286,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         registerMap.put("password", password);
         registerMap.put("ref_user_id", sponsorid);
         registerMap.put("sponsor_name", sponsorname);
-        registerMap.put("user_id", userid);
+        registerMap.put("user_id", struserid);
         registerMap.put("position", selectedradio);
         registerMap.put("country", "IN");
         registerMap.put("state", strstate);

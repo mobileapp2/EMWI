@@ -55,7 +55,7 @@ public class Registration extends AppCompatActivity {
     TextView login;
     @BindView(R.id.radiogroup)
     RadioGroup radiogroup;
-    String  selectedradio,sponsorname,sponsorid,userid,password,cpassword;
+    String  selectedradio,sponsorname,sponsorid,userid,password,cpassword,rondomno,struserid;
     private boolean mSponsorAvailable = false, mUserAvailable = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +65,9 @@ public class Registration extends AppCompatActivity {
 
         next = findViewById(R.id.next);
         getRandomNumber();
+        edit_userid.setText("MV" + rondomno);
+        struserid = edit_userid.getText().toString();
+
         if (savedInstanceState != null) {
             // Restore value of members from saved state
             edit_sponsorid.setText(savedInstanceState.getString("sponsorid"));
@@ -86,7 +89,7 @@ public class Registration extends AppCompatActivity {
                     Intent contact = new Intent(Registration.this,SignUp.class);
                     contact.putExtra("sponsorname",sponsorname);
                     contact.putExtra("sponsorid",sponsorid);
-                    contact.putExtra("userid",userid);
+                    contact.putExtra("userid",struserid);
                     contact.putExtra("password",password);
                     contact.putExtra("cpassword",cpassword);
                     contact.putExtra("selectedradio",selectedradio);
@@ -149,13 +152,20 @@ public class Registration extends AppCompatActivity {
 
     }
 
-    private void getRandomNumber() {
-        Random rnd = new Random();
+    public String getRandomNumber() {
+      /*  Random rnd = new Random();
         int n = rnd.nextInt(999999);
         userid = String.format("%06d", n);
        // userid = String.valueOf(n);
 
         edit_userid.setText("MV"+ userid);
+*/
+        Random rnd = new Random();
+        int number = rnd.nextInt(999999);
+        rondomno = String.format("%06d", number);
+        // this will convert any number sequence into 6 character.
+        return rondomno;
+
     }
 
     private void checkSponsorAvailability() {

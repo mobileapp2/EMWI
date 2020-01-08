@@ -7,16 +7,16 @@ public class RegisterDataModel {
 
     @SerializedName("userid")
     @Expose
-    private Integer userid;
+    private String userid;
     @SerializedName("password")
     @Expose
     private String password;
 
-    public Integer getUserid() {
+    public String getUserid() {
         return userid;
     }
 
-    public void setUserid(Integer userid) {
+    public void setUserid(String userid) {
         this.userid = userid;
     }
 
@@ -27,4 +27,5 @@ public class RegisterDataModel {
     public void setPassword(String password) {
         this.password = password;
     }
+
 }

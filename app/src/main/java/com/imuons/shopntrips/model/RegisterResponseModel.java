@@ -49,5 +49,4 @@ public class RegisterResponseModel {
     public void setData(RegisterDataModel data) {
         this.data = data;
     }
-
 }
