@@ -92,6 +92,7 @@ public class ProfileInfoActivity extends AppCompatActivity implements View.OnCli
     Button mbtnSubmit;
 
     String myString = "Select Nominee Relation";
+    
     int sp_position;
     String selected, spinner_item, strnomineeselect;
 
