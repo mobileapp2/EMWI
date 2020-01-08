@@ -350,8 +350,8 @@ public class CreditCardFragment extends Fragment {
     public void onResume() {
         super.onResume();
         if (Utils.checkInternetConnection(CreditCardFragment.this.getContext())) {
-            acList.clear();
-            getusercartitem();
+//            acList.clear();
+//            getusercartitem();
         } else {
             Toast.makeText(CreditCardFragment.this.getContext(),
                     getString(R.string.no_internet_connection_message), Toast.LENGTH_SHORT).show();

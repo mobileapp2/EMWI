@@ -46,7 +46,8 @@ public class EPinProductDetailFragment extends Fragment {
     EPinProductDetailAdapter ePinProductDetailAdapter;
     private List<EPinProductDetailDatumModel> epdList = new ArrayList<>();
     String totalpricre;
-
+    int intqty;
+    int totalqty= 0;
 
 
     public EPinProductDetailFragment() {
@@ -108,8 +109,8 @@ public class EPinProductDetailFragment extends Fragment {
                             ePinProductDetailResponseModel.getStatus().equals("OK")) {
                         epdList.addAll(ePinProductDetailResponseModel.getData());
                         totalpricre =  ePinProductDetailResponseModel.getData().get(0).getSumTotalPrice();
-                        int intqty = epdList.size();
-                        qty.setText(String.valueOf(intqty));
+                       String strqty = ePinProductDetailResponseModel.getData().get(0).getSumRequestQuantity();
+                        qty.setText(strqty);
                         total.setText(totalpricre);
                         if(epdList.size() > 0) {
                             ePinProductDetailAdapter = new EPinProductDetailAdapter(EPinProductDetailFragment.this, epdList);

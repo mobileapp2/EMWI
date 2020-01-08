@@ -334,8 +334,8 @@ public class BankFragment extends Fragment {
     public void onResume() {
         super.onResume();
         if (Utils.checkInternetConnection(BankFragment.this.getContext())) {
-            acList.clear();
-            getusercartitem();
+//            acList.clear();
+//            getusercartitem();
         } else {
             Toast.makeText(BankFragment.this.getContext(),
                     getString(R.string.no_internet_connection_message), Toast.LENGTH_SHORT).show();

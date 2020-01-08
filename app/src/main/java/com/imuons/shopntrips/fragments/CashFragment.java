@@ -335,8 +335,8 @@ cf.setOnClickListener(new View.OnClickListener() {
     public void onResume() {
         super.onResume();
         if (Utils.checkInternetConnection(CashFragment.this.getContext())) {
-            acList.clear();
-            getusercartitem();
+//            acList.clear();
+//            getusercartitem();
         } else {
             Toast.makeText(CashFragment.this.getContext(),
                     getString(R.string.no_internet_connection_message), Toast.LENGTH_SHORT).show();
