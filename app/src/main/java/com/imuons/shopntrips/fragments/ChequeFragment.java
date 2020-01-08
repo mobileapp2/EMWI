@@ -169,7 +169,8 @@ public class ChequeFragment extends Fragment {
 
                 nfc.setText(filenamestr);
 
-
+                acList.clear();
+                getusercartitem();
 
             }
         }else{
@@ -375,7 +376,10 @@ public class ChequeFragment extends Fragment {
 
                             gettotalprise(userCartResponseModel.getData());
                         }else{
+                            acList.clear();
                             Toast.makeText(ChequeFragment.this.getContext(), "No data available in table", Toast.LENGTH_SHORT).show();
+                            fragmentManager.beginTransaction().replace(R.id.content_frame, SendEpinRequestFragment.newInstance()).commit();
+                            ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Add Product To Cart");
                         }
                     } else {
                         Toast.makeText(ChequeFragment.this.getContext(), userCartResponseModel.getMessage(), Toast.LENGTH_SHORT).show();

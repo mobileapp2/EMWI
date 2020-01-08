@@ -157,10 +157,11 @@ public class BankFragment extends Fragment {
 
 
               //  Log.i(TAG, "Image Path : " + path);
-//                filenamestr = path.substring(path.lastIndexOf("/")+1);
-//
-//                nfc.setText(filenamestr);
+                filenamestr = path.substring(path.lastIndexOf("/")+1);
 
+                nfc.setText(filenamestr);
+                acList.clear();
+                getusercartitem();
 
 
             }
@@ -364,7 +365,10 @@ public class BankFragment extends Fragment {
 
                             gettotalprise(userCartResponseModel.getData());
                         }else{
+                            acList.clear();
                             Toast.makeText(BankFragment.this.getContext(), "No data available in table", Toast.LENGTH_SHORT).show();
+                            fragmentManager.beginTransaction().replace(R.id.content_frame, SendEpinRequestFragment.newInstance()).commit();
+                            ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Add Product To Cart");
                         }
                     } else {
                         Toast.makeText(BankFragment.this.getContext(), userCartResponseModel.getMessage(), Toast.LENGTH_SHORT).show();
