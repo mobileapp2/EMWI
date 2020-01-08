@@ -34,7 +34,8 @@
         android:layout_marginRight="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingBottom="30dp">
 
         <EditText
             android:layout_width="match_parent"
@@ -60,6 +61,7 @@
             android:background="@drawable/textviewbg"
             android:gravity="center"
             android:singleLine="true"
+            android:editable="false"
             android:textColor="@color/white" />
 
         <EditText
@@ -85,6 +87,7 @@
             android:background="@drawable/textviewbg"
             android:gravity="center"
             android:singleLine="true"
+            android:editable="false"
             android:textColor="@color/white" />
 
         <EditText
@@ -110,6 +113,7 @@
             android:background="@drawable/textviewbg"
             android:gravity="center"
             android:singleLine="true"
+            android:editable="false"
             android:textColor="@color/white" />
 
         <EditText
@@ -135,6 +139,7 @@
             android:background="@drawable/textviewbg"
             android:gravity="center"
             android:singleLine="true"
+            android:editable="false"
             android:textColor="@color/white" />
 
         <EditText
@@ -160,6 +165,7 @@
             android:background="@drawable/textviewbg"
             android:gravity="center"
             android:singleLine="true"
+            android:editable="false"
             android:textColor="@color/white" />
 
         <EditText
@@ -185,6 +191,7 @@
             android:background="@drawable/textviewbg"
             android:gravity="center"
             android:singleLine="true"
+            android:editable="false"
             android:textColor="@color/white" />
 
         <EditText
@@ -209,6 +216,7 @@
             android:layout_marginEnd="16dp"
             android:background="@drawable/textviewbg"
             android:gravity="center"
+            android:editable="false"
             android:singleLine="true"
             android:textColor="@color/white" />
 
@@ -235,6 +243,7 @@
             android:background="@drawable/textviewbg"
             android:gravity="center"
             android:singleLine="true"
+            android:editable="false"
             android:textColor="@color/white" />
         <EditText
             android:layout_width="match_parent"
@@ -259,6 +268,7 @@
             android:background="@drawable/textviewbg"
             android:gravity="center"
             android:singleLine="true"
+            android:editable="false"
             android:textColor="@color/white" />
 
         <EditText
@@ -284,6 +294,7 @@
             android:background="@drawable/textviewbg"
             android:gravity="center"
             android:singleLine="true"
+            android:editable="false"
             android:textColor="@color/white" />
         <EditText
             android:layout_width="match_parent"
@@ -308,6 +319,7 @@
             android:background="@drawable/textviewbg"
             android:gravity="center"
             android:singleLine="true"
+            android:editable="false"
             android:textColor="@color/white" />
 
         <EditText
@@ -333,6 +345,7 @@
             android:background="@drawable/textviewbg"
             android:gravity="center"
             android:singleLine="true"
+            android:editable="false"
             android:textColor="@color/white" />
     </LinearLayout>
     </ScrollView>
