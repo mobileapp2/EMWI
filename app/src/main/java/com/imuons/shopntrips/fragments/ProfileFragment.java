@@ -81,6 +81,8 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     Button mBtnBankDetails;
     @BindView(R.id.btn_About)
     Button mBtnAbout;
+    @BindView(R.id.btn_Kyc)
+    Button mBtnKyc;
 
     public ProfileFragment() {
         // Required empty public constructor
