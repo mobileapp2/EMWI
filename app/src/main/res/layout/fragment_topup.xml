@@ -118,7 +118,7 @@
             tools:ignore="RtlSymmetry" />
 
         <EditText
-            android:hint="Enter Full Name"
+            android:hint="Enter Password"
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="40dp"
