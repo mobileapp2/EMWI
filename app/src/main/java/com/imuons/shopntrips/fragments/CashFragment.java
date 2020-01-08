@@ -147,7 +147,8 @@ cf.setOnClickListener(new View.OnClickListener() {
                 filenamestr = path.substring(path.lastIndexOf("/")+1);
 
                     nfc.setText(filenamestr);
-
+                acList.clear();
+                getusercartitem();
 
 
             }
@@ -365,7 +366,10 @@ cf.setOnClickListener(new View.OnClickListener() {
 
                             gettotalprise(userCartResponseModel.getData());
                         }else{
+                            acList.clear();
                             Toast.makeText(CashFragment.this.getContext(), "No data available in table", Toast.LENGTH_SHORT).show();
+                            fragmentManager.beginTransaction().replace(R.id.content_frame, SendEpinRequestFragment.newInstance()).commit();
+                            ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Add Product To Cart");
                         }
                     } else {
                         Toast.makeText(CashFragment.this.getContext(), userCartResponseModel.getMessage(), Toast.LENGTH_SHORT).show();
