@@ -151,9 +151,11 @@ public class Registration extends AppCompatActivity {
 
     private void getRandomNumber() {
         Random rnd = new Random();
-        int n = 100000 + rnd.nextInt(90000000);
-        userid = String.valueOf(n);
-        edit_userid.setText(userid);
+        int n = rnd.nextInt(999999);
+        userid = String.format("%06d", n);
+       // userid = String.valueOf(n);
+
+        edit_userid.setText("MV"+ userid);
     }
 
     private void checkSponsorAvailability() {

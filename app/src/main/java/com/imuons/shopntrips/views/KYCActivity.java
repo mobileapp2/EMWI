@@ -250,7 +250,6 @@ public class KYCActivity extends AppCompatActivity {
             Picasso.get().load(R.drawable.noimageavailable).into(uploadedap);
         }
 
-
         if (data.getPancard() != null) {
             Picasso.get().load(String.valueOf(data.getPancard())).into(uploadedpc);
         } else {
