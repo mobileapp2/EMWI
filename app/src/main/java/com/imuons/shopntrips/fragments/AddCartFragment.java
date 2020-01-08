@@ -217,6 +217,11 @@ String strselectdepositetype,getid,getqty,strtotalprise,strqty;
                             ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Add Product To Cart");
 
                         }
+                    } else if(userCartResponseModel.getCode() == 404){
+                        acList.clear();
+                        Toast.makeText(AddCartFragment.this.getContext(), "No data available in cart", Toast.LENGTH_SHORT).show();
+                        fragmentManager.beginTransaction().replace(R.id.content_frame, SendEpinRequestFragment.newInstance()).commit();
+                        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Add Product To Cart");
                     } else {
                         Toast.makeText(AddCartFragment.this.getContext(), userCartResponseModel.getMessage(), Toast.LENGTH_SHORT).show();
                     }
@@ -268,6 +273,7 @@ String strselectdepositetype,getid,getqty,strtotalprise,strqty;
 //                        }
                     } else if(removeProductResponseModel.getCode() == 404){
                         acList.clear();
+                        getusercartitem();
                     }
                     else {
                         Toast.makeText(AddCartFragment.this.getContext(), removeProductResponseModel.getMessage(), Toast.LENGTH_SHORT).show();
