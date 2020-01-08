@@ -144,7 +144,7 @@ public class DashboardActivity extends AppCompatActivity {
 //                        mDrawerLayout.closeDrawers();
 //                        break;
 
-                    case 9:
+                    case 8:
 
                         Intent i = new Intent(DashboardActivity.this, SuportActivity.class);
                         startActivity(i);
@@ -154,7 +154,7 @@ public class DashboardActivity extends AppCompatActivity {
                         //   mDrawerLayout.closeDrawers();
                         break;
 
-                    case 10:
+                    case 9:
                         showAlertDialog();
                         break;
                 }
