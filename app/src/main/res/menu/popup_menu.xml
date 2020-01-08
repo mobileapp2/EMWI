@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+
+        android:title="Father" />
+    <item
+
+        android:title="Mother"/>
+    <item
+
+        android:title="Brother"/>
+    <item
+
+        android:title="Sister" />
+    <item
+
+        android:title="Husband"/>
+    <item
+
+        android:title="Wife"/>
+    <item
+
+        android:title="Son"/>
+    <item
+
+        android:title="Daughter"/>
+    <item
+
+        android:title="Other"/>
+</menu>

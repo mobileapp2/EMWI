@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,6 +16,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -83,14 +85,16 @@ public class ProfileInfoActivity extends AppCompatActivity implements View.OnCli
 
     @BindView(R.id.txt_NomineeRelation)
     Spinner mNomineeRelation;
-
+    @BindView(R.id.nomineerelation)
+    TextView nomineerelation;
 
     @BindView(R.id.btn_Edit)
     Button mbtnSubmit;
 
     String myString = "Select Nominee Relation";
+    
     int sp_position;
-    String selected, spinner_item;
+    String selected, spinner_item, strnomineeselect;
 
     private DatePickerDialog fromDatePickerDialog;
     private SimpleDateFormat dateFormatter;
@@ -155,6 +159,27 @@ public class ProfileInfoActivity extends AppCompatActivity implements View.OnCli
                 }
             }
         });
+        nomineerelation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Creating the instance of PopupMenu
+                PopupMenu popup = new PopupMenu(ProfileInfoActivity.this, nomineerelation);
+                //Inflating the Popup using xml file
+                popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
+
+                //registering popup with OnMenuItemClickListener
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    public boolean onMenuItemClick(MenuItem item) {
+                        strnomineeselect = String.valueOf(item.getTitle());
+                        nomineerelation.setText(strnomineeselect);
+                        return true;
+                    }
+                });
+
+                popup.show();//showing popup menu
+
+            }
+        });
 
     }
 
@@ -208,7 +233,7 @@ public class ProfileInfoActivity extends AppCompatActivity implements View.OnCli
         roiMap.put("fullname", name);
         roiMap.put("mobile", mobile);
         roiMap.put("nominee_name", nominee_name);
-        roiMap.put("relation", relation);
+        roiMap.put("relation", strnomineeselect);
         roiMap.put("email", email);
         roiMap.put("dob", dob);
 
@@ -359,7 +384,7 @@ public class ProfileInfoActivity extends AppCompatActivity implements View.OnCli
         mTextEmailIds.setText(data.getData().getEmail());
         mTextMobileNumber.setText(data.getData().getMobile());
         mTextDateOfJoining.setText(data.getData().getEntryTime());
-        // mNomineeRelation.setSelection(Integer.parseInt(data.getData().getRelation()));
+        nomineerelation.setText(data.getData().getRelation());
         mNomineeName.setText(data.getData().getNomineeName());
         mTextDOB.setText(data.getData().getDob());
     }
