@@ -82,7 +82,8 @@ public class ChequeFragment extends Fragment {
     static final Integer READ_EXST = 0x4;
     private List<UserCartDataModel> acList = new ArrayList<>();
     private FragmentManager fragmentManager;
-
+    int intqty;
+    int totalqty= 0;
     public ChequeFragment() {
         // Required empty public constructor
     }
@@ -206,7 +207,7 @@ public class ChequeFragment extends Fragment {
         okhttp3.MultipartBody.Part body = null;
         File file;
         int getqty = acList.size();
-        strqty = String.valueOf(getqty);
+        strqty = String.valueOf(totalqty);
         if(m_selectedPath != null){
             file = new File(m_selectedPath);
             length = file.length() / 1024; // Size in KB
@@ -366,7 +367,7 @@ public class ChequeFragment extends Fragment {
                             userCartResponseModel.getStatus().equals("OK")) {
 
                         acList.addAll(userCartResponseModel.getData());
-
+                        setdata(userCartResponseModel.getData());
 
                         if(acList.size() > 0) {
 //                            addToCartAdapter = new AddToCartAdapter(AddCartFragment.this, acList);
@@ -393,8 +394,14 @@ public class ChequeFragment extends Fragment {
         strtotalprise = data.get(0).getSumTotalPrice();
     }
 
+    private void setdata(List<UserCartDataModel> data) {
+        for(int j=0;j<data.size();j++){
+            intqty = data.get(j).getRequestQuantity();
+            totalqty = totalqty + intqty;
 
+        }
 
 
 
 }
+    }

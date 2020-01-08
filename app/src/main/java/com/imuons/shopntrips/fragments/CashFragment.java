@@ -77,6 +77,8 @@ EditText receiptno;
     final Calendar myCalendar = Calendar.getInstance();
     static final Integer READ_EXST = 0x4;
     private List<UserCartDataModel> acList = new ArrayList<>();
+    int intqty;
+    int totalqty= 0;
     private FragmentManager fragmentManager;
     public CashFragment() {
         // Required empty public constructor
@@ -185,7 +187,7 @@ cf.setOnClickListener(new View.OnClickListener() {
         okhttp3.MultipartBody.Part body = null;
         File file;
         int getqty = acList.size();
-        strqty = String.valueOf(getqty);
+        strqty = String.valueOf(totalqty);
         if(m_selectedPath != null){
             file = new File(m_selectedPath);
             length = file.length() / 1024; // Size in KB
@@ -261,7 +263,15 @@ cf.setOnClickListener(new View.OnClickListener() {
         }
 
     }
+    private void setdata(List<UserCartDataModel> data) {
+        for(int j=0;j<data.size();j++){
+            intqty = data.get(j).getRequestQuantity();
+            totalqty = totalqty + intqty;
 
+        }
+
+
+    }
     private boolean validatedes() {
         strdes = des.getText().toString().trim();
         if (strdes.isEmpty() ) {
@@ -347,7 +357,7 @@ cf.setOnClickListener(new View.OnClickListener() {
                             userCartResponseModel.getStatus().equals("OK")) {
 
                         acList.addAll(userCartResponseModel.getData());
-
+                        setdata(userCartResponseModel.getData());
 
                         if(acList.size() > 0) {
 //                            addToCartAdapter = new AddToCartAdapter(AddCartFragment.this, acList);

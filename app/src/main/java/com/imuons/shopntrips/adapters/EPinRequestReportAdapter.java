@@ -132,7 +132,7 @@ public class EPinRequestReportAdapter extends RecyclerView.Adapter<EPinRequestRe
         });
         holder.status.setText(pinRequestReportRecordModel.getStatus());
         if(pinRequestReportRecordModel.getAttachment() != null){
-        if(pinRequestReportRecordModel.getAttachment().endsWith(".png")){
+        if(pinRequestReportRecordModel.getAttachment().endsWith(".gif")){
             Picasso.get().load(pinRequestReportRecordModel.getAttachment()).into(holder.attachment);
 
         }else{

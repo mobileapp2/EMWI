@@ -61,7 +61,7 @@ import static android.widget.Toast.LENGTH_SHORT;
 public class CreditCardFragment extends Fragment {
     @BindView(R.id.date)
     EditText etdate;
-//    @BindView(R.id.bankname)
+    //    @BindView(R.id.bankname)
 //    EditText bankname;
 //    @BindView(R.id.receiptno)
 //    EditText receiptno;
@@ -78,11 +78,12 @@ public class CreditCardFragment extends Fragment {
     @BindView(R.id.submit)
     Button submit;
     private static final int SELECT_PICTURE = 100;
-    String strdate,stramout,strrn,strdes,strtotalprise,m_selectedPath,filenamestr,strqty,strbank,strcheque;
+    String strdate, stramout, strrn, strdes, strtotalprise, m_selectedPath, filenamestr, strqty, strbank, strcheque;
     final Calendar myCalendar = Calendar.getInstance();
     static final Integer READ_EXST = 0x4;
-    private List<UserCartDataModel> acList =new ArrayList<>();
-
+    private List<UserCartDataModel> acList = new ArrayList<>();
+    int intqty;
+    int totalqty = 0;
     private FragmentManager fragmentManager;
 
 
@@ -91,12 +92,11 @@ public class CreditCardFragment extends Fragment {
     }
 
 
-    public static CreditCardFragment newInstance( ) {
+    public static CreditCardFragment newInstance() {
         CreditCardFragment fragment = new CreditCardFragment();
 
         return fragment;
     }
-
 
 
     @Override
@@ -106,7 +106,7 @@ public class CreditCardFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_creditcard, container, false);
         ButterKnife.bind(this, view);
         fragmentManager = getFragmentManager();
-        getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE|WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+        getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE | WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         etdate.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -121,7 +121,7 @@ public class CreditCardFragment extends Fragment {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(validateAmount() && validatedate()  &&  validatedes()){
+                if (validateAmount() && validatedate() && validatedes()) {
                     callsubmit();
                 }
             }
@@ -129,7 +129,7 @@ public class CreditCardFragment extends Fragment {
         cf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                askForPermission(Manifest.permission.READ_EXTERNAL_STORAGE,READ_EXST);
+                askForPermission(Manifest.permission.READ_EXTERNAL_STORAGE, READ_EXST);
                 openImageChooser();
             }
         });
@@ -154,7 +154,7 @@ public class CreditCardFragment extends Fragment {
 //        return true;
 //    }
 
-    public void onActivityResult( int requestCode,  int resultCode, Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         //super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == SELECT_PICTURE && resultCode == RESULT_OK && data != null && data.getData() != null) {
@@ -166,24 +166,24 @@ public class CreditCardFragment extends Fragment {
                 m_selectedPath = path;
 
 
-
-              //  Log.i(TAG, "Image Path : " + path);
-                filenamestr = path.substring(path.lastIndexOf("/")+1);
+                //  Log.i(TAG, "Image Path : " + path);
+                filenamestr = path.substring(path.lastIndexOf("/") + 1);
 
                 nfc.setText(filenamestr);
 
 
-
             }
-        }else{
+        } else {
             Toast.makeText(CreditCardFragment.this.getContext(), "Select Payment Slip",
                     LENGTH_SHORT).show();
         }
     }
+
     private void openImageChooser() {
         Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        startActivityForResult(i,SELECT_PICTURE);
+        startActivityForResult(i, SELECT_PICTURE);
     }
+
     public String getPathFromURI(Uri contentUri) {
         String res = null;
         String[] proj = {MediaStore.Images.Media.DATA};
@@ -195,10 +195,11 @@ public class CreditCardFragment extends Fragment {
         cursor.close();
         return res;
     }
+
     private void askForPermission(String permission, Integer requestCode) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (getActivity().checkSelfPermission(permission) != PackageManager.PERMISSION_GRANTED) {
-                requestPermissions( new String[]{permission}, requestCode);
+                requestPermissions(new String[]{permission}, requestCode);
             } else {
                 //  Toast.makeText(MakeFundRequestFragment.this.getContext(), "" + permission + " is already granted.", Toast.LENGTH_SHORT).show();
             }
@@ -210,49 +211,49 @@ public class CreditCardFragment extends Fragment {
         okhttp3.MultipartBody.Part body = null;
         File file;
         int getqty = acList.size();
-        strqty = String.valueOf(getqty);
-        if(m_selectedPath != null){
+        strqty = String.valueOf(totalqty);
+        if (m_selectedPath != null) {
             file = new File(m_selectedPath);
             length = file.length() / 1024; // Size in KB
-        }else{
+        } else {
             file = new File(" ");
             length = file.length() / 1024; // Size in KB
         }
-        if(length < 800){
-            okhttp3.RequestBody dt = okhttp3.RequestBody.create(okhttp3.MediaType.parse("text/plain"),"credit");
-            okhttp3.RequestBody transactiondate = okhttp3.RequestBody.create(okhttp3.MediaType.parse("text/plain"),strdate);
-           // RequestBody recept = RequestBody.create(MediaType.parse("text/plain"),strrn);
-            okhttp3.RequestBody amt = okhttp3.RequestBody.create(okhttp3.MediaType.parse("text/plain"),stramout);
-            okhttp3.RequestBody remark = okhttp3.RequestBody.create(okhttp3.MediaType.parse("text/plain"),strdes);
-            okhttp3.RequestBody totalamt = okhttp3.RequestBody.create(okhttp3.MediaType.parse("text/plain"),strtotalprise);
-            okhttp3.RequestBody quantity = okhttp3.RequestBody.create(okhttp3.MediaType.parse("text/plain"),strqty);
+        if (length < 800) {
+            okhttp3.RequestBody dt = okhttp3.RequestBody.create(okhttp3.MediaType.parse("text/plain"), "credit");
+            okhttp3.RequestBody transactiondate = okhttp3.RequestBody.create(okhttp3.MediaType.parse("text/plain"), strdate);
+            // RequestBody recept = RequestBody.create(MediaType.parse("text/plain"),strrn);
+            okhttp3.RequestBody amt = okhttp3.RequestBody.create(okhttp3.MediaType.parse("text/plain"), stramout);
+            okhttp3.RequestBody remark = okhttp3.RequestBody.create(okhttp3.MediaType.parse("text/plain"), strdes);
+            okhttp3.RequestBody totalamt = okhttp3.RequestBody.create(okhttp3.MediaType.parse("text/plain"), strtotalprise);
+            okhttp3.RequestBody quantity = okhttp3.RequestBody.create(okhttp3.MediaType.parse("text/plain"), strqty);
 //            RequestBody bankname = RequestBody.create(MediaType.parse("text/plain"),strbank);
 //            RequestBody chequeno = RequestBody.create(MediaType.parse("text/plain"),strcheque);
 //            okhttp3.RequestBody requestFile = okhttp3.RequestBody.create(okhttp3.MediaType.parse("multipart/form-data"), file);
 //            body = MultipartBody.Part.createFormData("file", file.getName().replace(" ", "_"), requestFile);
 
-            if(m_selectedPath != null){
+            if (m_selectedPath != null) {
                 okhttp3.RequestBody requestFile = okhttp3.RequestBody.create(okhttp3.MediaType.parse("multipart/form-data"), file);
                 body = okhttp3.MultipartBody.Part.createFormData("file", file.getName().replace(" ", "_"), requestFile);
-            }else{
+            } else {
                 okhttp3.RequestBody attachmentEmpty = okhttp3.RequestBody.create(okhttp3.MediaType.parse("text/plain"), "");
                 body = okhttp3.MultipartBody.Part.createFormData("file", file.getName().replace(" ", "_"), attachmentEmpty);
             }
 
             HashMap<String, okhttp3.RequestBody> map = new HashMap<>();
             // map.put("file",body);
-            map.put("deposite_type",dt);
-            map.put("transactiondate",transactiondate);
-         //   map.put("receipt_no",recept);
-            map.put("cash_amount",amt);
-            map.put("remark",remark);
-            map.put("total_amount",totalamt);
-            map.put("quantity",quantity);
+            map.put("deposite_type", dt);
+            map.put("transactiondate", transactiondate);
+            //   map.put("receipt_no",recept);
+            map.put("cash_amount", amt);
+            map.put("remark", remark);
+            map.put("total_amount", totalamt);
+            map.put("quantity", quantity);
 //            map.put("bank_name",bankname);
 //            map.put("cheque_no",chequeno);
 
             Emwi apiService = ApiHandler.getApiService();
-            Call<SendMultiplePinResponseModel> call = apiService.wsSendPinRequest("Bearer " + SharedPreferenceUtils.getAccesstoken(CreditCardFragment.this.getContext()),map,body);
+            Call<SendMultiplePinResponseModel> call = apiService.wsSendPinRequest("Bearer " + SharedPreferenceUtils.getAccesstoken(CreditCardFragment.this.getContext()), map, body);
             call.enqueue(new Callback<SendMultiplePinResponseModel>() {
                 @Override
                 public void onResponse(Call<SendMultiplePinResponseModel> call, Response<SendMultiplePinResponseModel> response) {
@@ -263,23 +264,24 @@ public class CreditCardFragment extends Fragment {
                             Toast.makeText(CreditCardFragment.this.getContext(),
                                     sendMultiplePinResponseModel.getMessage(), Toast.LENGTH_LONG).show();
                             fragmentManager.beginTransaction().replace(R.id.content_frame, EPinRequestReportFragment.newInstance()).commit();
-                            ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("E-Pin Request Report");
+                            ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("E-Pin Request Report");
                         } else {
                             Toast.makeText(CreditCardFragment.this.getContext(),
                                     sendMultiplePinResponseModel.getMessage(), LENGTH_SHORT).show();
                         }
-                    }else{
+                    } else {
                         Toast.makeText(CreditCardFragment.this.getContext(),
                                 "not uploading", LENGTH_SHORT).show();
                     }
                 }
+
                 @Override
                 public void onFailure(Call<SendMultiplePinResponseModel> call, Throwable t) {
                     Toast.makeText(CreditCardFragment.this.getContext(),
                             t.toString(), LENGTH_SHORT).show();
                 }
             });
-        }else{
+        } else {
             Toast.makeText(CreditCardFragment.this.getContext(), "Max Photo Size: 800 K.B.", LENGTH_SHORT).show();
         }
 
@@ -287,7 +289,7 @@ public class CreditCardFragment extends Fragment {
 
     private boolean validatedes() {
         strdes = des.getText().toString().trim();
-        if (strdes.isEmpty() ) {
+        if (strdes.isEmpty()) {
             Toast.makeText(CreditCardFragment.this.getContext(), "Enter Description", Toast.LENGTH_SHORT).show();
             return false;
         }
@@ -305,7 +307,7 @@ public class CreditCardFragment extends Fragment {
 
     private boolean validatedate() {
         strdate = etdate.getText().toString().trim();
-        if (strdate.isEmpty() ) {
+        if (strdate.isEmpty()) {
             Toast.makeText(CreditCardFragment.this.getContext(), "Enter Valid Date", Toast.LENGTH_SHORT).show();
             return false;
         }
@@ -314,7 +316,7 @@ public class CreditCardFragment extends Fragment {
 
     private boolean validateAmount() {
         stramout = amount.getText().toString().trim();
-        if (stramout.isEmpty() ) {
+        if (stramout.isEmpty()) {
             Toast.makeText(CreditCardFragment.this.getContext(), getString(R.string.enter_amount), Toast.LENGTH_SHORT).show();
             return false;
         }
@@ -354,6 +356,7 @@ public class CreditCardFragment extends Fragment {
                     getString(R.string.no_internet_connection_message), Toast.LENGTH_SHORT).show();
         }
     }
+
     private void getusercartitem() {
         Emwi apiService = ApiHandler.getApiService();
         final Call<UserCartResponseModel> loginCall = apiService.wsGetUserCart(
@@ -370,14 +373,14 @@ public class CreditCardFragment extends Fragment {
                             userCartResponseModel.getStatus().equals("OK")) {
 
                         acList.addAll(userCartResponseModel.getData());
+                        setdata(userCartResponseModel.getData());
 
-
-                        if(acList.size() > 0) {
+                        if (acList.size() > 0) {
 //                            addToCartAdapter = new AddToCartAdapter(AddCartFragment.this, acList);
 //                            recycler_view_addtocart.setAdapter(addToCartAdapter);
 
                             gettotalprise(userCartResponseModel.getData());
-                        }else{
+                        } else {
                             Toast.makeText(CreditCardFragment.this.getContext(), "No data available in table", Toast.LENGTH_SHORT).show();
                         }
                     } else {
@@ -393,14 +396,20 @@ public class CreditCardFragment extends Fragment {
             }
         });
     }
+
     private void gettotalprise(List<UserCartDataModel> data) {
         strtotalprise = data.get(0).getSumTotalPrice();
     }
 
+    private void setdata(List<UserCartDataModel> data) {
+        for (int j = 0; j < data.size(); j++) {
+            intqty = data.get(j).getRequestQuantity();
+            totalqty = totalqty + intqty;
+
+        }
 
 
-
-
+    }
 }
 
 

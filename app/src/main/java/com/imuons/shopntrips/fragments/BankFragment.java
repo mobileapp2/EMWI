@@ -75,6 +75,8 @@ public class BankFragment extends Fragment {
     TextView nfc;
     @BindView(R.id.submit)
     Button submit;
+    int intqty;
+    int totalqty = 0;
     private static final int SELECT_PICTURE = 100;
     String strdate,stramout,strrn,strdes,strtotalprise,m_selectedPath,filenamestr,strqty,strbank;
     final Calendar myCalendar = Calendar.getInstance();
@@ -197,7 +199,7 @@ public class BankFragment extends Fragment {
         okhttp3.MultipartBody.Part body = null;
         File file;
         int getqty = acList.size();
-        strqty = String.valueOf(getqty);
+        strqty = String.valueOf(totalqty);
         if(m_selectedPath != null){
             file = new File(m_selectedPath);
             length = file.length() / 1024; // Size in KB
@@ -354,7 +356,7 @@ public class BankFragment extends Fragment {
                             userCartResponseModel.getStatus().equals("OK")) {
 
                         acList.addAll(userCartResponseModel.getData());
-
+                        setdata(userCartResponseModel.getData());
 
                         if(acList.size() > 0) {
 //                            addToCartAdapter = new AddToCartAdapter(AddCartFragment.this, acList);
@@ -383,6 +385,14 @@ public class BankFragment extends Fragment {
 
 
 
+    private void setdata(List<UserCartDataModel> data) {
+        for (int j = 0; j < data.size(); j++) {
+            intqty = data.get(j).getRequestQuantity();
+            totalqty = totalqty + intqty;
 
+        }
+
+
+    }
 
 }
