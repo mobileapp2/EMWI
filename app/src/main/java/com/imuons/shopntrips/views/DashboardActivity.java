@@ -18,9 +18,10 @@ import androidx.fragment.app.FragmentManager;
 
 import com.imuons.shopntrips.R;
 import com.imuons.shopntrips.adapters.CustomExpandableListAdapter;
-import com.imuons.shopntrips.fragments.ActiveTeamViewFragment;
 import com.imuons.shopntrips.fragments.AwardReportFragment;
+import com.imuons.shopntrips.fragments.BinaryIncomeFragment;
 import com.imuons.shopntrips.fragments.BonanzaReportFragment;
+
 import com.imuons.shopntrips.fragments.EPinDetailsFragment;
 import com.imuons.shopntrips.fragments.EPinRequestReportFragment;
 import com.imuons.shopntrips.fragments.GenerateTicketFragment;
@@ -30,28 +31,34 @@ import com.imuons.shopntrips.fragments.ReceivedEPinReportFragment;
 import com.imuons.shopntrips.fragments.RoyalityIncomeReportFragment;
 import com.imuons.shopntrips.fragments.DirectIncomeReportFragment;
 import com.imuons.shopntrips.fragments.RepurchaseIncomeReportFragment;
+
 import com.imuons.shopntrips.fragments.DashboardFragment;
-import com.imuons.shopntrips.fragments.RoyalityQualifiedReportFragment;
+import com.imuons.shopntrips.fragments.DirectIncomeReportFragment;
 import com.imuons.shopntrips.fragments.DirectUserListFragment;
 import com.imuons.shopntrips.fragments.DownlineSummaryFragment;
-import com.imuons.shopntrips.fragments.DownloadPDFFragment;
 import com.imuons.shopntrips.fragments.DownlineTopupReportFragment;
+import com.imuons.shopntrips.fragments.EPinDetailsFragment;
+import com.imuons.shopntrips.fragments.EPinRequestReportFragment;
 import com.imuons.shopntrips.fragments.FundRequestFragment;
 import com.imuons.shopntrips.fragments.FundRequestReportFragment;
 import com.imuons.shopntrips.fragments.FundTransferFragment;
 import com.imuons.shopntrips.fragments.FundTransferReportFragment;
+import com.imuons.shopntrips.fragments.LevelViewFragment;
+import com.imuons.shopntrips.fragments.MakeWithdrawFragment;
 import com.imuons.shopntrips.fragments.ProfileFragment;
-import com.imuons.shopntrips.fragments.BinaryIncomeFragment;
+import com.imuons.shopntrips.fragments.RepurchaseIncomeReportFragment;
+import com.imuons.shopntrips.fragments.RoyalityIncomeReportFragment;
+import com.imuons.shopntrips.fragments.RoyalityQualifiedReportFragment;
 import com.imuons.shopntrips.fragments.SendEpinRequestFragment;
 import com.imuons.shopntrips.fragments.TeamViewFragment;
-import com.imuons.shopntrips.fragments.TopupReportFragment;
 import com.imuons.shopntrips.fragments.TopupFragment;
+import com.imuons.shopntrips.fragments.TopupReportFragment;
 import com.imuons.shopntrips.fragments.TransferEPinReportFragment;
 import com.imuons.shopntrips.fragments.TransferEpinFragment;
 import com.imuons.shopntrips.fragments.TreeViewFragment;
 import com.imuons.shopntrips.fragments.UsedEPinReportFragment;
-import com.imuons.shopntrips.fragments.WithdrawRequestReportFragment;
 import com.imuons.shopntrips.fragments.WithdrawHistoryReportFragment;
+import com.imuons.shopntrips.fragments.WithdrawRequestReportFragment;
 import com.imuons.shopntrips.model.ExpandableListModel;
 import com.imuons.shopntrips.utils.SharedPreferenceUtils;
 
@@ -90,10 +97,6 @@ public class DashboardActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         getSupportActionBar().setHomeButtonEnabled(true);
         prepareListData();
-
-
-
-
 
         fragmentManager = getSupportFragmentManager();
         mDrawerLayout.addDrawerListener(mDrawerToggle);
@@ -141,17 +144,17 @@ public class DashboardActivity extends AppCompatActivity {
 //                        mDrawerLayout.closeDrawers();
 //                        break;
 
-                    case 9:
+                    case 8:
 
                         Intent i = new Intent(DashboardActivity.this, SuportActivity.class);
                         startActivity(i);
                         /*
                         fragmentManager.beginTransaction().replace(R.id.content_frame, SuportActivity.newInstance()).commit();
                         getSupportActionBar().setTitle("Support");*/
-                     //   mDrawerLayout.closeDrawers();
+                        //   mDrawerLayout.closeDrawers();
                         break;
 
-                    case 10:
+                    case 9:
                         showAlertDialog();
                         break;
                 }
@@ -285,6 +288,19 @@ public class DashboardActivity extends AppCompatActivity {
                                 mExpandableListView.setItemChecked(childPosition, true);
                                 mExpandableListView.setSelection(childPosition);
                                 break;
+                            case 5:
+                                fragmentManager.beginTransaction().replace(R.id.content_frame, AwardReportFragment.newInstance()).commit();
+                                getSupportActionBar().setTitle("Award Report");
+                                mExpandableListView.setItemChecked(childPosition, true);
+                                mExpandableListView.setSelection(childPosition);
+                                break;
+
+                            case 6:
+                                fragmentManager.beginTransaction().replace(R.id.content_frame, BonanzaReportFragment.newInstance()).commit();
+                                getSupportActionBar().setTitle("Bonanza Report");
+                                mExpandableListView.setItemChecked(childPosition, true);
+                                mExpandableListView.setSelection(childPosition);
+                                break;
                         }
                         break;
 
@@ -368,26 +384,16 @@ public class DashboardActivity extends AppCompatActivity {
 
                         }
                         break;
+/*
 
                     case 8:
                         switch (childPosition) {
-                            case 0:
-                                fragmentManager.beginTransaction().replace(R.id.content_frame, AwardReportFragment.newInstance()).commit();
-                                getSupportActionBar().setTitle("Award Report");
-                                mExpandableListView.setItemChecked(childPosition, true);
-                                mExpandableListView.setSelection(childPosition);
-                                break;
 
-                            case 1:
-                                fragmentManager.beginTransaction().replace(R.id.content_frame, BonanzaReportFragment.newInstance()).commit();
-                                getSupportActionBar().setTitle("Bonanza Report");
-                                mExpandableListView.setItemChecked(childPosition, true);
-                                mExpandableListView.setSelection(childPosition);
-                                break;
 
 
                         }
                         break;
+*/
 
                 }
                 mDrawerLayout.closeDrawers();
@@ -462,11 +468,9 @@ public class DashboardActivity extends AppCompatActivity {
         mExpandableListTitle.add(new ExpandableListModel(R.drawable.ic_drawer_repurchase, "Manage Fund"));
         mExpandableListTitle.add(new ExpandableListModel(R.drawable.ic_drawer_income_report, "Top Up"));
         mExpandableListTitle.add(new ExpandableListModel(R.drawable.ic_drawer_withdraw, "Withdraw"));
-        mExpandableListTitle.add(new ExpandableListModel(R.drawable.ic_drawer_business_plan, "Manage Award"));
+       // mExpandableListTitle.add(new ExpandableListModel(R.drawable.ic_drawer_business_plan, "Manage Award"));
         mExpandableListTitle.add(new ExpandableListModel(R.drawable.ic_drawer_income_report, "Support"));
         mExpandableListTitle.add(new ExpandableListModel(R.drawable.ic_drawer_logout, "Logout"));
-
-
 
 
         ArrayList<String> network = new ArrayList<String>();
@@ -491,6 +495,8 @@ public class DashboardActivity extends AppCompatActivity {
         incomereport.add("Repurchase Income Report");
         incomereport.add("Royality Qualified Report");
         incomereport.add("Royality Income Report");
+        incomereport.add("Award Report");
+        incomereport.add("Bonanza Report");
 
 
         ArrayList<String> Managefund = new ArrayList<String>();
@@ -523,9 +529,9 @@ public class DashboardActivity extends AppCompatActivity {
         mExpandableListData.put(mExpandableListTitle.get(5).title, Managefund);
         mExpandableListData.put(mExpandableListTitle.get(6).title, Topup);
         mExpandableListData.put(mExpandableListTitle.get(7).title, withdraw);
-        mExpandableListData.put(mExpandableListTitle.get(8).title, manageaward );
+       // mExpandableListData.put(mExpandableListTitle.get(8).title, manageaward);
+        mExpandableListData.put(mExpandableListTitle.get(8).title, allTransactions);
         mExpandableListData.put(mExpandableListTitle.get(9).title, allTransactions);
-         mExpandableListData.put(mExpandableListTitle.get(10).title,allTransactions );
 
 
         mExpandableListAdapter = new CustomExpandableListAdapter(DashboardActivity.this, mExpandableListTitle, mExpandableListData);

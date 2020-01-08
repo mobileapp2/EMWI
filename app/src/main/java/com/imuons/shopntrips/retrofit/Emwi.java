@@ -17,7 +17,6 @@ import com.imuons.shopntrips.model.MakeWthdrawReponseModel;
 import com.imuons.shopntrips.model.PinRequestReportResponseModel;
 import com.imuons.shopntrips.model.PinResponseModel;
 import com.imuons.shopntrips.model.ProductResponseModel;
-import com.imuons.shopntrips.model.ReceivedPinResponseModel;
 import com.imuons.shopntrips.model.RemoveProductResponseModel;
 import com.imuons.shopntrips.model.RoyalityIncomeReportResponseModel;
 import com.imuons.shopntrips.model.DirectIncomeReportResponseModel;
@@ -337,10 +336,6 @@ public interface Emwi {
     @FormUrlEncoded
     @POST("transfer_pins")
     Call<TransferPinResponseModel> wsTransferPins(@Header("Authorization") String authHeader, @FieldMap Map<String, String> loginMap);
-
-    @FormUrlEncoded
-    @POST("get_receive_pin_report")
-    Call<ReceivedPinResponseModel> wsReceivePins(@Header("Authorization") String authHeader, @FieldMap Map<String, String> loginMap);
 
     @FormUrlEncoded
     @POST("epin-details")
