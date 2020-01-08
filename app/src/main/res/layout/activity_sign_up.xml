@@ -75,8 +75,6 @@
                             android:fontFamily="@font/open_sans_light"
                             android:hint="Name"
                             android:imeOptions="actionNext"
-
-                            android:maxLength="8"
                             android:paddingLeft="15dp"
                             android:paddingRight="15dp"
                             android:singleLine="true"
