@@ -21,6 +21,17 @@ import com.imuons.shopntrips.adapters.CustomExpandableListAdapter;
 import com.imuons.shopntrips.fragments.AwardReportFragment;
 import com.imuons.shopntrips.fragments.BinaryIncomeFragment;
 import com.imuons.shopntrips.fragments.BonanzaReportFragment;
+
+import com.imuons.shopntrips.fragments.EPinDetailsFragment;
+import com.imuons.shopntrips.fragments.EPinRequestReportFragment;
+import com.imuons.shopntrips.fragments.GenerateTicketFragment;
+import com.imuons.shopntrips.fragments.LevelViewFragment;
+import com.imuons.shopntrips.fragments.MakeWithdrawFragment;
+import com.imuons.shopntrips.fragments.ReceivedEPinReportFragment;
+import com.imuons.shopntrips.fragments.RoyalityIncomeReportFragment;
+import com.imuons.shopntrips.fragments.DirectIncomeReportFragment;
+import com.imuons.shopntrips.fragments.RepurchaseIncomeReportFragment;
+
 import com.imuons.shopntrips.fragments.DashboardFragment;
 import com.imuons.shopntrips.fragments.DirectIncomeReportFragment;
 import com.imuons.shopntrips.fragments.DirectUserListFragment;
@@ -224,7 +235,7 @@ public class DashboardActivity extends AppCompatActivity {
                                 mExpandableListView.setSelection(childPosition);
                                 break;
                             case 4:
-                                fragmentManager.beginTransaction().replace(R.id.content_frame, RoyalityIncomeReportFragment.newInstance()).commit();
+                                fragmentManager.beginTransaction().replace(R.id.content_frame, ReceivedEPinReportFragment.newInstance()).commit();
                                 getSupportActionBar().setTitle("Received E-Pin Report");
                                 mExpandableListView.setItemChecked(childPosition, true);
                                 mExpandableListView.setSelection(childPosition);
