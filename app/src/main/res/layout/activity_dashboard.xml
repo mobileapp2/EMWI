@@ -30,20 +30,11 @@
             android:id="@+id/content_frame"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-        <!--
-                    <ExpandableListView
-                        android:id="@+id/navList"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:choiceMode="singleChoice"
-                        android:dividerHeight="1px"
-                        android:layoutDirection="ltr"
-                        android:listSelector="@drawable/drawer_option_selector" />
-                </FrameLayout>-->
+
 
     </LinearLayout>
 
- <!--   <com.rom4ek.arcnavigationview.ArcNavigationView
+   <com.rom4ek.arcnavigationview.ArcNavigationView
         android:id="@+id/nav_view"
         android:layout_width="230dp"
         android:layout_height="match_parent"
@@ -52,29 +43,28 @@
         android:fitsSystemWindows="true"
         app:arc_cropDirection="cropOutside"
         app:arc_width="150dp">
--->
+
 
         <LinearLayout
-            android:id="@+id/nav_view"
-            android:layout_width="230dp"
+
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="30dp"
-            android:layout_gravity="start"
-            android:background="@drawable/drawer_gradient_background"
-            android:fitsSystemWindows="true"
+            android:elevation="25dp"
             android:orientation="vertical">
 
             <RelativeLayout
                 android:id="@+id/rel"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:gravity="center"
-                android:layout_gravity="center">
+               >
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/applogo"
+                    android:layout_marginRight="65dp"
+                    android:paddingLeft="15dp"
                     />
             </RelativeLayout>
 
@@ -88,11 +78,6 @@
 
 
         </LinearLayout>
-
-<!--
-</com.rom4ek.arcnavigationview.ArcNavigationView>
--->
-
-
+   </com.rom4ek.arcnavigationview.ArcNavigationView>
 
 </androidx.drawerlayout.widget.DrawerLayout>
