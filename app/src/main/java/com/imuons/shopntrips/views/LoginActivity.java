@@ -46,8 +46,8 @@ public class LoginActivity extends AppCompatActivity {
     @BindView(R.id.loader_view)
     View loaderView;
 
-    @BindView(R.id.checkbox)
-    CheckBox saveLoginCheckBox;
+//    @BindView(R.id.checkbox)
+//    CheckBox saveLoginCheckBox;
 
     private SharedPreferences loginPreferences;
     private SharedPreferences.Editor loginPrefsEditor;
@@ -68,7 +68,7 @@ public class LoginActivity extends AppCompatActivity {
         if (saveLogin == true) {
             mEditUserName.setText(loginPreferences.getString("username", ""));
             mEditPassword.setText(loginPreferences.getString("password", ""));
-            saveLoginCheckBox.setChecked(true);
+          //  saveLoginCheckBox.setChecked(true);
         }
         registerhere.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,15 +106,15 @@ public class LoginActivity extends AppCompatActivity {
         userName = mEditUserName.getText().toString().trim();
         password = mEditPassword.getText().toString().trim();
 
-        if (saveLoginCheckBox.isChecked()) {
-            loginPrefsEditor.putBoolean("saveLogin", true);
-            loginPrefsEditor.putString("username", userName);
-            loginPrefsEditor.putString("password", password);
-            loginPrefsEditor.commit();
-        } else {
-            loginPrefsEditor.clear();
-            loginPrefsEditor.commit();
-        }
+//        if (saveLoginCheckBox.isChecked()) {
+//            loginPrefsEditor.putBoolean("saveLogin", true);
+//            loginPrefsEditor.putString("username", userName);
+//            loginPrefsEditor.putString("password", password);
+//            loginPrefsEditor.commit();
+//        } else {
+//            loginPrefsEditor.clear();
+//            loginPrefsEditor.commit();
+//        }
 
         loginMap.put("user_id", userName);
         loginMap.put("password", password);
