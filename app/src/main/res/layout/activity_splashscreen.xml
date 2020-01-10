@@ -3,13 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/splassbg"
     tools:context=".views.SplashScreen"
  >
 
     <pl.droidsonroids.gif.GifTextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/splashscreen" />
+        android:background="@drawable/splashcreen" />
 -->
 
 </RelativeLayout>
