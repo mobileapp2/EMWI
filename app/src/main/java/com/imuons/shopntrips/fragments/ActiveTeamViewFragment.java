@@ -61,6 +61,14 @@ public class ActiveTeamViewFragment extends Fragment {
     TextView selectteam;
     @BindView(R.id.edit_user_id)
     EditText edit_user_id;
+
+
+
+
+
+
+
+
     @BindView(R.id.searchbyid)
     EditText searchbyid;
     @BindView(R.id.getselectedentry)
@@ -80,9 +88,10 @@ public class ActiveTeamViewFragment extends Fragment {
     RecyclerView recycler_active_view_team_view;
     private ActiveTeamViewAdapter activeTeamViewAdapter;
     String countselected = "10";
-    private FragmentManager fragmentManager;
 
-    private List<ActiveTeamViewRecordModel> activeteamViewList = new ArrayList<>();
+
+    private FragmentManager fragmentManager;
+                            private List<ActiveTeamViewRecordModel> activeteamViewList = new ArrayList<>();
     final Calendar myCalendar = Calendar.getInstance();
     ListPopupWindow entrypopupwindow,selectproductpopupwindow;
     String entry[] ={"10","50","100","500","1000","5000","10000"};
@@ -274,7 +283,7 @@ public class ActiveTeamViewFragment extends Fragment {
     };
 
     private void updateLabell() {
-        String myFormat = "dd-MM-yyyy"; //In which you need put here
+            String myFormat = "dd-MM-yyyy"; //In which you need put here
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
         todate.setText(sdf.format(myCalendar.getTime()));
