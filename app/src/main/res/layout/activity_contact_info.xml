@@ -4,11 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:background="@drawable/bgdash"
+    android:background="@drawable/tractionpasswordbg"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".fragments.GenerateTicketFragment"
-    >
+    tools:context=".fragments.GenerateTicketFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -18,10 +17,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginTop="10dp"
             android:gravity="center"
             android:orientation="vertical"
-            android:paddingBottom="20dp"
-            android:layout_marginTop="10dp">
+            android:paddingBottom="20dp">
 
             <TextView
                 android:layout_width="match_parent"
@@ -33,16 +32,17 @@
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <EditText
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:background="@drawable/editviewbg"
+
                     android:editable="false"
                     android:fontFamily="@font/open_sans_bold"
                     android:paddingStart="40dp"
@@ -59,17 +59,16 @@
                     android:layout_gravity="center"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
-                    android:background="@drawable/textviewbg"
-                    android:gravity="center"
+                    android:background="@color/grey"
                     android:editable="false"
+                    android:gravity="center"
                     android:singleLine="true"
                     android:text="India"
                     android:textColor="@color/white" />
 
-                <EditText
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:background="@drawable/editviewbg"
+                    android:layout_height="wrap_content"
                     android:editable="false"
                     android:fontFamily="@font/open_sans_bold"
                     android:paddingStart="40dp"
@@ -83,25 +82,24 @@
                     android:id="@+id/edit_state"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:padding="10dp"
-                    android:singleLine="true"
+                    android:layout_gravity="center"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
-                    android:layout_gravity="center"
+                    android:background="@color/grey"
+                    android:drawableEnd="@drawable/downarrow"
+                    android:editable="false"
                     android:focusable="false"
                     android:imeOptions="actionNext"
+                    android:padding="10dp"
                     android:paddingLeft="15dp"
                     android:paddingRight="15dp"
-                    android:textColor="@color/white"
+                    android:singleLine="true"
                     android:textAlignment="center"
-                    android:editable="false"
-                    android:background="@drawable/textviewbg"
-                    android:drawableEnd="@drawable/downarrow"/>
+                    android:textColor="@color/white" />
 
-                <EditText
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:background="@drawable/editviewbg"
+                    android:layout_height="wrap_content"
                     android:editable="false"
                     android:fontFamily="@font/open_sans_bold"
                     android:paddingStart="40dp"
@@ -116,25 +114,24 @@
                     android:id="@+id/edit_city"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:padding="10dp"
-                    android:singleLine="true"
+                    android:layout_gravity="center"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
-                    android:layout_gravity="center"
+                    android:background="@color/grey"
+                    android:drawableEnd="@drawable/downarrow"
+                    android:editable="false"
                     android:focusable="false"
                     android:imeOptions="actionNext"
+                    android:padding="10dp"
                     android:paddingLeft="15dp"
                     android:paddingRight="15dp"
+                    android:singleLine="true"
                     android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:editable="false"
-                    android:background="@drawable/textviewbg"
-                    android:drawableEnd="@drawable/downarrow"/>
+                    android:textColor="@color/white" />
 
-                <EditText
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:background="@drawable/editviewbg"
+                    android:layout_height="wrap_content"
                     android:editable="false"
                     android:fontFamily="@font/open_sans_bold"
                     android:paddingStart="40dp"
@@ -151,18 +148,18 @@
                     android:layout_gravity="center"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
-                    android:background="@drawable/textviewbg"
+                    android:background="@color/grey"
                     android:gravity="center"
+                    android:imeOptions="actionNext"
                     android:singleLine="true"
-                    android:textColor="@color/white"
                     android:textAlignment="center"
 
-                    android:imeOptions="actionNext"/>
+                    android:textColor="@color/white" />
 
-                <EditText
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:background="@drawable/editviewbg"
+                    android:layout_height="wrap_content"
+
                     android:editable="false"
                     android:fontFamily="@font/open_sans_bold"
                     android:paddingStart="40dp"
@@ -179,12 +176,12 @@
                     android:layout_gravity="center"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
-                    android:background="@drawable/textviewbg"
+                    android:background="@color/grey"
                     android:gravity="center"
-                    android:singleLine="true"
-                    android:inputType="number"
                     android:imeOptions="actionNext"
+                    android:inputType="number"
                     android:maxLength="6"
+                    android:singleLine="true"
                     android:textColor="@color/white" />
 
 
@@ -195,15 +192,13 @@
                 android:layout_width="150dp"
                 android:layout_height="40dp"
                 android:layout_centerInParent="true"
-                android:background="@drawable/btnlogin"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/about_upddate"
                 android:gravity="center"
                 android:paddingBottom="5dp"
                 android:text="Update"
                 android:textColor="@color/white"
-                android:layout_marginTop="10dp"
-                android:visibility="visible"/>
-
-
+                android:visibility="visible" />
 
 
         </LinearLayout>

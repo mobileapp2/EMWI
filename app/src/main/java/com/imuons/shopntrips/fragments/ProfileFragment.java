@@ -78,7 +78,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     ImageView mBtnSecurity;
 
     @BindView(R.id.btn_ContactInfo)
-    Button mBtnContactInfo;
+    TextView mBtnContactInfo;
     @BindView(R.id.btn_BankDetails)
     ImageView mBtnBankDetails;
     @BindView(R.id.btn_About)

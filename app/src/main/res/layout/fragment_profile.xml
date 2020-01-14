@@ -130,6 +130,7 @@
                     android:text="Info"
                     android:textColor="@color/black"
                     android:textSize="10sp" />
+
                 <Button
 
                     android:layout_width="0dp"
@@ -177,7 +178,7 @@
                     android:textSize="10sp" />
 
                 <Button
-                    android:id="@+id/btn_ContactInfo"
+
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -192,7 +193,6 @@
                     android:textSize="10sp" />
 
                 <Button
-
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -348,7 +348,6 @@
     </LinearLayout>
 
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -498,7 +497,7 @@
                     android:layout_height="80dp"
                     android:layout_margin="10dp"
                     android:src="@drawable/tp"
-                    android:visibility="gone"/>
+                    android:visibility="gone" />
             </LinearLayout>
 
             <LinearLayout
@@ -513,7 +512,7 @@
                     android:layout_height="80dp"
                     android:layout_margin="10dp"
                     android:src="@drawable/ds"
-                    android:visibility="gone"/>
+                    android:visibility="gone" />
 
                 <ImageView
                     android:id="@+id/btn_About"
@@ -521,11 +520,21 @@
                     android:layout_height="80dp"
                     android:layout_margin="10dp"
                     android:src="@drawable/about" />
+
+                <TextView
+                    android:id="@+id/btn_ContactInfo"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/info"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:gravity="center"
+                    android:paddingBottom="22dp"
+                    android:text="Contact"
+                    android:textSize="10sp" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-
-
 
 
 </RelativeLayout>
