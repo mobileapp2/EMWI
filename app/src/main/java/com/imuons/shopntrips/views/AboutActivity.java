@@ -34,12 +34,7 @@ import retrofit2.Response;
 
 public class AboutActivity extends AppCompatActivity {
     private UserProfileResponseModel model;
-    @BindView(R.id.text_user_name)
-    TextView mTextUserName;
-    @BindView(R.id.text_email_id)
-    TextView mTextEmailIds;
-    @BindView(R.id.text_mobile_number)
-    TextView mTextMobileNumber;
+
     @BindView(R.id.btn_Edit)
     Button mbtnUpdate;
     @BindView(R.id.txt_About)
@@ -54,7 +49,7 @@ public class AboutActivity extends AppCompatActivity {
         setContentView(R.layout.activity_about);
         ButterKnife.bind(this);
 
-        getTopUp();
+        //getTopUp();
         Gson gS = new Gson();
         String target = getIntent().getStringExtra("object");
         model = gS.fromJson(target, UserProfileResponseModel.class);
@@ -149,9 +144,8 @@ public class AboutActivity extends AppCompatActivity {
     }
 
     private void displayData(UserProfileResponseModel data) {
-        mTextUserName.setText(data.getData().getFullname());
-        mTextEmailIds.setText(data.getData().getEmail());
-        mTextMobileNumber.setText(data.getData().getMobile());
-        mEdtAbout.setText((CharSequence) data.getData().getAboutUs());
+
+
+        mEdtAbout.setText( data.getData().getAboutUs());
     }
 }

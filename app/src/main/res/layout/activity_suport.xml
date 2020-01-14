@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/reportbg"
+    android:background="@drawable/backgroundaboutus"
     android:orientation="vertical"
     tools:context="com.imuons.shopntrips.views.SuportActivity">
 
@@ -54,7 +54,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/yellow"
+                        android:background="@color/darkblue"
                         android:orientation="horizontal"
                         >
 
@@ -105,7 +105,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/yellow"
+                        android:background="@color/darkblue"
                         android:orientation="horizontal">
 
                         <TextView
@@ -154,7 +154,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/yellow"
+                        android:background="@color/darkblue"
                         android:orientation="horizontal">
 
                         <TextView
@@ -219,7 +219,7 @@
                         android:layout_height="wrap_content"
                         android:padding="5dp"
                         android:text="@string/ticket_no"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/darkblue" />
 
                     <EditText
                         android:id="@+id/edit_ticketNo"
@@ -246,7 +246,7 @@
                         android:layout_height="wrap_content"
                         android:padding="5dp"
                         android:text="@string/title"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/darkblue" />
 
                     <EditText
                         android:id="@+id/edit_title"
@@ -271,7 +271,7 @@
                         android:layout_height="wrap_content"
                         android:padding="5dp"
                         android:text="@string/message"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/darkblue" />
 
                     <EditText
                         android:id="@+id/edit_message"
@@ -295,7 +295,7 @@
                         android:layout_height="wrap_content"
                         android:padding="5dp"
                         android:text="@string/department"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/darkblue" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -324,7 +324,7 @@
                         android:layout_height="wrap_content"
                         android:padding="5dp"
                         android:text="Upload File"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/darkblue" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -342,7 +342,7 @@
                             android:padding="5dp"
                             android:singleLine="true"
                             android:text="No file Chosen"
-                            android:textColor="@color/white" />
+                            android:textColor="@color/darkblue" />
 
                         <Button
                             android:id="@+id/button_select_image"
@@ -350,7 +350,7 @@
                             android:layout_height="45dp"
                             android:layout_margin="10dp"
                             android:layout_weight="1"
-                            android:background="@drawable/nextbtn"
+                            android:background="@drawable/update"
                             android:paddingBottom="5dp"
                             android:text="@string/select_image"
                             android:textColor="@color/white"
@@ -365,7 +365,7 @@
                         android:layout_marginStart="60dp"
                         android:layout_marginTop="15dp"
                         android:layout_marginEnd="60dp"
-                        android:background="@drawable/nextbtn"
+                        android:background="@drawable/update"
                         android:gravity="center"
                         android:paddingBottom="5dp"
                         android:text="@string/submit"

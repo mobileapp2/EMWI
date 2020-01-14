@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bgdash">
+    android:background="@drawable/chat_activity_bg">
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/gif"
@@ -20,7 +20,8 @@
         android:layout_above="@+id/layoutfile"
         android:layout_alignParentTop="true"
         android:layout_marginBottom="10dp"
-        android:transcriptMode="alwaysScroll" />
+        android:transcriptMode="alwaysScroll"
+        android:background="@drawable/chat_activity_bg"/>
 
 
     <LinearLayout
