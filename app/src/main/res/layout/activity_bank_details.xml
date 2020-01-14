@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bgdash"
+    android:background="@drawable/backgroundbank"
     tools:context=".views.ProfileInfoActivity">
 
     <ScrollView
@@ -29,159 +29,126 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <EditText
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/editviewbg"
-                    android:editable="false"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginRight="20dp"
                     android:fontFamily="@font/open_sans_bold"
-                    android:paddingStart="40dp"
-                    android:text="Bank Account No *"
+                    android:text="Bank Account Number"
                     android:textColor="@color/colorBlack"
                     android:textSize="12sp"
-                    android:textStyle="bold"
-                    tools:ignore="RtlSymmetry" />
+                    android:textStyle="bold"  />
 
                 <EditText
                     android:id="@+id/txt_bankAccountNo"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:background="@drawable/textviewbg"
-                    android:gravity="center"
-                    android:singleLine="true"
-                    android:textColor="@color/white" />
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:background="@drawable/editviewbg"
-                    android:editable="false"
+                    android:layout_width="200dp"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:fontFamily="@font/open_sans_bold"
-                    android:paddingStart="40dp"
-                    android:text="Bank Branch Name *"
+                    android:textColor="@color/grey"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="Bank Branch Name"
                     android:textColor="@color/colorBlack"
                     android:textSize="12sp"
-                    android:textStyle="bold"
-                    tools:ignore="RtlSymmetry" />
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/txt_bankBranchName"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:background="@drawable/textviewbg"
-                    android:gravity="center"
-                    android:singleLine="true"
-                    android:textColor="@color/white" />
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:background="@drawable/editviewbg"
-                    android:editable="false"
+                    android:layout_width="200dp"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:fontFamily="@font/open_sans_bold"
-                    android:paddingStart="40dp"
-                    android:text="A/C Holder Name *"
+                    android:textColor="@color/grey" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="Bank Account Holder Name"
                     android:textColor="@color/colorBlack"
                     android:textSize="12sp"
-                    android:textStyle="bold"
-                    tools:ignore="RtlSymmetry" />
+                    android:textStyle="bold"  />
 
                 <EditText
                     android:id="@+id/txt_acHolderName"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:background="@drawable/textviewbg"
-
-                    android:gravity="center"
-                    android:singleLine="true"
-                    android:textColor="@color/white" />
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:background="@drawable/editviewbg"
-                    android:editable="false"
+                    android:layout_width="200dp"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:fontFamily="@font/open_sans_bold"
-                    android:paddingStart="40dp"
-                    android:text="PAN Card Number *"
+                    android:textColor="@color/grey" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="Pan Card Number"
                     android:textColor="@color/colorBlack"
                     android:textSize="12sp"
-                    android:textStyle="bold"
-                    tools:ignore="RtlSymmetry" />
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/txt_panNo"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:background="@drawable/textviewbg"
-                    android:gravity="center"
-                    android:singleLine="true"
-                    android:maxLength="10"
-                    android:textColor="@color/white" />
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:background="@drawable/editviewbg"
-                    android:editable="false"
+                    android:layout_width="200dp"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:fontFamily="@font/open_sans_bold"
-                    android:paddingStart="40dp"
-                    android:text="Bank Name *"
+                    android:textColor="@color/grey" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="Bank Name"
                     android:textColor="@color/colorBlack"
                     android:textSize="12sp"
-                    android:textStyle="bold"
-                    tools:ignore="RtlSymmetry" />
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/txt_bankName"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:background="@drawable/textviewbg"
-
-                    android:gravity="center"
-                    android:singleLine="true"
-                    android:textColor="@color/white" />
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:background="@drawable/editviewbg"
-                    android:editable="false"
+                    android:layout_width="200dp"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:fontFamily="@font/open_sans_bold"
-                    android:paddingStart="40dp"
-                    android:text="Bank IFSC Code *"
+                    android:textColor="@color/grey" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="Bank IFSC Code"
                     android:textColor="@color/colorBlack"
                     android:textSize="12sp"
-                    android:textStyle="bold"
-                    tools:ignore="RtlSymmetry" />
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/txt_bankIFSCCode"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:background="@drawable/textviewbg"
-                    android:gravity="center"
-                    android:singleLine="true"
-                    android:textColor="@color/white" />
+                    android:layout_width="200dp"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:textColor="@color/grey"/>
             </LinearLayout>
 
             <RelativeLayout
@@ -194,7 +161,7 @@
                     android:layout_width="100dp"
                     android:layout_height="40dp"
                     android:layout_centerInParent="true"
-                    android:background="@drawable/nextbtn"
+                    android:background="@drawable/buttonbackground"
                     android:gravity="center"
                     android:paddingBottom="5dp"
                     android:text="Edit"

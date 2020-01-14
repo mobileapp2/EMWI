@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -72,19 +73,20 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
 
     @BindView(R.id.btn_Information)
-    Button mBtnInformation;
+    ImageView mBtnInformation;
     @BindView(R.id.btn_Security)
-    Button mBtnSecurity;
+    ImageView mBtnSecurity;
 
     @BindView(R.id.btn_ContactInfo)
     Button mBtnContactInfo;
     @BindView(R.id.btn_BankDetails)
-    Button mBtnBankDetails;
+    ImageView mBtnBankDetails;
     @BindView(R.id.btn_About)
-    Button mBtnAbout;
+    ImageView mBtnAbout;
     @BindView(R.id.btn_Kyc)
-    Button mBtnKyc;
-
+    ImageView mBtnKyc;
+    @BindView(R.id.txt_About)
+    TextView mEdtAbout;
     public ProfileFragment() {
         // Required empty public constructor
     }
@@ -261,13 +263,12 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         mTextUserName.setText(data.getFullname());
         mTextEmailId.setText(data.getEmail());
         mTextMobileNumber.setText(data.getMobile());
-
         mTextName.setText(data.getFullname());
         mTextEmail.setText(data.getEmail());
         mTextMobileNumbers.setText(data.getMobile());
         mTextSponsorID.setText(data.getSponserId());
         mTextUserID.setText(data.getUserId());
-
+        mEdtAbout.setText(data.getAboutUs());
 
     }
 

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bgdash"
+    android:background="@drawable/uploadkycbg"
     android:orientation="vertical"
  >
 
@@ -14,7 +14,8 @@
         android:layout_marginTop="80dp"
         android:layout_marginRight="10dp"
         android:background="@color/colorToolbar"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:gravity="center">
 
         <ImageView
             android:id="@+id/uploadedpp"
