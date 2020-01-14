@@ -1,41 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
-    android:layout_width="match_parent"
-    android:background="@drawable/reportbg"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundbank">
+
     <RelativeLayout
         android:id="@+id/loader_view"
-        android:elevation="10dp"
-        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        >
+        android:elevation="10dp"
+        android:visibility="gone">
+
         <pl.droidsonroids.gif.GifImageView
             android:id="@+id/gif"
             android:layout_width="110dp"
             android:layout_height="110dp"
             android:layout_centerInParent="true"
-            android:elevation="25dp"
             android:layout_gravity="center"
-
+            android:elevation="25dp"
             android:src="@drawable/loader" />
     </RelativeLayout>
+
     <LinearLayout
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <androidx.cardview.widget.CardView
-            app:cardBackgroundColor ="@android:color/transparent"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="2dp"
             android:layout_marginRight="5dp"
+            app:cardBackgroundColor="@android:color/transparent"
             app:cardCornerRadius="5dp">
+
             <LinearLayout
 
                 android:layout_width="match_parent"
@@ -43,7 +44,9 @@
                 android:layout_gravity="center"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:weightSum="3">
+                android:weightSum="3"
+                android:background="@drawable/background_show">
+
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -62,27 +65,27 @@
                     android:layout_height="40dp"
 
                     android:layout_weight="1"
-                    android:background="@drawable/yellowgrad"
-                    android:weightSum="1"
-                    android:orientation="horizontal">
+                    android:background="@drawable/background_show"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
 
                     <TextView
                         android:id="@+id/getselectedlevel"
                         android:layout_width="0dp"
-                        android:layout_weight="0.9"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginLeft="10dp"
-                        android:layout_height="wrap_content"
+                        android:layout_weight="0.9"
                         android:fontFamily="@font/open_sans_bold"
                         android:text="Level 1"
                         android:textColor="@color/colorBlack"
                         android:textSize="15sp" />
 
                     <ImageView
-                        android:layout_weight="0.1"
                         android:layout_width="10dp"
                         android:layout_height="10dp"
                         android:layout_gravity="center"
+                        android:layout_weight="0.1"
                         android:background="@drawable/arrowspinner" />
                 </LinearLayout>
 
@@ -91,15 +94,14 @@
         </androidx.cardview.widget.CardView>
 
 
-
         <androidx.cardview.widget.CardView
 
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="10dp"
-            app:cardBackgroundColor ="@android:color/transparent"
             android:layout_marginRight="5dp"
+            app:cardBackgroundColor="@android:color/transparent"
             app:cardCornerRadius="2dp">
 
             <LinearLayout
@@ -149,6 +151,7 @@
                         android:layout_marginLeft="8dp"
                         android:background="@drawable/edtdrop" />
                 </LinearLayout>
+
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -160,19 +163,19 @@
                     android:textColor="@color/white"
                     android:textSize="14sp"
                     android:textStyle="bold" />
+
                 <EditText
-                    android:paddingRight="10dp"
-                    android:background="@drawable/bluedt"
-                    android:maxLines="1"
-                    android:imeOptions="actionSearch"
-                    android:singleLine="true"
                     android:id="@+id/searchbyid"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:layout_marginLeft="10dp"
                     android:layout_weight="1.8"
+                    android:background="@drawable/bluedt"
                     android:drawableRight="@drawable/searchicon"
-                    />
+                    android:imeOptions="actionSearch"
+                    android:maxLines="1"
+                    android:paddingRight="10dp"
+                    android:singleLine="true" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -205,14 +208,13 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:layout_weight="1"
+                        android:background="@color/white"
                         android:fontFamily="@font/open_sans_bold"
                         android:gravity="center"
-                        android:background="@color/white"
                         android:text="Sr No"
                         android:textColor="@color/sr"
                         android:textSize="12sp"
                         android:textStyle="bold" />
-
 
 
                     <TextView
@@ -220,10 +222,10 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:layout_weight="2.5"
+
                         android:fontFamily="@font/open_sans_bold"
                         android:gravity="center"
                         android:text="User Id"
-                        android:background="@drawable/yellowgrad"
                         android:textColor="@color/sr"
                         android:textSize="12sp"
                         android:textStyle="bold" />

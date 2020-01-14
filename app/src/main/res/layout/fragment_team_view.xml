@@ -1,393 +1,399 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/bgdash"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+   >
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/gif"
         android:layout_width="110dp"
         android:layout_height="110dp"
         android:layout_centerInParent="true"
-        android:elevation="25dp"
         android:layout_gravity="center"
-        android:visibility="gone"
-        android:src="@drawable/loader" />
+        android:elevation="25dp"
+        android:src="@drawable/loader"
+        android:visibility="gone" />
 
 
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:scrollbars="none"
-    android:id="@+id/linear">
-    <LinearLayout
+    <ScrollView
+        android:id="@+id/linear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
+        android:scrollbars="none">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <!--<ScrollView-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content">-->
-
-            <!---->
-            <LinearLayout
-
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:weightSum="2"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/register_editbox_height">
-
-                    <TextView
-                        android:fontFamily="@font/open_sans_bold"
-                        android:textSize="16sp"
-                        android:layout_width="0dp"
-                        android:layout_height="40dp"
-                        android:layout_weight="0.8"
-                        android:background="@color/white"
-                        android:gravity="center"
-                        android:text="From Date" />
-
-                    <EditText
-                        android:fontFamily="@font/open_sans_light"
-                        android:textSize="16sp"
-                        android:id="@+id/edit_from_date"
-                        android:layout_width="0dp"
-                        android:layout_height="@dimen/register_editbox_height"
-                        android:layout_weight="1.2"
-                        android:background="@color/blu"
-                        android:clickable="true"
-                        android:gravity="center"
-                        android:editable="false"
-                        android:hint="From Date"
-                        android:inputType="none"
-                        android:textColor="@color/colorBlack" />
-                </LinearLayout>
-                <LinearLayout
-
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:weightSum="2"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/register_editbox_height">
-
-                    <TextView
-                        android:fontFamily="@font/open_sans_bold"
-                        android:gravity="center"
-                        android:background="@color/white"
-                        android:text="To Date"
-                        android:textSize="16sp"
-                        android:layout_width="0dp"
-                        android:layout_weight="0.8"
-                        android:layout_height="@dimen/register_editbox_height" />
-                    <EditText
-                        android:fontFamily="@font/open_sans_light"
-                        android:textSize="16sp"
-                        android:id="@+id/edit_to_date"
-                        android:gravity="center"
-                        android:background="@color/blu"
-                        android:clickable="true"
-                        android:hint="To Date"
-                        android:focusable="false"
-                        android:inputType="none"
-                        android:editable="false"
-                        android:layout_width="0dp"
-                        android:textColor="@color/colorBlack"
-                        android:layout_weight="1.2"
-                        android:layout_height="@dimen/register_editbox_height" />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:weightSum="2"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/register_editbox_height">
-
-                    <TextView
-                        android:fontFamily="@font/open_sans_bold"
-                        android:textSize="16sp"
-                        android:gravity="center"
-                        android:background="@color/white"
-                        android:text="@string/user_id"
-                        android:layout_width="0dp"
-                        android:layout_weight="0.8"
-                        android:layout_height="@dimen/register_editbox_height" />
-                    <EditText
-                        android:fontFamily="@font/open_sans_light"
-                        android:textSize="16sp"
-                        android:id="@+id/edit_user_id"
-                        android:gravity="center"
-                        android:background="@color/blu"
-                        android:hint="@string/user_id"
-                        android:focusable="false"
-                        android:textColor="@color/colorBlack"
-                        android:layout_width="0dp"
-                        android:layout_weight="1.2"
-                        android:layout_height="@dimen/register_editbox_height" />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:weightSum="2"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="10dp"
-                    android:layout_width="match_parent"
-
-                    android:layout_height="@dimen/register_editbox_height">
-
-                    <TextView
-                        android:fontFamily="@font/open_sans_bold"
-                        android:gravity="center"
-                        android:background="@color/white"
-                        android:text="@string/select_team"
-                        android:layout_width="0dp"
-                        android:layout_weight="0.8"
-                        android:layout_height="@dimen/register_editbox_height" />
-                    <EditText
-                        android:layout_gravity="center"
-                        android:fontFamily="@font/open_sans_light"
-                        android:id="@+id/selectteam"
-                        android:gravity="center"
-                        android:text="Select Team"
-                        android:singleLine="true"
-                        android:focusable="false"
-                        android:textSize="16sp"
-                        android:drawableRight="@drawable/arrow_down"
-                        android:layout_weight="1.2"
-                        android:layout_width="0dp"
-                        android:layout_height="@dimen/register_editbox_height"
-                        android:background="@color/blu">
-                    </EditText>
-
-                </LinearLayout>
-                <LinearLayout
-                    android:gravity="center"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="10dp"
-                    android:orientation="horizontal"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
-                        android:text="Serarch"
-                        android:id="@+id/btn_search"
-                        android:background="@drawable/bluedt"
-                        android:layout_width="70dp"
-                        android:layout_height="30dp" />
-                    <TextView
-                        android:gravity="center"
-                        android:text="Reset"
-                        android:id="@+id/btn_reset"
-                        android:layout_marginLeft="10dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/bluedt"
-                        android:layout_width="70dp"
-                        android:layout_height="30dp" />
-                </LinearLayout>
-            </LinearLayout>
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp">
-                <androidx.cardview.widget.CardView
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    app:cardBackgroundColor ="@android:color/transparent"
-                    android:layout_marginRight="5dp"
-                    app:cardCornerRadius="2dp">
+                    android:layout_height="250dp"
+                    android:orientation="vertical"
+                    android:background="@drawable/epinbackground">
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/register_editbox_height"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="20dp"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="0.8"
+                            android:background="@color/white"
+                            android:fontFamily="@font/open_sans_bold"
+                            android:gravity="center"
+                            android:text="From Date"
+                            android:textSize="16sp" />
+
+                        <EditText
+                            android:id="@+id/edit_from_date"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/register_editbox_height"
+                            android:layout_weight="1.2"
+                            android:background="@drawable/editbackground"
+                            android:clickable="true"
+                            android:editable="false"
+                            android:fontFamily="@font/open_sans_light"
+                            android:gravity="center"
+                            android:hint="From Date"
+                            android:inputType="none"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/register_editbox_height"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/register_editbox_height"
+                            android:layout_weight="0.8"
+                            android:background="@color/white"
+                            android:fontFamily="@font/open_sans_bold"
+                            android:gravity="center"
+                            android:text="To Date"
+                            android:textSize="16sp" />
+
+                        <EditText
+                            android:id="@+id/edit_to_date"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/register_editbox_height"
+                            android:layout_weight="1.2"
+                             android:background="@drawable/editbackground"
+                            android:clickable="true"
+                            android:editable="false"
+                            android:focusable="false"
+                            android:fontFamily="@font/open_sans_light"
+                            android:gravity="center"
+                            android:hint="To Date"
+                            android:inputType="none"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="16sp" />
+                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center"
-                        android:gravity="center_vertical"
+                        android:layout_height="@dimen/register_editbox_height"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
                         android:orientation="horizontal"
-                        android:weightSum="3">
+                        android:weightSum="2">
 
                         <TextView
                             android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
-                            android:layout_weight="0.5"
+                            android:layout_height="@dimen/register_editbox_height"
+                            android:layout_weight="0.8"
+                            android:background="@color/white"
                             android:fontFamily="@font/open_sans_bold"
                             android:gravity="center"
-                            android:text="Show"
-                            android:textColor="@color/white"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
+                            android:text="@string/user_id"
+                            android:textSize="16sp" />
 
-                        <LinearLayout
-                            android:id="@+id/dropdoenentry"
-                            android:layout_width="wrap_content"
-                            android:layout_height="40dp"
-                            android:layout_gravity="center"
-                            android:layout_weight="0.2"
-                            android:background="@drawable/bluedt"
-                            android:gravity="center"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:id="@+id/getselectedentry"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/open_sans_bold"
-                                android:text="150"
-                                android:textColor="@color/colorBlack"
-                                android:textSize="15sp" />
-
-                            <ImageView
-
-                                android:layout_width="15dp"
-                                android:layout_height="10dp"
-                                android:layout_marginLeft="8dp"
-                                android:background="@drawable/edtdrop" />
-                        </LinearLayout>
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
-                            android:layout_weight="0.5"
-                            android:fontFamily="@font/open_sans_bold"
-                            android:gravity="center"
-                            android:text="Search"
-                            android:textColor="@color/white"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
                         <EditText
-                            android:paddingRight="10dp"
-                            android:background="@drawable/bluedt"
-                            android:maxLines="1"
-                            android:imeOptions="actionSearch"
-                            android:singleLine="true"
-                            android:id="@+id/searchbyid"
+                            android:id="@+id/edit_user_id"
                             android:layout_width="0dp"
-                            android:layout_height="40dp"
-                            android:layout_marginLeft="10dp"
-                            android:layout_weight="1.8"
-                            android:focusable="true"
-                            android:drawableRight="@drawable/searchicon"
-                            />
+                            android:layout_height="@dimen/register_editbox_height"
+                            android:layout_weight="1.2"
+                             android:background="@drawable/editbackground"
+                            android:focusable="false"
+                            android:fontFamily="@font/open_sans_light"
+                            android:gravity="center"
+                            android:hint="@string/user_id"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="16sp" />
                     </LinearLayout>
-                </androidx.cardview.widget.CardView>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/register_editbox_height"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:orientation="horizontal"
+
+                        android:weightSum="2">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/register_editbox_height"
+                            android:layout_weight="0.8"
+                            android:background="@color/white"
+                            android:fontFamily="@font/open_sans_bold"
+                            android:gravity="center"
+                            android:text="@string/select_team" />
+
+                        <EditText
+                            android:id="@+id/selectteam"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/register_editbox_height"
+                            android:layout_gravity="center"
+                            android:layout_weight="1.2"
+                             android:background="@drawable/editbackground"
+                            android:drawableRight="@drawable/arrow_down"
+                            android:focusable="false"
+                            android:fontFamily="@font/open_sans_light"
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:text="Select Team"
+                            android:textSize="16sp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        >
+
+                        <TextView
+                            android:id="@+id/btn_search"
+                            android:layout_width="70dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/buttonbackground"
+                            android:gravity="center"
+                            android:text="Serarch"
+                            android:textColor="@color/white"/>
+
+                        <TextView
+                            android:id="@+id/btn_reset"
+                            android:layout_width="70dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="10dp"
+                            android:background="@drawable/buttonbackground"
+                            android:gravity="center"
+                            android:text="Reset"
+                            android:textColor="@color/white"/>
+                    </LinearLayout>
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
+                    android:layout_height="match_parent"
                     android:orientation="vertical">
 
-
                     <androidx.cardview.widget.CardView
+
                         android:layout_width="match_parent"
-                        android:layout_height="35dp"
+                        android:layout_height="40dp"
                         android:layout_marginLeft="5dp"
-                        android:layout_marginTop="10dp"
+
                         android:layout_marginRight="5dp"
-                        app:cardCornerRadius="5dp">
+                        app:cardBackgroundColor="@android:color/transparent"
+                        app:cardCornerRadius="2dp">
 
                         <LinearLayout
-
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@color/bgsr"
+                            android:layout_gravity="center"
+                            android:gravity="center_vertical"
                             android:orientation="horizontal"
-                            android:weightSum="6">
+                            android:weightSum="3"
+                            android:id="@+id/lin1"
+                            android:background="@drawable/background_show">
 
                             <TextView
                                 android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_gravity="center"
-                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_weight="0.5"
                                 android:fontFamily="@font/open_sans_bold"
                                 android:gravity="center"
-                                android:background="@color/white"
-                                android:text="Sr No"
-                                android:textColor="@color/sr"
-                                android:textSize="12sp"
+                                android:text="Show"
+                                android:textColor="@color/white"
+                                android:textSize="14sp"
                                 android:textStyle="bold" />
 
+                            <LinearLayout
+                                android:id="@+id/dropdoenentry"
+                                android:layout_width="wrap_content"
+                                android:layout_height="40dp"
+                                android:layout_gravity="center"
+                                android:layout_weight="0.2"
+                                android:background="@drawable/bluedt"
+                                android:gravity="center"
+                                android:orientation="horizontal">
 
+                                <TextView
+                                    android:id="@+id/getselectedentry"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/open_sans_bold"
+                                    android:text="150"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="15sp" />
+
+                                <ImageView
+
+                                    android:layout_width="15dp"
+                                    android:layout_height="10dp"
+                                    android:layout_marginLeft="8dp"
+                                    android:background="@drawable/edtdrop" />
+                            </LinearLayout>
 
                             <TextView
                                 android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_gravity="center"
-                                android:layout_weight="2.5"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_weight="0.5"
                                 android:fontFamily="@font/open_sans_bold"
                                 android:gravity="center"
-                                android:text="User Id"
-                                android:background="@drawable/yellowgrad"
-                                android:textColor="@color/sr"
-                                android:textSize="12sp"
+                                android:text="Search"
+                                android:textColor="@color/white"
+                                android:textSize="14sp"
                                 android:textStyle="bold" />
 
-
-
-                            <TextView
+                            <EditText
+                                android:id="@+id/searchbyid"
                                 android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_gravity="center"
-                                android:layout_weight="2.5"
-                                android:fontFamily="@font/open_sans_bold"
-                                android:gravity="center"
-                                android:background="@color/white"
-                                android:text="Full Name"
-                                android:textColor="@color/sr"
-                                android:textSize="12sp"
-                                android:textStyle="bold" />
-
+                                android:layout_height="40dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_weight="1.8"
+                                android:background="@drawable/bluedt"
+                                android:drawableRight="@drawable/searchicon"
+                                android:focusable="true"
+                                android:imeOptions="actionSearch"
+                                android:maxLines="1"
+                                android:paddingRight="10dp"
+                                android:singleLine="true" />
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:orientation="vertical">
 
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="5dp"
+                            app:cardCornerRadius="5dp">
+
+                            <LinearLayout
+
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/bgsr"
+                                android:orientation="horizontal"
+                                android:weightSum="6">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="1"
+                                    android:background="@color/white"
+                                    android:fontFamily="@font/open_sans_bold"
+                                    android:gravity="center"
+                                    android:text="Sr No"
+                                    android:textColor="@color/sr"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="2.5"
+
+                                    android:fontFamily="@font/open_sans_bold"
+                                    android:gravity="center"
+                                    android:text="User Id"
+                                    android:textColor="@color/sr"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="2.5"
+                                    android:background="@color/white"
+                                    android:fontFamily="@font/open_sans_bold"
+                                    android:gravity="center"
+                                    android:text="Full Name"
+                                    android:textColor="@color/sr"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+
+                    </LinearLayout>
 
                 </LinearLayout>
+
 
             </LinearLayout>
 
 
         </LinearLayout>
-
-
-    </LinearLayout>
-</ScrollView>
-
+    </ScrollView>
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_team_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:scrollbars="vertical"
         android:layout_below="@+id/linear"
-        android:layout_marginTop="5dp"/>
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:scrollbars="vertical"
+        />
 </RelativeLayout>
