@@ -22,7 +22,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:padding="3dp"
-            android:src="@mipmap/ic_launcher" />
+             android:src="@drawable/profile" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -90,7 +90,7 @@
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
-            android:background="@drawable/btnlogin"
+            android:background="@drawable/transferpinsubmit"
             android:text="Update"
             android:textColor="@color/white"/>
     </LinearLayout>
@@ -109,7 +109,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:padding="3dp"
-            android:src="@mipmap/ic_launcher" />
+             android:src="@drawable/profile" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -177,7 +177,7 @@
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
-            android:background="@drawable/btnlogin"
+            android:background="@drawable/transferpinsubmit"
             android:text="Update"
             android:textColor="@color/white"/>
     </LinearLayout>
@@ -197,7 +197,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:padding="3dp"
-            android:src="@mipmap/ic_launcher" />
+             android:src="@drawable/profile" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -286,7 +286,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:padding="3dp"
-            android:src="@mipmap/ic_launcher" />
+             android:src="@drawable/profile" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -354,7 +354,7 @@
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
-            android:background="@drawable/btnlogin"
+            android:background="@drawable/transferpinsubmit"
             android:text="Update"
             android:textColor="@color/white"/>
     </LinearLayout>

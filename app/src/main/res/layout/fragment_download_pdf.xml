@@ -4,18 +4,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center_vertical"
+    android:background="@drawable/backgroundbank"
     android:gravity="center_vertical"
     android:orientation="vertical"
-    android:background="@drawable/bgdash"
     tools:context=".fragments.DownloadPDFFragment">
 
     <Button
-android:id="@+id/downloadpdf"
+        android:id="@+id/downloadpdf"
         android:layout_width="150dp"
         android:layout_height="40dp"
 
-        android:background="@drawable/btnlogin"
-    android:layout_gravity="center"
-        android:text="Download PDF" />
+        android:layout_gravity="center"
+        android:background="@drawable/transferpinsubmit"
+        android:text="Download PDF"
+        android:textColor="@color/white" />
 
 </LinearLayout>

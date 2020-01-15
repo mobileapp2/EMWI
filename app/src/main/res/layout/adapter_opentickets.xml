@@ -19,7 +19,6 @@
             android:id="@+id/llmain"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/black"
             android:orientation="horizontal"
             android:weightSum="2">
 
@@ -33,7 +32,7 @@
                 android:fontFamily="@font/open_sans_bold"
                 android:gravity="center"
                 android:text=""
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="16sp" />
 
             <TextView
@@ -42,12 +41,12 @@
                 android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:layout_weight="0.5"
-                android:background="@color/yellow"
+                android:background="@drawable/transferpinsubmit"
                 android:fontFamily="@font/open_sans_bold"
                 android:gravity="center"
                 android:text="Chat"
                 android:textColor="@color/white"
-                android:textSize="16sp" />
+                android:textSize="16sp"  />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

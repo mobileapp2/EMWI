@@ -18,7 +18,7 @@
             android:fontFamily="@font/open_sans_light"
             android:text=""
             android:id="@+id/textView"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold" />

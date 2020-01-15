@@ -39,7 +39,7 @@
                 android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:layout_weight="0.5"
-                android:background="@drawable/update"
+                android:background="@drawable/transferpinsubmit"
                 android:fontFamily="@font/open_sans_bold"
                 android:gravity="center"
                 android:text="Chat"

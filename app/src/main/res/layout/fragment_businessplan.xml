@@ -22,8 +22,9 @@ android:layout_weight="1.9"
         android:layout_height="0dp"
        android:layout_weight="0.1"
         android:layout_gravity="center"
-        android:background="#050"
+        android:background="@drawable/transferpinsubmit"
         android:textColor="#fff"
         android:textStyle="bold"
-        android:text="NEXT" />
+        android:text="NEXT"
+        />
 </LinearLayout>

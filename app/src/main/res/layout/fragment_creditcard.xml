@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/bgdash"
+    android:background="@drawable/backgroundbank"
     android:layout_height="match_parent"
     tools:context=".fragments.CreditCardFragment">
     <LinearLayout
@@ -171,8 +171,8 @@
             android:fontFamily="@font/open_sans_bold"
             android:layout_marginTop="20dp"
             android:layout_gravity="center"
-            android:background="@drawable/yellowgrad"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:background="@drawable/transferpinsubmit"
+            android:layout_width="300dp"
+            android:layout_height="35dp" />
     </LinearLayout>
 </RelativeLayout>

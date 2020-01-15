@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
-    android:background="@drawable/bgdash"
+    android:background="@drawable/backgroundbank"
     android:layout_height="match_parent"
     tools:context=".fragments.SendEpinRequestFragment">
     <RelativeLayout
@@ -67,7 +67,6 @@
                     android:fontFamily="@font/open_sans_bold"
                     android:gravity="center"
                     android:text="Product Name"
-                    android:background="@drawable/yellowgrad"
                     android:textColor="@color/sr"
                     android:textSize="12sp"
                     android:textStyle="bold" />
@@ -100,7 +99,7 @@
         android:scrollbars="vertical" />
     </LinearLayout>
     <LinearLayout
-        android:background="@color/blue"
+        android:background="@color/blues"
         android:layout_alignParentBottom="true"
 
         android:orientation="horizontal"
@@ -113,7 +112,7 @@
             android:gravity="center"
             android:fontFamily="@font/open_sans_bold"
             android:text="Checkout"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/white"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content" />

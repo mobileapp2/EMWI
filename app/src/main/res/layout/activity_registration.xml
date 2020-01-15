@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
 
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
+    android:background="@drawable/backgroundbank"
     tools:context=".views.Registration">
     <ScrollView
         android:layout_width="match_parent"
@@ -34,21 +34,21 @@
                 <TextView
                     android:fontFamily="@font/open_sans_bold"
                     android:layout_marginTop="80dp"
-                    android:textSize="20dp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     android:gravity="center"
                     android:text="Create Your Account"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
                 <TextView
                     android:fontFamily="@font/open_sans_bold"
                     android:layout_marginTop="5dp"
-                    android:textSize="18dp"
+                    android:textSize="18sp"
                     android:textStyle="bold"
                     android:gravity="center"
                     android:text="Sponsor Information"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
@@ -278,7 +278,7 @@
                         android:textColor="@color/white"
                         android:text="Next"
                         android:layout_gravity="center"
-                        android:background="@drawable/nextbtn"
+                        android:background="@drawable/transferpinsubmit"
                         android:layout_width="180dp"
                         android:layout_height="50dp" />
 
