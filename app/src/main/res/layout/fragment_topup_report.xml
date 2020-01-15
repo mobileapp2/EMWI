@@ -69,7 +69,7 @@
                     android:orientation="horizontal">
 
                     <EditText
-                        android:drawableRight="@drawable/arrowspinner"
+                        android:drawableRight="@drawable/arrow"
 
                         android:singleLine="true"
                         android:focusable="false"
