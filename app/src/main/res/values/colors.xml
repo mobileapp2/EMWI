@@ -13,6 +13,7 @@
     <color name="white">#ffff</color>
     <color name="grey">#A9A9A9</color>
     <color name="blue">#1e3d6b</color>
+    <color name="blues">#0091ff</color>
     <color name="lightblue">#0066e2</color>
     <color name="blackTransparent">#66000000</color>
     <color name="colorToolbar">#f2ebf3fb</color>

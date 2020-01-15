@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
-    android:background="@drawable/bgdash"
+    android:background="@drawable/backgroundbank"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -70,7 +70,7 @@
                         android:layout_width="0dp"
                         android:layout_height="@dimen/register_editbox_height"
                         android:layout_weight="1.2"
-                        android:background="@color/blu"
+                        android:background="@drawable/editbackground"
                         android:clickable="true"
                         android:gravity="center"
                         android:hint="From Date"
@@ -101,7 +101,7 @@
                         android:textSize="16sp"
                         android:id="@+id/edit_to_date"
                         android:gravity="center"
-                        android:background="@color/blu"
+                        android:background="@drawable/editbackground"
                         android:clickable="true"
                         android:hint="To Date"
                         android:inputType="none"
@@ -133,7 +133,7 @@
                         android:textSize="16sp"
                         android:id="@+id/edit_user_id"
                         android:gravity="center"
-                        android:background="@color/blu"
+                        android:background="@drawable/editbackground"
                         android:hint="@string/user_id"
                         android:textColor="@color/colorBlack"
                         android:layout_width="0dp"
@@ -167,11 +167,12 @@
                         android:singleLine="true"
                         android:focusable="false"
                         android:textSize="16sp"
+                        android:background="@drawable/editbackground"
                         android:drawableRight="@drawable/arrow_down"
                         android:layout_weight="1.2"
                         android:layout_width="0dp"
                         android:layout_height="@dimen/register_editbox_height"
-                        android:background="@color/blu">
+                      >
                     </EditText>
 
                 </LinearLayout>
@@ -338,7 +339,7 @@
                                 android:fontFamily="@font/open_sans_bold"
                                 android:gravity="center"
                                 android:text="User Id"
-                                android:background="@drawable/yellowgrad"
+
                                 android:textColor="@color/sr"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />

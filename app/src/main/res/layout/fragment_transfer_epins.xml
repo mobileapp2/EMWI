@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/bgdash"
+    android:background="@drawable/backgroundbank"
     android:orientation="vertical"
     android:layout_height="match_parent"
   >
@@ -35,7 +35,6 @@
             android:layout_height="wrap_content"
             android:background="@color/grey" />
         <TextView
-            android:background="@drawable/yellowgrad"
             android:fontFamily="@font/open_sans_bold"
             android:textStyle="bold"
             android:textColor="@color/sr"

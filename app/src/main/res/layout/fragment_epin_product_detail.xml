@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/bgdash"
+    android:background="@drawable/backgroundbank"
     android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".fragments.EPinProductDetailFragment">
@@ -42,7 +42,7 @@
                     android:gravity="center"
                     android:background="@color/white"
                     android:text="Sr No"
-                    android:textColor="@color/sr"
+                    android:textColor="@color/blues"
                     android:textSize="12sp"
                     android:textStyle="bold" />
 
@@ -52,7 +52,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_weight="2.5"
-                    android:background="@drawable/yellowgrad"
+
                     android:fontFamily="@font/open_sans_bold"
                     android:gravity="center"
                     android:text="Name"
@@ -90,7 +90,7 @@
         android:layout_gravity="center"
         android:scrollbars="vertical" />
     <LinearLayout
-        android:background="@color/blue"
+        android:background="@color/blues"
         android:layout_alignParentBottom="true"
         android:weightSum="4"
         android:orientation="horizontal"
@@ -102,7 +102,7 @@
             android:gravity="center"
             android:fontFamily="@font/open_sans_bold"
             android:text="Qty"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/white"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content" />
@@ -110,7 +110,7 @@
             android:id="@+id/qty"
             android:textSize="15sp"
             android:fontFamily="@font/open_sans_bold"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/white"
             android:layout_gravity="center"
             android:gravity="center"
             android:layout_weight="1"
@@ -122,13 +122,13 @@
             android:gravity="center"
             android:fontFamily="@font/open_sans_bold"
             android:text="Total"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/white"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content" />
         <TextView
             android:fontFamily="@font/open_sans_bold"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/white"
             android:id="@+id/total"
             android:textSize="15sp"
             android:layout_gravity="center"

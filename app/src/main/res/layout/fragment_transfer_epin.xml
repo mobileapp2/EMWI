@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/bgdash"
+    android:background="@drawable/backgroundbank"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/gif"
@@ -27,9 +26,8 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/editviewbg"
             android:padding="8dp"
             android:fontFamily="@font/open_sans_bold"
             android:paddingStart="40dp"
@@ -47,15 +45,14 @@
             android:layout_gravity="center"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:background="@drawable/textviewbg"
+            android:background="@drawable/editbackground"
             android:gravity="center"
             android:singleLine="true"
-            android:textColor="@color/white" />
+            android:textColor="@color/black" />
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/editviewbg"
+            android:layout_height="wrap_content"
             android:padding="8dp"
             android:fontFamily="@font/open_sans_bold"
             android:paddingStart="40dp"
@@ -73,15 +70,15 @@
             android:layout_gravity="center"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:background="@drawable/textviewbg"
+            android:background="@drawable/editbackground"
             android:gravity="center"
             android:singleLine="true"
-            android:textColor="@color/white" />
+            android:textColor="@color/black" />
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/editviewbg"
+            android:layout_height="wrap_content"
+
             android:padding="8dp"
             android:fontFamily="@font/open_sans_bold"
             android:paddingStart="40dp"
@@ -100,15 +97,15 @@
             android:layout_gravity="center"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:background="@drawable/textviewbg"
+            android:background="@drawable/editbackground"
             android:gravity="center"
             android:singleLine="true"
-            android:textColor="@color/white" />
+            android:textColor="@color/black" />
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/editviewbg"
+            android:layout_height="wrap_content"
+
             android:padding="8dp"
             android:fontFamily="@font/open_sans_bold"
             android:paddingStart="40dp"
@@ -129,19 +126,20 @@
             android:layout_gravity="center"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:background="@drawable/textviewbg"
+            android:background="@drawable/editbackground"
             android:gravity="center"
             android:singleLine="true"
-            android:textColor="@color/white" />
+            android:textColor="@color/black" />
 
 
         <Button
             android:text="Submit"
             android:id="@+id/submit"
             android:layout_marginTop="30dp"
-            android:background="@drawable/btnlogin"
+            android:background="@drawable/transferpinsubmit"
             android:layout_width="150dp"
             android:layout_gravity="center"
+            android:textColor="@color/white"
             android:layout_height="50dp"/>
     </LinearLayout>
 

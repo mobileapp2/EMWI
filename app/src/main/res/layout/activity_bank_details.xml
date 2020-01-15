@@ -161,7 +161,7 @@
                     android:layout_width="100dp"
                     android:layout_height="40dp"
                     android:layout_centerInParent="true"
-                    android:background="@drawable/buttonbackground"
+                    android:background="@drawable/transferpinsubmit"
                     android:gravity="center"
                     android:paddingBottom="5dp"
                     android:text="Edit"

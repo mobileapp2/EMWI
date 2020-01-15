@@ -28,7 +28,7 @@
 
             <EditText
                 android:id="@+id/txt_About"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginLeft="60dp"
@@ -44,10 +44,11 @@
     <Button
         android:id="@+id/btn_Edit"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/update"
+        android:layout_height="35dp"
+        android:background="@drawable/transferpinsubmit"
         android:text="Update"
         android:layout_below="@+id/lin"
+        android:textColor="@color/white"
         android:layout_centerHorizontal="true"/>
 
 

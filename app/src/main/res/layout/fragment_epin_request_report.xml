@@ -3,7 +3,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
     android:layout_width="match_parent"
-    android:background="@drawable/reportbg"
+    android:background="@drawable/backgroundbank"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
@@ -164,7 +164,6 @@
                         android:fontFamily="@font/open_sans_bold"
                         android:gravity="center"
                         android:text="Req Date"
-                        android:background="@drawable/yellowgrad"
                         android:textColor="@color/sr"
                         android:textSize="12sp"
                         android:textStyle="bold" />
