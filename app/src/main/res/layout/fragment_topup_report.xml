@@ -84,12 +84,7 @@
                         android:textColor="@color/colorBlack"
                         android:textSize="15sp" />
 
-<!--                    <ImageView-->
-<!--                        android:layout_weight="0.1"-->
-<!--                        android:layout_width="10dp"-->
-<!--                        android:layout_height="10dp"-->
-<!--                        android:layout_gravity="center"-->
-<!--                        android:background="@drawable/arrowspinner" />-->
+
                 </LinearLayout>
 
             </LinearLayout>
