@@ -172,12 +172,12 @@
                 android:layout_height="@dimen/register_editbox_height"
                 android:layout_weight="1.5"
                 android:ellipsize="end"
-                    android:textColor="@color/black"
                 android:fontFamily="@font/open_sans_light"
                 android:gravity="center"
                 android:singleLine="true"
                 android:text="No File Choosen"
-                android:textSize="15sp" />
+                android:textColor="@color/blue"
+                android:textSize="14sp" />
         </LinearLayout>
 
         <Button

@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -199,14 +200,17 @@ public class BankDetailsActivity extends AppCompatActivity {
     private void openAlertBox() {
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         final EditText edittext = new EditText(getApplication());
+        edittext.setTextColor(Color.BLACK);
         alert.setMessage("Enter OTP here");
         alert.setTitle("OTP Send Successfully");
         alert.setView(edittext);
+
 
         alert.setPositiveButton("Submit", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
 
                 String YouEditTextValue = edittext.getText().toString();
+
                 verifyOTP(YouEditTextValue);
             }
         });
@@ -260,7 +264,7 @@ public class BankDetailsActivity extends AppCompatActivity {
         mEditPanNo.setEnabled(true);
         mEditBankName.setEnabled(true);
         mEditIFSCCode.setEnabled(true);
-        mbtnEdit.setVisibility(View.VISIBLE);
+        mbtnEdit.setVisibility(View.GONE);
         mbtnSubmit.setVisibility(View.VISIBLE);
 
     }

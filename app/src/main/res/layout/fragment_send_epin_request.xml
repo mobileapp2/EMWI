@@ -53,7 +53,7 @@
                     android:gravity="center"
                     android:background="@color/white"
                     android:text="Sr No"
-                    android:textColor="@color/sr"
+                    android:textColor="@color/blue"
                     android:textSize="12sp"
                     android:textStyle="bold" />
 
@@ -67,7 +67,7 @@
                     android:fontFamily="@font/open_sans_bold"
                     android:gravity="center"
                     android:text="Product Name"
-                    android:textColor="@color/sr"
+                    android:textColor="@color/blue"
                     android:textSize="12sp"
                     android:textStyle="bold" />
 
@@ -82,7 +82,7 @@
                     android:gravity="center"
                     android:background="@color/white"
                     android:text="Price"
-                    android:textColor="@color/sr"
+                    android:textColor="@color/blue"
                     android:textSize="12sp"
                     android:textStyle="bold" />
 
