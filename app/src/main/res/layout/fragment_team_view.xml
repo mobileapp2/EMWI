@@ -199,7 +199,7 @@
                             android:layout_gravity="center"
                             android:background="@drawable/buttonbackground"
                             android:gravity="center"
-                            android:text="Serarch"
+                            android:text="Search"
                             android:textColor="@color/white"/>
 
                         <TextView
