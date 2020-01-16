@@ -403,7 +403,7 @@
                         android:layout_weight="1"
                         android:fontFamily="@font/open_sans_bold"
                         android:gravity="center"
-                        android:text="Nominee Name"
+                        android:text="DOB"
                         android:textColor="@color/colorBlack"
                         android:textSize="15sp" />
 
@@ -414,7 +414,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/infoslide"
                         android:fontFamily="@font/open_sans_bold"
-                        android:hint="Nominee Name"
+                        android:hint="DOB"
                         android:paddingLeft="10dp"
                         android:singleLine="true"
                         android:textColor="@color/colorBlack"
