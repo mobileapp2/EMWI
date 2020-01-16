@@ -54,14 +54,14 @@ public class DirectNewJoiningFragment extends Fragment {
 
     @BindView(R.id.recycler_direct_join_report)
     RecyclerView recycler_direct_join_report;
-    @BindView(R.id.searchbyid)
-    EditText searchbyid;
+//    @BindView(R.id.searchbyid)
+//    EditText searchbyid;
     @BindView(R.id.gif)
     GifImageView gif;
-    @BindView(R.id.getselectedentry)
-    TextView getselectedentry;
-    @BindView(R.id.dropdoenentry)
-    View dropdoenentry;
+//    @BindView(R.id.getselectedentry)
+//    TextView getselectedentry;
+//    @BindView(R.id.dropdoenentry)
+//    View dropdoenentry;
     String mStringUserId;
     DirectNewJoiningAdapter directNewJoiningAdapter;
     private List<DirectNewJoinDatumModel> duList = new ArrayList<>();
@@ -93,52 +93,52 @@ public class DirectNewJoiningFragment extends Fragment {
                 DirectNewJoiningFragment.this.getContext());
         recycler_direct_join_report.setHasFixedSize(true);
         recycler_direct_join_report.setLayoutManager(new LinearLayoutManager(DirectNewJoiningFragment.this.getContext(),LinearLayoutManager.VERTICAL,false));
-        getselectedentry.setText(countselected);
-        dropdoenentry.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                entrypopupwindow.setAdapter(new ArrayAdapter(
-                        DirectNewJoiningFragment.this.getContext(),
-                        R.layout.check_list_item, entry));
-                entrypopupwindow.setAnchorView(dropdoenentry);
-                entrypopupwindow.setWidth(170);
-                entrypopupwindow.setHeight(500);
-                entrypopupwindow.setModal(true);
-                entrypopupwindow.show();
-            }
-        });
-        entrypopupwindow.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                getselectedentry.setText(entry[i]);
-                countselected = getselectedentry.getText().toString();
-                duList.clear();
-                mStringUserId="";
-                getData(mStringUserId);
-                entrypopupwindow.dismiss();
-            }
-        });
-        searchbyid.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                    duList.clear();
-                    // if (validateUserId()) {
-                    mStringUserId = searchbyid.getText().toString().trim();
-                    getData(mStringUserId);
-//                    } else {
-//                        mStringUserId = "";
-//                        getdata(mStringUserId);
-//                        Toast.makeText(GetDonationReportFragment.this.getContext(),
-//                                getString(R.string.invalid_user_id), Toast.LENGTH_SHORT).show();
-//                    }
-
-                    return true;
-                }
-                return false;
-            }
-        });
+//        getselectedentry.setText(countselected);
+//        dropdoenentry.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                entrypopupwindow.setAdapter(new ArrayAdapter(
+//                        DirectNewJoiningFragment.this.getContext(),
+//                        R.layout.check_list_item, entry));
+//                entrypopupwindow.setAnchorView(dropdoenentry);
+//                entrypopupwindow.setWidth(170);
+//                entrypopupwindow.setHeight(500);
+//                entrypopupwindow.setModal(true);
+//                entrypopupwindow.show();
+//            }
+//        });
+//        entrypopupwindow.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                getselectedentry.setText(entry[i]);
+//                countselected = getselectedentry.getText().toString();
+//                duList.clear();
+//                mStringUserId="";
+//                getData(mStringUserId);
+//                entrypopupwindow.dismiss();
+//            }
+//        });
+//        searchbyid.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+//            @Override
+//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+//                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+//                    duList.clear();
+//                    // if (validateUserId()) {
+//                    mStringUserId = searchbyid.getText().toString().trim();
+//                    getData(mStringUserId);
+////                    } else {
+////                        mStringUserId = "";
+////                        getdata(mStringUserId);
+////                        Toast.makeText(GetDonationReportFragment.this.getContext(),
+////                                getString(R.string.invalid_user_id), Toast.LENGTH_SHORT).show();
+////                    }
+//
+//                    return true;
+//                }
+//                return false;
+//            }
+//        });
         return view;
     }
     @Override
