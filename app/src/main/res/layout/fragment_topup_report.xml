@@ -56,7 +56,7 @@
                     android:gravity="center"
                     android:text="Search By Topup Type"
                     android:textColor="@color/white"
-                    android:textSize="13sp"
+                    android:textSize="12sp"
                     android:textStyle="bold"
                     android:background="@drawable/background_show"
                     />
